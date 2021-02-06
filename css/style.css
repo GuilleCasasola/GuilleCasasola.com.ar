@@ -4,6 +4,14 @@ html{
 nav{
     background-color: rgba(0, 0, 0, 0.5);
 }
+section {
+    height: 100vh;
+    
+}
+.container {
+    height: fit-content;
+    vertical-align: baseline;
+}
 
 .home{
     background-image: url('../images/background.jpg');
