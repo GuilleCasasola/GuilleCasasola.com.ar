@@ -5,7 +5,7 @@ nav{
     background-color: rgba(0, 0, 0, 0.5);
 }
 section {
-    height: 100vh;
+    min-height: 100vh;
     
 }
 .container {
