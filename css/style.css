@@ -198,7 +198,7 @@ section {
     margin: 0;
 }
 
-.aboutme #info {
+.aboutme .info {
     padding-left: 10vw;
     padding-right: 10vw;
 }
@@ -354,7 +354,7 @@ section {
     .home h1 {
         font-size: 30px;
     }
-    .aboutme #info {
+    .aboutme .info {
         font-size: 14px;
     }
 
