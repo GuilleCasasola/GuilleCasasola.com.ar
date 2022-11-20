@@ -464,4 +464,6 @@ a { color: inherit; }
     width: 95vw;
     height: 85vh;
     background-color: white;
+    border: solid rgba(128, 128, 128, 0.516);
+    border-radius: 10px;
   }
