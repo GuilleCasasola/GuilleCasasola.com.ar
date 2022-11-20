@@ -19,7 +19,7 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    min-height: 700px;
+    /* min-height: 700px; */
     position:relative;
     overflow: hidden;
     
@@ -190,7 +190,7 @@ section {
     font-weight: 700;
     color: #444444;
     text-transform: capitalize;
-    margin: 7px 0 0 0 ;
+    margin: 3px 0 0 0 ;
 
 }
 
@@ -201,6 +201,9 @@ section {
 .aboutme .info {
     padding-left: 10vw;
     padding-right: 10vw;
+}
+.info img{
+    height: 100px;
 }
 .work {
     padding-top: 100px;
@@ -455,4 +458,10 @@ a { color: inherit; }
       /* if the user changes the scrolling direction, we show the header */
       transform: translate3d(0, 100%, 0);
     }
+  }
+
+  .whiteBoard{
+    width: 95vw;
+    height: 85vh;
+    background-color: white;
   }

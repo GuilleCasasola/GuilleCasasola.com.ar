@@ -1,5 +1,6 @@
 
 $(document).ready( () => {
+
     (function($){
         var typed = new Typed('span.txt-rotate', {
             strings: ['Soy estudiante', 'Soy programador ', 'Soy Guille Casasola.'],
@@ -72,4 +73,13 @@ $(document).ready( () => {
     $(".popup-image-2").magnificPopup({
         type:'image'
     })
+
+    // Timer Recibida 
+    const timestamp = new Date('Wed Nov 30 2022 10:00:00 GMT-0300').getTime() / 1000
+    var flipdown = new FlipDown(timestamp);
+    flipdown.start();
+    flipdown.ifEnded(() => {
+        
+      console.log('The countdown has ended!');
+    });
 });
