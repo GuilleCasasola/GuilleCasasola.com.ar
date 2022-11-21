@@ -361,7 +361,9 @@ section {
         font-size: 14px;
     }
 
-    
+    .whiteBoard{
+        height: 80vh !important;
+      }
 }
 
 @media only screen and (max-width: 350px){
