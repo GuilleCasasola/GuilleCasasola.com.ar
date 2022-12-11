@@ -3,7 +3,7 @@ $(document).ready( () => {
 
     (function($){
         var typed = new Typed('span.txt-rotate', {
-            strings: ['Soy estudiante', 'Soy programador ', 'Soy Guille Casasola.'],
+            strings: ['Soy Licenciado', 'Soy programador ', 'Soy Guille Casasola.'],
             typeSpeed: 50,
             backSpeed: 100,
             fadeOut: false,
