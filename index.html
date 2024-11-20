@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,61 +12,64 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/flipdown.css" />
+    <script src="js/google-form.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
         <div class="container">
-          <a class="navbar-brand" href="index.html">GuilleCasasola</a>
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#home">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#aboutme">Sobre Mi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#services">¿Qué hago?</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#work">Proyectos</a>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand" href="index.html">GuilleCasasola</a>
+            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutme">Sobre Mi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">¿Qué hago?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#work">Proyectos</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
-    
-    <section id="home" class="home"> 
-        <div class="titles">
-            
+    </nav>
+
+    <section id="home" class="home">
+        <div class="container">
             <div class="titles-wrap row align-items-center">
+                <div class="col-12 col-md-4 py-md-5 px-5 px-md-0 rounded order-md-2">
+                    <img src="images/guillecasa.jpg" alt="Foto de Guille" class="rounded-circle img-fluid img-profile">
+                </div>
                 <div class="col-12 col-md-8">
                     <h1>Hola,<span> Bienvenido! :)</span></h1>
                     <h2><span class="txt-rotate"></span></h2>
-                    <p>Un gusto que estes por aquí. Esta es mi página personal donde podrás conocer y compartir mis gustos, trabajos y más.</p>
-                    <p>Si deseas suscribirte al boletín de noticias, dejar un mensaje de apoyo o alguna sugerencia puedes hacerlo clickeando el boton y completando el formulario</p>
-                    <div class="getintouch">
-                        <div><a href="https://forms.gle/2YWBow6WcdtPoL6f6" class="btn">Suscribirme</a></div>
-                    </div>
-                </div>
-                <div id="foto" class="col-12 col-md-4 py-5 rounded">
-                    <img src="images/Guille-Casasola.jpg" alt="Foto de Guille" class="rounded-circle" style="width: 30vw;">
+                    <p> Un placer que estes en mi página personal.</p>
+                    <p>Si querés dejar un mensaje de apoyo, sugerencia o tan solo suscribirte a mis noticias
+                        te dejo el siguiente formulario!</p>
+                    <!-- <div class="getintouch">
+                            <div><a href="https://forms.gle/2YWBow6WcdtPoL6f6" class="btn"> Suscribite! </a></div>
+                        </div> -->
+                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#contactModal">
+                        Suscribite!
+                    </button>
                 </div>
             </div>
         </div>
+
     </section>
-    <!-- <section id="contador-egreso" class="aboutme row">
-        <div class="col d-flex flex-column align-items-center justify-content-center">
-            <h1> 🎓 Me recibo!! 🎓 </h1>
-            <div id="flipdown" class="flipdown mt-3"></div>
-            <a class="btn mt-5" href="./pizzarra.html"> Deja tu mensaje </a>
-          
-        </div>
-    </section> -->
+    <!-- Button trigger modal -->
+
+
     <section class="aboutme row" id="aboutme">
         <div class="container my-auto">
             <div class="row ">
@@ -74,26 +78,100 @@
                         <h2>Sobre mí</h2>
                     </div>
                     <div class="info">
-                        <p class="text-justify">
-                            &nbsp;&nbsp; Hola, me presento! Soy <strong> Guille Casasola </strong> y me agrada que estes por acá. Tengo 26 años y en noviembre del 2022 
-                            finalmente me recibí de Licenciado en Ciencias de la Computación 🎓🥳.  <br> <br>
-                            &nbsp;&nbsp; Trabajo como programador desde hace 4 años. Mi primer empleo fue en el Observatorio Ambiental de San Juan, donde me encargue del desarrollo y mantenimiento del 
-                            Software de Monitoreo Ambiental, el cual se integra con estaciones de calidad de agua almacenando distintos parámetros. <br> <br>
+                        <!-- <p class="text-justify">
+                            &nbsp;&nbsp; Hola, Soy <strong> Guille Casasola </strong> y, primero que nada, gracias por estar acá!
+                            Tengo muchas cosas para contar, pero en los siguientes párrafos te cuento en lineas generales mi camino laboral, y mis hobbies al final.
+                            <br> <br>
+                            &nbsp;&nbsp;Trabajo como desarrollador de software desde hace 5 años, inicalmente part-time hasta que
+                            en noviembre del 2022 finalmente me recibí de Licenciado en Ciencias de la Computación 🎓🥳 lo que me permitió 
+                            saltar de lleno al mundo laboral.
+                            <br> <br>
+                            &nbsp;&nbsp; Mi primer trabajo fue en el Observatorio Ambiental de San Juan, donde me encargué
+                            del desarrollo y mantenimiento del Software de Monitoreo Ambiental, el cual se integra 
+                            con estaciones de calidad de agua almacenando distintos parámetros. <br> 
+                            &nbsp;&nbsp; Desafortunadamente y por razones políticas que desconozco R.I.P. Observatorio Ambiental, por
+                            lo que no les puedo mostrar mi trabajo en producción 😅
+                            <br> <br>
+                            &nbsp;&nbsp; Como ese, tuve otros trabajos que desaparecieron en el camino, como desarrollar para una
+                            startup de experiencias turísticas (TapTur) o desarrollar una plataforma de monitoreo de cadena de
+                            frío mediante sensores de temperatura IoT. (IoTermia). Les dejo una <a href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab" target="_blank">nota</a> 
+                            del mismo porque la plataforma. 
 
-                            &nbsp;&nbsp; Actualmente estoy trabajando part-time como programador web para una empresa de gestión de alquileres vacacionales. 
-                            A su vez, como side-project, me encargo de mantener en funcionamiento una <a href="https://iotermia.com.ar" target="_blank">plataforma para monitoreo de cadena de frío 🔗</a> mediante sensores de temperatura IoT.
+
+                           
+                            &nbsp;&nbsp; Actualmente estoy trabajando  para una empresa de gestión de alquileres vacacionales.
+                            Donde me encargo del desarrollo y mantenimiento de varios productos,  asi 
+                            como tambien de realizar distintas integraciones con Booking, Airbnb, Stripe. 
+               
 
                             <br> <br>
-                            &nbsp;&nbsp; De lado mas personal, me gusta la tranquilidad, disfrutar de unos ricos mates🧉, y pasar el tiempo en la computadora
-                            ya sea aprendiendo cosas nuevas, leyendo curiosidades o jugando uno que otro juego. 
-                            Como hobbie me gusta el cardistry, la magia y cada tanto trato de mejorar mi tiempo resolviendo el cubo rubik.
-                        </p>
+                            &nbsp;&nbsp; Si te interesa mi lado mas personal te puedo decir que me gusta la tranquilidad, disfrutar de unos ricos
+                            mates🧉, y pasar el tiempo en la computadora ya sea aprendiendo cosas nuevas, leyendo curiosidades o jugando uno que otro juego.
+                            Aunque pueda parecerlo, no soy tan antisocial, por lo que me gusta también pasar el rato con mi novia, amigos y familia. 
+                            Como hobbie me gusta el cardistry, la magia y sobre todo los juegos de ingenio , asi que cada tanto me podes vez armando el cubo rubic, 
+                            o jugando unaz partiditas de ajedrez ♟️ 
+                        </p> -->
+                        <div class="about-me">
+                            <p class="intro">
+                                ¡Hola! Soy <strong>Guille Casasola</strong>. Primero que nada, gracias por estar acá. 😊  
+                                En esta sección te cuento, de manera general, mi trayectoria laboral y un poco sobre mis hobbies.
+                            </p>
+                        
+                            <div class="work-experience">
+                                <h4>Mi camino profesional</h4>
+                                <p>
+                                    Trabajo como desarrollador de software desde hace 5 años. Empecé part-time mientras estudiaba, 
+                                    y en noviembre del 2022 me recibí de Licenciado en Ciencias de la Computación 🎓🥳. Esto me permitió 
+                                    dedicarme al 100% a mi carrera profesional.
+                                </p>
+                        
+                                <p>
+                                    Mi primer trabajo fue en el <strong>Observatorio Ambiental de San Juan</strong>, donde desarrollé y mantuve 
+                                    el Sistema de Monitoreo Ambiental. Este software integraba estaciones de calidad de agua para almacenar 
+                                    distintos parámetros.  
+                                    <br>
+                                    <br><em>Por razones políticas que desconozco R.I.P. Observatorio Ambiental, así que lamentablemente no puedo 
+                                    mostrar mi trabajo en producción. 😅</em>
+                                </p>
+                        
+                                <p>
+                                    También trabajé en proyectos interesantes como:
+                                </p>
+                                <ul>
+                                    <li>Una startup de experiencias turísticas (<strong>TapTur</strong>).</li>
+                                    <li>Una plataforma de monitoreo de cadena de frío con sensores IoT (<strong>IoTermia</strong>). <em><a href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab" target="_blank">Puedes leer 
+                                        más en esta nota</a>. </em>
+                                    </li>
+                                </ul>
+                        
+                                <p>
+                                    Actualmente trabajo para una empresa de gestión de alquileres vacacionales. Mis responsabilidades incluyen 
+                                    el desarrollo y mantenimiento de varios productos, así como integraciones con plataformas como <strong>Booking</strong>, 
+                                    <strong>Airbnb</strong> y <strong>Stripe</strong>.
+                                </p>
+                            </div>
+                        
+                            <div class="personal-life">
+                                <h4>Un Poco Sobre Mí</h4>
+                                <p>
+                                    Me gusta la tranquilidad, disfrutar de unos ricos mates  <img src="./images/mate.svg" alt="Mate emoji" width="24">, y pasar tiempo en la computadora aprendiendo cosas nuevas, 
+                                    leyendo curiosidades o jugando algún que otro videojuego.
+                                </p>
+                                <p>
+                                    Aunque pueda parecerlo, no soy tan antisocial. Me gusta compartir momentos con mi novia, amigos y familia.  
+                                    También tengo hobbies como el cardistry, la magia y los juegos de ingenio. Cada tanto me podes ver 
+                                    resolviendo un cubo de Rubik o jugando ajedrez ♟️.
+                                </p>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </section>
+
     <section class="aboutme row" id="services">
         <div class="container my-auto">
             <div class="row">
@@ -103,10 +181,14 @@
                     </div>
                     <div class="info">
                         <p class="text-center">
-                            Actualmente y por como va el mundo del desarrollo, me dedico a la programación de sistemas Web. 
-                        Mi motivación son los nuevos desafíos que me permiten crear cosas nuevas día a día, afianzando mis conocimientos,
-                        aprendiendo nuevas tecnologías o implementando funcionalidades que hasta el momento no he desarrollado en otros proyectos.
-                        A continuación les dejo algunas de las tecnologías utilizadas en proyectos realizados:
+                            Actualmente soy desarrollador de software especializado en desarrollo web y enfocado en la simplificacion 
+                            y/o automatizacion de procesos mediante integraciones. 
+                              <br>    <br>                    
+                            Mi motivación son los desafíos que me permiten crear cosas nuevas día a día, afianzando mis conocimientos,
+                            aprendiendo nuevas tecnologías o implementando funcionalidades que hasta el momento no he
+                            desarrollado en otros proyectos.
+                                <br><br>
+                            Si te preguntas que tecnologías son las que uso te las muestro a continuacion:
                         </p>
                     </div>
                 </div>
@@ -118,16 +200,16 @@
                         <div class="icontitle">
                             <i class="mdi mdi-code-tags mdi-48px"> </i>
                             <div class="title">
-                                    <span>01</span>
-                                    <h4>Tecnologías Front</h4>
+                                <span>01</span>
+                                <h4>Tecnologías Front</h4>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-align-center">
-                            <img src="./images/HTML.png" alt="Logo Html" class="mx-auto">
-                            <img src="./images/CSS.png" alt="Logo Css" class="mx-auto">
-                            <img src="./images/js.png" alt="Logo Js" class="mx-auto">
-                            <img src="./images/vue.png" alt="Logo Js" class="mx-auto">
-                            <img src="./images/angular.png" alt="Logo Js" class="mx-auto">
+                            <img src="./images/techs/HTML.png" alt="Logo Html" class="mx-auto">
+                            <img src="./images/techs/CSS.png" alt="Logo Css" class="mx-auto">
+                            <img src="./images/techs/js.png" alt="Logo Js" class="mx-auto">
+                            <img src="./images/techs/vue.png" alt="Logo Js" class="mx-auto">
+                            <img src="./images/techs/angular.png" alt="Logo Js" class="mx-auto">
                         </div>
                     </div>
                 </div>
@@ -137,16 +219,16 @@
                         <div class="icontitle">
                             <i class="mdi mdi-code-json mdi-48px"> </i>
                             <div class="title">
-                                    <span>02</span>
-                                    <h4>Tecnologías Back</h4>
+                                <span>02</span>
+                                <h4>Tecnologías Back</h4>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-align-center">
-                            <img src="./images/nodejs.png" alt="Logo Node Js" class="mx-auto">
-                            <img src="./images/express.png" alt="Logo Express" class="mx-auto">
-                            <img src="./images/c-sharp.png" alt="Logo C#" class="mx-auto">
-                            <img src="./images/net.png" alt="Logo Net" class="mx-auto">
-                            <img src="./images/mongo.png" alt="Logo Mongo" class="mx-auto">
+                            <img src="./images/techs/nodejs.png" alt="Logo Node Js" class="mx-auto">
+                            <img src="./images/techs/express.png" alt="Logo Express" class="mx-auto">
+                            <img src="./images/techs/c-sharp.png" alt="Logo C#" class="mx-auto">
+                            <img src="./images/techs/net.png" alt="Logo Net" class="mx-auto">
+                            <img src="./images/techs/mongo.png" alt="Logo Mongo" class="mx-auto">
                         </div>
                     </div>
                 </div>
@@ -154,13 +236,16 @@
             </div>
         </div>
     </section>
-   
+
     <section id="work" class="aboutme work">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10">
                     <div class="sec-title">
                         <h2>Proyectos</h2>
+                        <p> Soy consciente que tengo que actualizar esta sección. Estoy trabajando en ello para que poder mostrarles aquellos proyectos que 
+                            ya no existen o que son de cierta manera privados. Tenganme paciencia
+                             </p>
                     </div>
                 </div>
             </div>
@@ -179,7 +264,7 @@
                 <div class="col-12 col-sm-6 col-lg-4 academico">
                     <div class="work-box">
                         <a href="https://lyop-unsj.web.app" target="_blank">
-                            <img src="images/lyopsg.png" alt="work image 1" class="work-img img-fluid">
+                            <img src="images/projects/lyopsg.png" alt="work image 1" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
                                     <div class="overlay-icon-holder">
@@ -201,8 +286,8 @@
 
                 <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
                     <div class="work-box">
-                        <a href="https://typingtrainer.netlify.app" >
-                            <img src="images/template.png" alt="work image 2" class="work-img img-fluid">
+                        <a href="https://typingtrainer.netlify.app">
+                            <img src="images/projects/template.png" alt="work image 2" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
                                     <div class="overlay-icon-holder">
@@ -223,8 +308,8 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
                     <div class="work-box">
-                        <a href="https://audiossanjuan.web.app" >
-                            <img src="images/AudiosSanJuan.jpg" alt="work image 2" class="work-img img-fluid">
+                        <a href="https://audiossanjuan.web.app">
+                            <img src="images/projects/AudiosSanJuan.jpg" alt="work image 2" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
                                     <div class="overlay-icon-holder">
@@ -245,8 +330,8 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
                     <div class="work-box">
-                        <a href="https://repartirfichas.netlify.app/" >
-                            <img src="images/repartirfichas.jpg" alt="work image 2" class="work-img img-fluid">
+                        <a href="https://repartirfichas.netlify.app/">
+                            <img src="images/projects/repartirfichas.jpg" alt="work image 2" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
                                     <div class="overlay-icon-holder">
@@ -268,7 +353,7 @@
                 <div class="col-12 col-sm-6 col-lg-4 trabajo ">
                     <div class="work-box">
                         <a href="images/prontomas.png" class="popup-image">
-                            <img src="images/prontomas.png" alt="work image 1" class="work-img img-fluid">
+                            <img src="images/projects/prontomas.png" alt="work image 1" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
                                     <!-- <div class="overlay-icon-holder">
@@ -289,42 +374,72 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </section>
-
-    <!-- <footer class="footer row">
-        
-        <div class="d-flex justify-content-center col-12">
-            <a href="http://instagram.com/guillecasasola" target="_blank" rel="noopener noreferrer">
-
-                <i class="mdi mdi-instagram mdi-48px"> </i>
-            </a>
-            <a href="https://www.linkedin.com/in/guille-casasola/" target="_blank" rel="noopener noreferrer">
-                <i class="mdi mdi-linkedin mdi-48px"> </i>
-            </a>    <br>
-        </div>
-        <div class="col-12">
-            Guille Casasola
-        </div>
-    </footer> -->
 
     <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-6 col-md-4 d-flex align-items-center">
             <span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
         </div>
-    
+
         <ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"> <a href="http://instagram.com/guillecasasola" target="_blank" rel="noopener noreferrer">
-                <i class="mdi mdi-instagram mdi-48px"> </i>
-            </a></li>
-            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" target="_blank" rel="noopener noreferrer">
-                <i class="mdi mdi-linkedin mdi-48px"> </i>
-            </a>  </li>
+                    <i class="mdi mdi-instagram mdi-48px"> </i>
+                </a></li>
+            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="mdi mdi-linkedin mdi-48px"> </i>
+                </a> </li>
         </ul>
     </footer>
-    
 
 
+    <!-- Modal -->
+    <div class="modal  fade " id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Espero tu mensaje!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form" name="contact-form" method="POST"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSdb9-yMHMJKt2Iyc6yIdZVOOJvJapi5bNp_ZWaBQEOUe1C3_w/formResponse">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" name="nombre" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" id="message-text">
+                        </div>
+                        <div class="form-group form-check">
+                            <input name="newsletter" type="checkbox" class="form-check-input" id="newsletter">
+                            <label class="form-check-label" for="exampleCheck1">Suscribirme al
+                                newsletter</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Comentario:</label>
+                            <textarea class="form-control" name="comentario" id="message-text"></textarea>
+                        </div>
+                     
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                    <div id="loading" class="text-center hidden" style="display: none;">
+                        <div class="spinner-border text-center" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -332,5 +447,7 @@
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/timer/flipdown.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
 </html>
