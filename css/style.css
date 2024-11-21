@@ -1,6 +1,6 @@
 :root {
     --main-color: #c9a04f;
-    --main-color-dark: #3f331c;
+    --main-color-dark: #0e0b07;
 }
 
 html{
@@ -114,6 +114,8 @@ section {
     position: relative;
     display: inline-block;
     border: 2px solid var(--main-color);
+    color:#000000;
+    border-radius: 1em;
 }
 .btn:focus{
     border-color: none;
@@ -126,7 +128,8 @@ section {
 .btn-primary:hover{
     background-color: var(--main-color-dark);
     border: 2px solid var(--main-color);
-    color: var(--main-color)
+    color: white;
+    text-decoration: none;
 }
 .btn-secondary{
     border: 2px solid var(--main-color);
@@ -135,10 +138,7 @@ section {
 }
 
 
-.btn:hover{
-    color: #ffffff;
-    text-decoration: none;
-}
+
 
 .aboutme {
     background-color: #f9f9f9;
@@ -212,6 +212,7 @@ section {
 .aboutme .service-box .title span {
     color: var(--main-color);
     font-size: 16px;
+    font-weight: 700;
 }
 
 .aboutme .service-box .title h4 {

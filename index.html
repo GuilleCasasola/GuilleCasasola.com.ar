@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soy Guillermo Casaola, desarrollador de software. Descubre mis proyectos, mi experiencia profesional y un poco sobre mi vida en Guillecasaola.com.ar , ¡te espero!">
+
     <title>Guille Casasola</title>
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
@@ -19,7 +21,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="index.html">GuilleCasasola</a>
+            <a class="navbar-brand" aria-label="Home" href="index.html">GuilleCasasola</a>
             <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -28,16 +30,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Inicio</a>
+                        <a class="nav-link" aria-label="Inicio" href="#home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#aboutme">Sobre Mi</a>
+                        <a class="nav-link" aria-label="Sobre Mi" href="#aboutme">Sobre Mi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">¿Qué hago?</a>
+                        <a class="nav-link" aria-label="Que hago" href="#services">¿Qué hago?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#work">Proyectos</a>
+                        <a class="nav-link" aria-label="Proyectos" href="#work">Proyectos</a>
                     </li>
                 </ul>
             </div>
@@ -59,7 +61,7 @@
                     <!-- <div class="getintouch">
                             <div><a href="https://forms.gle/2YWBow6WcdtPoL6f6" class="btn"> Suscribite! </a></div>
                         </div> -->
-                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#contactModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
                         Suscribite!
                     </button>
                 </div>
@@ -118,7 +120,7 @@
                             </p>
                         
                             <div class="work-experience">
-                                <h4>Mi camino profesional</h4>
+                                <h3>Mi camino profesional</h3>
                                 <p>
                                     Trabajo como desarrollador de software desde hace 5 años. Empecé part-time mientras estudiaba, 
                                     y en noviembre del 2022 me recibí de Licenciado en Ciencias de la Computación 🎓🥳. Esto me permitió 
@@ -139,7 +141,7 @@
                                 </p>
                                 <ul>
                                     <li>Una startup de experiencias turísticas (<strong>TapTur</strong>).</li>
-                                    <li>Una plataforma de monitoreo de cadena de frío con sensores IoT (<strong>IoTermia</strong>). <em><a href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab" target="_blank">Puedes leer 
+                                    <li>Una plataforma de monitoreo de cadena de frío con sensores IoT (<strong>IoTermia</strong>). <em><a href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab" aria-label="Nota Si San Juan" target="_blank">Puedes leer 
                                         más en esta nota</a>. </em>
                                     </li>
                                 </ul>
@@ -252,10 +254,10 @@
 
             <div class="row">
                 <ul class="list-filter">
-                    <li><a class="lists active" data-filter="*">All</a></li>
-                    <li><a class="lists" data-filter=".academico">Académico</a></li>
+                    <li><a aria-label="Todos los proyectos" class="lists active" data-filter="*" href="#work">All</a></li>
+                    <li><a aria-label="Proyectos académicos" class="lists" data-filter=".academico" href="#work">Académico</a></li>
                     <!-- <li><a class="lists" data-filter=".trabajo"> Trabajo </a></li>  -->
-                    <li><a class="lists" data-filter=".pasatiempo">Pasatiempo</a></li>
+                    <li><a aria-label="Proyectos pasatiempos" class="lists" data-filter=".pasatiempo" href="#work">Pasatiempo</a></li>
                 </ul>
             </div>
         </div>
@@ -263,7 +265,7 @@
             <div class="row projects-wrapper">
                 <div class="col-12 col-sm-6 col-lg-4 academico">
                     <div class="work-box">
-                        <a href="https://lyop-unsj.web.app" target="_blank">
+                        <a href="https://lyop-unsj.web.app" aria-label="LyOp" target="_blank">
                             <img src="images/projects/lyopsg.png" alt="work image 1" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
@@ -286,7 +288,7 @@
 
                 <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
                     <div class="work-box">
-                        <a href="https://typingtrainer.netlify.app">
+                        <a href="https://typingtrainer.netlify.app" aria-label="Typing Trainer">
                             <img src="images/projects/template.png" alt="work image 2" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
@@ -308,7 +310,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
                     <div class="work-box">
-                        <a href="https://audiossanjuan.web.app">
+                        <a href="https://audiossanjuan.web.app" aria-label="Audios San Juan">
                             <img src="images/projects/AudiosSanJuan.jpg" alt="work image 2" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
@@ -330,7 +332,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
                     <div class="work-box">
-                        <a href="https://repartirfichas.netlify.app/">
+                        <a href="https://repartirfichas.netlify.app/" aria-label="Fichas Poker">
                             <img src="images/projects/repartirfichas.jpg" alt="work image 2" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
@@ -352,7 +354,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 trabajo ">
                     <div class="work-box">
-                        <a href="images/prontomas.png" class="popup-image">
+                        <a href="images/prontomas.png" class="popup-image" aria-label="Pronto mas">
                             <img src="images/projects/prontomas.png" alt="work image 1" class="work-img img-fluid">
                             <div class="work-overlay">
                                 <div class="work-caption text-white text-cdenter">
@@ -383,10 +385,10 @@
         </div>
 
         <ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"> <a href="http://instagram.com/guillecasasola" target="_blank" rel="noopener noreferrer">
+            <li class="ms-3"> <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                     <i class="mdi mdi-instagram mdi-48px"> </i>
                 </a></li>
-            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" target="_blank"
+            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin" target="_blank"
                     rel="noopener noreferrer">
                     <i class="mdi mdi-linkedin mdi-48px"> </i>
                 </a> </li>
@@ -409,16 +411,16 @@
                     <form id="contact-form" name="contact-form" method="POST"
                         action="https://docs.google.com/forms/d/e/1FAIpQLSdb9-yMHMJKt2Iyc6yIdZVOOJvJapi5bNp_ZWaBQEOUe1C3_w/formResponse">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Nombre:</label>
-                            <input type="text" name="nombre" class="form-control" id="recipient-name">
+                            <label for="sender-name" class="col-form-label">Nombre:</label>
+                            <input type="text" name="nombre" class="form-control" id="sender-name">
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" id="message-text">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" id="email">
                         </div>
                         <div class="form-group form-check">
                             <input name="newsletter" type="checkbox" class="form-check-input" id="newsletter">
-                            <label class="form-check-label" for="exampleCheck1">Suscribirme al
+                            <label class="form-check-label" for="newsletter">Suscribirme al
                                 newsletter</label>
                         </div>
                         <div class="form-group">
