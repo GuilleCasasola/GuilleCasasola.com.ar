@@ -10,15 +10,6 @@ $(document).ready( () => {
             smartBackspace: true,
         });
 
-         // Floating label headings for the contact form
-    $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-      }).on("focus", ".floating-label-form-group", function() {
-        $(this).addClass("floating-label-form-group-with-focus");
-      }).on("blur", ".floating-label-form-group", function() {
-        $(this).removeClass("floating-label-form-group-with-focus");
-      });
-    
       // Show the navbar when the page is scrolled up
       var MQL = 992;
     
@@ -62,26 +53,26 @@ $(document).ready( () => {
         return false
     })
 
-    $(".popup-image").magnificPopup({
-        type:'image',
-        closeOnContentClick: true,
-        gallery:{
-            enabled: true,
-            navigateByImgClick: true
-        }
-    })
-    $(".popup-image-2").magnificPopup({
-        type:'image'
-    })
-
+    // $(".popup-image").magnificPopup({
+    //     type:'image',
+    //     closeOnContentClick: true,
+    //     gallery:{
+    //         enabled: true,
+    //         navigateByImgClick: true
+    //     }
+    // })
+    // $(".popup-image-2").magnificPopup({
+    //     type:'image'
+    // })
+    
     // Timer Recibida 
-    const timestamp = new Date('Wed Nov 30 2022 10:00:00 GMT-0300').getTime() / 1000
-    var flipdown = new FlipDown(timestamp);
-    flipdown.start();
-    flipdown.ifEnded(() => {
+    // const timestamp = new Date('Wed Nov 30 2022 10:00:00 GMT-0300').getTime() / 1000
+    // var flipdown = new FlipDown(timestamp);
+    // flipdown.start();
+    // flipdown.ifEnded(() => {
         
-      console.log('The countdown has ended!');
-    });
+    //   console.log('The countdown has ended!');
+    // });
 });
 
 
