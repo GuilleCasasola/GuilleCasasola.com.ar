@@ -9,7 +9,7 @@ html{
 nav{
     background-color: rgba(0, 0, 0, 0.5);
 }
-section {
+.body-index section {
     min-height: 100vh;
     
 }
