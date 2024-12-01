@@ -60,7 +60,7 @@
     <style>
 
     </style>
-    <div class="container p-5">
+    <div class="container p-4 p-md-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Inicio</a></li>
@@ -74,23 +74,24 @@
                     <h1 class="display-5 text-center">
                         <strong>Triviar.com.ar</strong>: Creá y jugá trivias personalizadas
                     </h1>
-                    <p class="text-center lead">
+                    <p class="text-center">
                         En este blog, te cuento sobre mi plataforma de trivias inspirada en Kahoot, donde podés crear y
                         jugar tus propias trivias con amigos. Este proyecto lo estoy desarrollando con Nuxt.js.
                         Si te interesa conocer más sobre el proceso de creación, te invito a leer este post completo y
                         dejar tus comentarios.
                     </p>
-                    <div class="d-flex justify-content-center align-items-center mt-3 text-muted small">
-                        <span class="me-3">
-                            <i class="bi bi-calendar"></i> Publicado el 1 de Diciembre de 2024
+                    <div class="d-flex flex-column flex-md-row  align-items-start align-items-md-center  justify-content-center mt-3 text-muted small">
+                        <span class="me-md-3  mb-md-0">
+                            <i class="bi bi-calendar" style="font-size: 1.2rem;"></i> Publicado el 1 Dic. de 2024
                         </span>
-                        <span class="me-3">
-                            <i class="bi bi-person"></i> Por Guillermo Casasola
+                        <span class="me-md-3 mb-md-0">
+                            <i class="bi bi-person" style="font-size: 1.2rem;"></i> Por Guillermo Casasola
                         </span>
-                        <span>
-                            <i class="bi bi-clock"></i> <span class="reading-time"></span> min de lectura
+                        <span class="me-md-2 mb-md-0">
+                            <i class="bi bi-clock" style="font-size: 1.2rem;"></i> <span class="reading-time"></span> min de lectura
                         </span>
                     </div>
+                    
                 </div>
             </header>
             <hr class="w-100">
@@ -191,7 +192,22 @@
         </div>
 
     </div>
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-6 col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
+        </div>
 
+        <ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"> <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="mdi mdi-instagram mdi-48px"> </i>
+                </a></li>
+            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="mdi mdi-linkedin mdi-48px"> </i>
+                </a> </li>
+        </ul>
+    </footer>
 
 
 
