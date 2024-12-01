@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100&family=Parkinsans:wght@300..800&display=swap');
+
+nav.navbar {
+    background-color: black !important;
+}
+
+body {
+    padding-top: 66px;
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    h2 {
+        color: var(--main-color)
+    }
+    figcaption {
+        font-size: 0.75rem;
+    }
+}

@@ -2,7 +2,14 @@
 <html lang="en">
 
 <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="84bb51aa-f7d1-4cd6-9359-9f808335abd5" type="text/javascript" async></script>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'light'; // Obtiene el tema o usa 'light' por defecto
+            document.documentElement.classList.add(theme); // Aplica la clase directamente al <html>
+        })();
+    </script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="84bb51aa-f7d1-4cd6-9359-9f808335abd5"
+        type="text/javascript" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -38,7 +45,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" aria-label="Inicio" href="#home">Inicio</a>
                     </li>
@@ -52,11 +59,16 @@
                         <a class="nav-link" aria-label="Proyectos" href="#work">Proyectos</a>
                     </li>
                 </ul>
+                <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light" role="button">
+                    <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+                    <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="home">
+
+    <section id="home" class="home  d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="titles-wrap row align-items-center">
                 <div class="col-12 col-md-4 py-md-5 px-5 px-md-0 rounded order-md-2">
@@ -71,7 +83,7 @@
                     <!-- <div class="getintouch">
                             <div><a href="https://forms.gle/2YWBow6WcdtPoL6f6" class="btn"> Suscribite! </a></div>
                         </div> -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
                         Suscribite!
                     </button>
                 </div>
@@ -174,12 +186,12 @@
                             </div>
 
                             <div class="personal-life">
-                                <h4>Un Poco Sobre Mí</h4>
+                                <h4>Un poco sobre mí</h4>
                                 <p>
                                     Me gusta la tranquilidad, disfrutar de unos ricos mates <img src="./images/mate.svg"
                                         alt="Mate emoji" width="24">, y pasar tiempo en la computadora aprendiendo cosas
                                     nuevas,
-                                    leyendo curiosidades o jugando algún que otro videojuego.
+                                    leyendo curiosidades o jugando algún que otro juego.
                                 </p>
                                 <p>
                                     Aunque pueda parecerlo, no soy tan antisocial. Me gusta compartir momentos con mi
@@ -233,7 +245,7 @@
                             </div>
                         </div>
                         <div class="d-flex flex-wrap justify-align-center">
-                            <img src="./images/techs/HTML.png"  alt="Logo Html" class="mx-auto">
+                            <img src="./images/techs/HTML.png" alt="Logo Html" class="mx-auto">
                             <img src="./images/techs/CSS.png" alt="Logo Css" class="mx-auto">
                             <img src="./images/techs/js.png" alt="Logo Js" class="mx-auto">
                             <img src="./images/techs/vue.png" alt="Logo Js" class="mx-auto">
@@ -316,24 +328,35 @@
             <div class="row projects-wrapper">
                 <div class="col-12 col-sm-6 col-lg-4 sides">
                     <div class="work-box">
-                        <a href="https://triviar.com.ar" aria-label="LyOp" target="_blank">
-                            <img src="images/projects/triviar.webp" alt="work image 1" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
+                        <img src="images/projects/triviar.webp" alt="work image 1" class="work-img img-fluid">
+                        <div class="work-overlay">
+                            <div class="work-caption text-white text-cdenter">
+                                <div class="overlay-icon-holder">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="https://triviar.com.ar" aria-label="Triviar.com.ar" target="_blank"
+                                                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
+                                                data-bs-content="Ir a la página del proyecto">
                                                 <div class="overlay-icons">
                                                     <i class="mdi mdi-link"></i>
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5> Triviar.com.ar</h5>
-                                    <p> 2024 </p>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="/blog/triviar.html" aria-label="Triviar Blog" data-bs-toggle="popover"
+                                            data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="Leer el blog">
+                                                <div class="overlay-icons">
+                                                    <span class="mdi mdi-post"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
+                                <h5> Triviar.com.ar</h5>
+                                <p> 2024 </p>
                             </div>
-                        </a>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 sides">
@@ -492,7 +515,50 @@
 
 
     <!-- Modal -->
-    <div class="modal  fade " id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+    <!-- Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Espero tu mensaje!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form" name="contact-form" method="POST"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSdb9-yMHMJKt2Iyc6yIdZVOOJvJapi5bNp_ZWaBQEOUe1C3_w/formResponse">
+                        <div class="form-group">
+                            <label for="sender-name" class="col-form-label">Nombre:</label>
+                            <input type="text" name="nombre" class="form-control" id="sender-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group form-check">
+                            <input name="newsletter" type="checkbox" class="form-check-input" id="newsletter">
+                            <label class="form-check-label" for="newsletter">Suscribirme al
+                                newsletter</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Comentario:</label>
+                            <textarea class="form-control" name="comentario" id="message-text"></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type=" submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                    <div id="loading" class="text-center hidden" style="display: none;">
+                        <div class="spinner-border text-center" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal  fade " id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -536,7 +602,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -544,6 +610,7 @@
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/timer/flipdown.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {

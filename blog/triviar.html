@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Triviar.com.ar es una plataforma de trivias personalizadas donde puedes crear salas de trivia y jugar con amigos, desarrollada con Nuxt.js y Express.js.">
+    <meta name="keywords"
+        content="trivias personalizadas, juegos de preguntas, triviar, nuxt.js, express.js, socket.io, MongoDB, plataformas de trivia, Kahoot">
+    <meta name="author" content="Guillermo Casasola">
+    <meta property="og:title" content="Triviar - Plataforma de trivias personalizadas">
+    <meta property="og:description"
+        content="Crea tu propia sala de trivias personalizadas y juega con amigos. Desarrollado con Nuxt.js, Express.js y Socket.io.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://triviar.com.ar">
+    <meta property="og:image" content="https://triviar.com.ar/images/projects/triviar.webp">
+    <meta property="og:image:alt" content="Captura de pantalla de la plataforma Triviar.com.ar">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Triviar">
+
+
+    <title>Triviar - Plataforma de trivias personalizadas</title>
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/blog.css" type="text/css">
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+    <script src="/js/google.js"></script> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" aria-label="Home" href="/index.html">GuilleCasasola</a>
+            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Inicio" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Sobre Mi" href="#aboutme">Sobre Mi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Que hago" href="#services">¿Qué hago?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Proyectos" href="#work">Proyectos</a>
+                    </li>
+                    <li>
+                        <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light" role="button">
+                            <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+                            <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+
+    </style>
+    <div class="container p-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item">Blog</li>
+                <li class="breadcrumb-item active" aria-current="page">Triviar</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <header class="blog-header py-4">
+                <div class="container">
+                    <h1 class="display-5 text-center">
+                        <strong>Triviar.com.ar</strong>: Creá y jugá trivias personalizadas
+                    </h1>
+                    <p class="text-center lead">
+                        En este blog, te cuento sobre mi plataforma de trivias inspirada en Kahoot, donde podés crear y
+                        jugar tus propias trivias con amigos. Este proyecto lo estoy desarrollando con Nuxt.js.
+                        Si te interesa conocer más sobre el proceso de creación, te invito a leer este post completo y
+                        dejar tus comentarios.
+                    </p>
+                    <div class="d-flex justify-content-center align-items-center mt-3 text-muted small">
+                        <span class="me-3">
+                            <i class="bi bi-calendar"></i> Publicado el 1 de Diciembre de 2024
+                        </span>
+                        <span class="me-3">
+                            <i class="bi bi-person"></i> Por Guillermo Casasola
+                        </span>
+                        <span>
+                            <i class="bi bi-clock"></i> <span class="reading-time"></span> min de lectura
+                        </span>
+                    </div>
+                </div>
+            </header>
+            <hr class="w-100">
+            <article class="blog-content col-12 col-md-8 order-2 order-md-1">
+                <section>
+                    <h2>¿Qué es Triviar?</h2>
+                    <p>
+                        Triviar.com.ar es una plataforma simple para jugar trivias. Una persona crea una sala, añade las
+                        preguntas con sus posibles respuestas,
+                        y los jugadores pueden unirse para responder en tiempo real y acumular puntos por ronda.
+                        Una vez que se terminan las rondas se muetra un <i> ranking </i> con los ganadores y el puntaje
+                        de cada uno.
+                    </p>
+                    <p>
+                        Triviar es un <i> side project</i> que desarrollé con el objetivo de crear un espacio divertido
+                        e
+                        interactivo para jugar trivias con mis alumnos de la UNSJ, reforzando así los conocimientos
+                        adquiridos
+                        durante las clases de introduccion al desarrollo Web.
+                    </p>
+                    <p> La plataforma en si no tiene nada de innovador ya que existen muchas del mismo tipo (como
+                        Kahoot), pero algunas presentan restricciones en la
+                        cantidad de usuarios, así que decidí desarrollar Triviar y ponerla a prueba, también como un
+                        desafio personal para practicar y consolidar conocimientos en estas tecnologías.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Frontend con Nuxt.js</h2>
+                    <p>
+                        El frontend la desarrollé utilizando Nuxt.js, este es un framework de Vue.js.
+                        El mismo facilita la organización del código gracias a su estructuración de archivos y carpetas.
+                        Una caracteristica importante es que soporta renderizado del lado del servidor
+                        (SSR) lo cual ayuda a mejorar el SEO y la velocidad de carga de la página.
+                    </p>
+                    <p>
+                        El framework de estilos que use para este proyecto es Tailwind. Si bien desde siempre para mis
+                        side-projects suelo usar bootstrap,
+                        en esta caso quise embarcarme a tailwind porque lo he visto en muchas <i> jobs descriptions
+                        </i>últimamente ,asi que me pareció
+                        una tecnología interesante para tener en mi portfolio.
+                    </p>
+                    <p>
+                        Algo que he notado últimamente es que muchas de las inteligencias artificales generadoras de
+                        codigo utilizan tailwind para crear sus componentes. (Quizas por eso tambien esta mas solicitado
+                        últimamente).
+                        Asi que es una ventaja tenerlo fresco y entenderlo.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Backend con Express.js</h2>
+                    <p>
+                        Todo front tiene su back. En este caso Triviar tiene una API que está construida con Express.js,
+                        un framework ligero y robusto para Node.js.
+                        En esta API me encargo de manejar solicitudes de los usuarios, gestionar las salas de trivia, y
+                        generar la comunicacion con el
+                        frontend en tiempo real mediante Socket.io.
+                    <p>
+                        Es un desafío implementar este tipo de plataformas debido a la cantidad de usuarios
+                        interactuando al mismo tiempo. Es por eso que Triviar no solo nace como un proyecto de aula, si
+                        no como una plataforma para poner a prueba las capacidades tecnicas que estas tecnologias nos
+                        dan, y la posibilidad de experimentar con sistemas en tiempo real.
+                    </p>
+
+
+                </section>
+
+                <section>
+                    <h2>Próximos pasos</h2>
+                    <p>
+                        Actualmente, Triviar es stateless, pero en futuras versiones planeo utilizar MongoDB como base
+                        de datos para almacenar trivias y rankings, gracias a su escalabilidad y manejo de datos no
+                        estructurados. Inicialmente no planeo que la plataforma soporte login de usuarios, pero en caso
+                        de dar el paso de que cada usuario almacene sus propias trivias. Es el primer paso a dar
+                    </p>
+                </section>
+
+            </article>
+
+            <aside class="col-12 col-md-4 order-1 order-md-2">
+                <figure>
+                    <img src="/images/projects/triviar.webp" alt="Captura de pantalla de Triviar.com.ar"
+                        class="img-fluid">
+                    <figcaption>Captura de pantalla de la plataforma <a href="https://triviar.com.ar"
+                            aria-label="Triviar.com.ar" target="_blank">Triviar.com.ar </a></figcaption>
+                </figure>
+            </aside>
+            <div class="giscus col-12 order-3"></div>
+            <script src="https://giscus.app/client.js" data-repo="GuilleCasasola/GuilleCasasola.com.ar"
+                data-repo-id="MDEwOlJlcG9zaXRvcnkzMzQyMTk2ODg=" data-category="Comentarios Web"
+                data-category-id="DIC_kwDOE-vJqM4Ckma3" data-mapping="pathname" data-strict="0"
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light"
+                data-lang="es" crossorigin="anonymous" async>
+                </script>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/typed.min.js"></script>
+    <script src="/js/blog.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
