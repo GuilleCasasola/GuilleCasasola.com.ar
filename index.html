@@ -36,11 +36,12 @@
 </head>
 
 <body class="body-index">
+
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" aria-label="Home" href="index.html">GuilleCasasola</a>
-            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -58,11 +59,11 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-label="Proyectos" href="#work">Proyectos</a>
                     </li>
+                    <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
+                        <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+                        <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+                    </div>
                 </ul>
-                <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light" role="button">
-                    <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
-                    <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
-                </div>
             </div>
         </div>
     </nav>
@@ -335,7 +336,8 @@
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a href="https://triviar.com.ar" aria-label="Triviar.com.ar" target="_blank"
-                                                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover focus"
+                                                data-bs-container="body" data-bs-toggle="popover"
+                                                data-bs-placement="top" data-bs-trigger="hover focus"
                                                 data-bs-content="Ir a la página del proyecto">
                                                 <div class="overlay-icons">
                                                     <i class="mdi mdi-link"></i>
@@ -343,8 +345,9 @@
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="/blog/triviar.html" aria-label="Triviar Blog" data-bs-toggle="popover"
-                                            data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="Leer el blog">
+                                            <a href="/blog/triviar.html" aria-label="Triviar Blog"
+                                                data-bs-toggle="popover" data-bs-trigger="hover focus"
+                                                data-bs-placement="top" data-bs-content="Leer el blog">
                                                 <div class="overlay-icons">
                                                     <span class="mdi mdi-post"></span>
                                                 </div>
