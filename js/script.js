@@ -1,9 +1,8 @@
 
 initializeTheme()
+ 
 $(document).ready(() => {
-  setTimeout(()=>{
-    initializeTheme()
-  },1000)
+
   (function ($) {
     var typed = new Typed('span.txt-rotate', {
       strings: ['Soy Lic. en Computación...', 'Soy desarrollador.. ', 'Soy Guille Casasola.'],
