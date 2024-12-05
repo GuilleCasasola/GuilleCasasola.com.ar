@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -29,8 +29,17 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="stylesheet" href="/css/blog.css" type="text/css">
     <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
-    <script src="/js/google.js"></script> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+    <script>
+        if (window.location.hostname === 'guillecasasola.com.ar') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YJRSRXC9HJ');
+        }else{
+            console.log("Debug")
+        }
+    </script>
 </head>
 
 <body>
@@ -46,6 +55,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" aria-label="Inicio" href="/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
                     </li>
                     <li>
                         <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
@@ -64,7 +76,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                <li class="breadcrumb-item">Blog</li>
+                <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Triviar</li>
             </ol>
         </nav>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guille Casasola Blog. Entradas de blog de guillecasasola.com.ar">
+    <meta name="keywords" content="blog, guille casasola, programacion, desarrollo de software">
+    <meta name="author" content="Guillermo Casasola">
+    <meta property="og:title" content="Guille Casasola - Blog">
+    <meta property="og:description" content="Lee las entradas de blog en guillecasasola.com.ar/blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guillecasasola.com.ar/blog">
+    <meta property="og:image" content="https://guillecasasola.com.ar/images/guillecasa.webp">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Triviar">
+
+
+    <title>Blog - Guille Casasola</title>
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/blog.css" type="text/css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+    <script>
+        if (window.location.hostname === 'guillecasasola.com.ar') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YJRSRXC9HJ');
+        } else {
+            console.log("Debug")
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" aria-label="Home" href="/index.html">GuilleCasasola</a>
+            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Inicio" href="/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
+                    </li>
+                    <li>
+                        <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
+                            <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+                            <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+
+    </style>
+    <div class="container p-4 p-md-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 ">
+                <div class="row row-cols-1 row-cols-md-2 g-4" id="post-container">
+                    <!-- Rellenado automatico -->
+                </div>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 mb-3">
+                <div class="card" style="position: sticky; top: 80px;">
+                    <div class="card-header">Posts Recientes</div>
+                    <ul class="list-group list-group-flush" id="post-list">
+                        <!-- Rellenado automatico -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-6 col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
+        </div>
+
+        <ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"> <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="mdi mdi-instagram mdi-48px"> </i>
+                </a></li>
+            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="mdi mdi-linkedin mdi-48px"> </i>
+                </a> </li>
+        </ul>
+    </footer>
+
+
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/typed.min.js"></script>
+    <script src="/js/blog.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        class Post {
+            constructor(title, summary, date, url, imageUrl) {
+                this.title = title;
+                this.summary = summary;
+                this.date = date;
+                this.url = url;
+                this.imageUrl = imageUrl;
+            }
+        }
+        let posts = [];
+        posts.push(new Post("Triviar.com.ar: Creá y jugá trivias personalizadas",
+            "En este blog, te cuento sobre mi plataforma de trivias inspirada en Kahoot, donde podés crear y jugar tus propias trivias con amigos.",
+            "1 de Diciembre de 2024", "/blog/triviar.html", "/images/projects/triviar.webp"));
+
+        // posts.push(new Post("Título del Post 2",
+        //     "Este es un resumen del segundo post del blog. Se puede incluir información relevante o una pregunta para generar interés en el lector.",
+        //     "15 de Octubre de 2023", "/blog/post2.html"));
+
+        // posts.push(new Post("Título del Post 3",
+        //     "Este es un resumen del tercer post del blog. Se puede mencionar el tema principal y algunos puntos clave que se abordan en el post.",
+        //     "20 de Octubre de 2023", "/blog/post3.html"));
+
+
+        const postContainer = document.getElementById('post-container');
+        const postList = document.getElementById('post-list');
+        posts.forEach(post => {
+            postContainer.appendChild(createPostElement(post));
+            postList.appendChild(createPostLi(post));
+        });
+
+        function createPostLi(post) {
+            const template = document.createElement('template');
+            template.innerHTML = `
+                <li class="list-group-item">
+                    <a href="${post.url || '#'}">${post.title.split(":")[0] || 'Título no disponible'}</a>
+                </li>`;
+            return template.content.firstElementChild;
+        }
+
+        function createPostElement(post) {
+            const template = document.createElement('template');
+            template.innerHTML = `
+                <div class="col">
+                    <div class="card">
+                        <img src="${post.imageUrl || 'default-image.jpg'}" class="card-img-top" alt="${post.title || 'Imagen no disponible'}">
+                        <div class="card-body">
+                            <h5 class="card-title">${post.title || 'Título no disponible'}</h5>
+                            <p class="card-text">${post.summary || 'Descripción no disponible'}</p>
+                            <p class="card-text"><small class="text-muted">Publicado el ${post.date || 'fecha desconocida'}</small></p>
+                            <a href="${post.url || '#'}" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>`;
+            return template.content.firstElementChild;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

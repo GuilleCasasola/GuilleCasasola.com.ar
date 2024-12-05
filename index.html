@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <script>
@@ -27,11 +27,14 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-YJRSRXC9HJ');
+        if (window.location.hostname === 'guillecasasola.com.ar') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YJRSRXC9HJ');
+        }else{
+            console.log("Debug")
+        }
     </script>
 </head>
 
@@ -59,6 +62,9 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-label="Proyectos" href="#work">Proyectos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
+                    </li>
                     <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
                         <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
                         <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
@@ -72,15 +78,29 @@
     <section id="home" class="home  d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="titles-wrap row align-items-center">
-                <div class="col-12 col-md-4 py-md-5 px-5 px-md-0 rounded order-md-2">
-                    <img src="images/guillecasa.webp" alt="Foto de Guille" class="rounded-circle img-fluid img-profile">
+                <style>
+
+                </style>
+                <div id="img-profile" class="col-12 col-md-4  py-md-5 px-5  px-md-0 order-md-2">
+                    <div class="rounded-circle img-fluid img-profile">
+                        <img src="images/guillecasa.webp" alt="Foto de Guille" class="img-fluid rounded-circle">
+                    </div>
                 </div>
-                <div class="col-12 col-md-8">
+                <div id="presentacion" class="col-12 col-md-8 fadein">
                     <h1>Hola,<span> Bienvenido! :)</span></h1>
                     <h2><span class="txt-rotate"></span></h2>
-                    <p> Un placer que estes en mi página personal.</p>
-                    <p>Si querés dejar un mensaje de apoyo, sugerencia o tan solo suscribirte a mis noticias
-                        te dejo el siguiente formulario!</p>
+                    <div class="fadein ">
+
+                        <p> Un placer que estes por acá. Soy Guillermo Casasola desarrollador de software con mas de
+                            <span id="yearsOfExperience"> </span> años de
+                            experiencia.
+                        </p>
+                        <p> Si te interesa saber lo que hago o sobre mis proyectos te invito a que te suscribas a mi
+                            newsletter, y navegues tranquilo por mi web.
+                        </p>
+                        <p>También podes usar el formulario para comunicarte conmigo, dejar un mensaje de apoyo o
+                            sugerencia! Te espero!</p>
+                    </div>
                     <!-- <div class="getintouch">
                             <div><a href="https://forms.gle/2YWBow6WcdtPoL6f6" class="btn"> Suscribite! </a></div>
                         </div> -->
@@ -537,8 +557,14 @@
                             <label for="email" class="col-form-label">Email:</label>
                             <input type="email" name="email" class="form-control" id="email">
                         </div>
+                        <p class="small mt-3">
+
+                            Si querés estar al tanto de las actualizaciones de mi sitio, asi como también entradas de
+                            blog nuevas. Te invito a que te suscribas!
+                        </p>
                         <div class="form-group form-check">
-                            <input name="newsletter" type="checkbox" class="form-check-input" id="newsletter">
+
+                            <input checked name="newsletter" type="checkbox" class="form-check-input" id="newsletter">
                             <label class="form-check-label" for="newsletter">Suscribirme al
                                 newsletter</label>
                         </div>

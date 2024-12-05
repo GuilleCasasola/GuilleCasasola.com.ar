@@ -1,13 +1,20 @@
 
 initializeTheme()
- 
+function setYearsOfExperience(){
+  console.log("gola")
+  let firstJob = new Date('10/1/2019');
+  let now = new Date()
+  let diff = now.getTime() - firstJob.getTime();
+  let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+  document.getElementById("yearsOfExperience").innerText = years;
+}
+setYearsOfExperience()
 $(document).ready(() => {
-
   (function ($) {
     var typed = new Typed('span.txt-rotate', {
       strings: ['Soy Lic. en Computación...', 'Soy desarrollador.. ', 'Soy Guille Casasola.'],
-      typeSpeed: 50,
-      backSpeed: 80,
+      typeSpeed: 40,
+      backSpeed: 50,
       fadeOut: false,
       smartBackspace: true,
     });
