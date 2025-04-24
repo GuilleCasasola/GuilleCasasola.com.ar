@@ -1,7 +1,6 @@
 
 initializeTheme()
 function setYearsOfExperience(){
-  console.log("gola")
   let firstJob = new Date('10/1/2019');
   let now = new Date()
   let diff = now.getTime() - firstJob.getTime();
