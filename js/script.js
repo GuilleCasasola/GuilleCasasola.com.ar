@@ -5,7 +5,10 @@ function setYearsOfExperience(){
   let now = new Date()
   let diff = now.getTime() - firstJob.getTime();
   let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-  document.getElementById("yearsOfExperience").innerText = years;
+  let elements = document.getElementsByClassName("yearsOfExperience")
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].innerText = years;
+  }
 }
 setYearsOfExperience()
 $(document).ready(() => {
