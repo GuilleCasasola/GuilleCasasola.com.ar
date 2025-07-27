@@ -1,0 +1,96 @@
+/* Estilos de cada tarjeta (forma base, se sobrescribe por ID) */
+.card {
+    background: linear-gradient(145deg, var(--main-color), var(--main-color-darker));
+    color: white;
+    width: 300px;
+    height: 200px;
+    place-content: center;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px var(--main-color-darker, 0.3);
+    transition: border-radius 0.4s ease, box-shadow 0.4s ease;
+    /* cursor: pointer; */
+}
+.card {
+    &.card1 {
+        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+    }
+    &.card2 {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    &.card3 {
+        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+    }
+    &.card4 {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+ 
+.card:has(.content:hover):not(.expanded) {
+    &.card1 {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    &.card2 {
+        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+    }
+    &.card3 {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    &.card4 {
+        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+    }
+    box-shadow: 0 15px 45px var(--main-color-darker, 0.3);
+    transition: border-radius 0.3 ease,
+    box-shadow 0.6s ease;
+}
+
+/* Estilos del título de cada tarjeta */
+.card h3 {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+
+}
+
+/* Título de cada tarjeta */
+.card h3 {
+    margin: 1rem 0;
+    font-size: 1.25rem;
+    user-select: none;
+
+}
+
+/* Contenido extra oculto, aparece al hacer hover */
+.card .extra-content {
+    font-size: 0.9rem;
+    opacity: 0;
+    max-height: 0px;
+    transition: opacity 1s ease, max-height 1s ease;
+    text-align: center;
+    user-select: none;
+}
+
+/* Mostrar contenido extra al hacer hover */
+.card .content:hover .extra-content {
+    opacity: 1;
+    max-height: 150px;
+    /* margin-top: 0.8rem; */
+}
+
+/* Contenido extra oculto, aparece al hacer hover */
+.card .first-content {
+    font-size: 2rem;
+    opacity: 1;
+    max-height: 50px;
+    transition: opacity 0.6s ease, max-height 0.6s ease;
+    text-align: center;
+    user-select: none;
+}
+
+/* Mostrar contenido extra al hacer hover */
+.card:hover .first-content {
+    opacity: 0;
+    max-height: 0px;
+    margin-top: 0.8rem;
+    transition: opacity 0.8s ease, max-height 0.8s ease;
+}
