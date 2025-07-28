@@ -47,6 +47,10 @@
     text-align: center;
     user-select: none;
 }
+.content{
+    max-height: 95%;
+    overflow: scroll;
+}
 
 @media (hover: hover) {
     .card:has(.content:hover):not(.open) {
@@ -152,6 +156,7 @@
     display: flex;
     max-height: 0px;
     opacity: 0;
+    padding:0px;
     transition: opacity 0.4s ease, max-height 0.4s ease;
 }
 
