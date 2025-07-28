@@ -47,6 +47,9 @@
     text-align: center;
     user-select: none;
 }
+.card.open .content::-webkit-scrollbar {
+    display: none;
+  }
 .card.open .content{
     max-height: 95%;
     overflow: scroll;
