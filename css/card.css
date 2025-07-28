@@ -47,7 +47,7 @@
     text-align: center;
     user-select: none;
 }
-.content{
+.card.open .content{
     max-height: 95%;
     overflow: scroll;
 }
