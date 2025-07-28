@@ -8,56 +8,34 @@
     padding: 1.5rem;
     box-shadow: 0 10px 30px var(--main-color-darker, 0.3);
     transition: border-radius 0.4s ease, box-shadow 0.4s ease;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
+
 .card {
     &.card1 {
         border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
     }
-    &.card2 {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-    &.card3 {
-        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
-    }
-    &.card4 {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-}
- 
-.card:has(.content:hover):not(.expanded) {
-    &.card1 {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-    &.card2 {
-        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
-    }
-    &.card3 {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-    &.card4 {
-        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
-    }
-    box-shadow: 0 15px 45px var(--main-color-darker, 0.3);
-    transition: border-radius 0.3 ease,
-    box-shadow 0.6s ease;
-}
 
-/* Estilos del título de cada tarjeta */
+    &.card2 {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    &.card3 {
+        border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+    }
+
+    &.card4 {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
 .card h3 {
     color: white;
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-
-}
-
-/* Título de cada tarjeta */
-.card h3 {
     margin: 1rem 0;
     font-size: 1.25rem;
     user-select: none;
-
 }
 
 /* Contenido extra oculto, aparece al hacer hover */
@@ -70,12 +48,39 @@
     user-select: none;
 }
 
-/* Mostrar contenido extra al hacer hover */
-.card .content:hover .extra-content {
-    opacity: 1;
-    max-height: 150px;
-    /* margin-top: 0.8rem; */
+@media (hover: hover) {
+    .card:has(.content:hover):not(.open) {
+        &.card1 {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        
+        &.card2 {
+            border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+        }
+        
+        &.card3 {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        
+        &.card4 {
+            border-radius: 30% 70% 60% 40% / 70% 40% 60% 30%;
+        }
+        box-shadow: 0 15px 45px var(--main-color-darker, 0.3);
+        transition: border-radius 0.3 ease,
+        box-shadow 0.6s ease;
+    }
+    .card:not(.open) .content:hover .extra-content {
+        opacity: 1;
+        max-height: 150px;
+    }
+    .card:hover:not(.open) .first-content {
+        opacity: 0;
+        max-height: 0px;
+        margin-top: 0.8rem;
+        transition: opacity 0.8s ease, max-height 0.8s ease;
+    }
 }
+
 
 /* Contenido extra oculto, aparece al hacer hover */
 .card .first-content {
@@ -87,10 +92,72 @@
     user-select: none;
 }
 
-/* Mostrar contenido extra al hacer hover */
-.card:hover .first-content {
-    opacity: 0;
+.btn-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    color: black;
+    transition: background 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .card.open {
+        width: 95vw;
+        height: 90vh;
+        padding: 1rem;
+    }
+
+    .extra-modal {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+.extra-modal {
+    display: flex;
+    color: white;
+    opacity: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    max-height: 70vh;
+    transition: opacity 1s ease, max-height 1s ease;
+    flex-direction: column;
+}
+
+/* Centramos el contenido dentro del modal */
+.card.open {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 20px;
+}
+
+/* Ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+    .extra-modal {
+        padding: 1rem;
+        max-width: 95%;
+        font-size: 0.95rem;
+    }
+
+    .card.open {
+        padding: 1rem;
+    }
+}
+
+.close {
+    display: flex;
     max-height: 0px;
-    margin-top: 0.8rem;
-    transition: opacity 0.8s ease, max-height 0.8s ease;
+    opacity: 0;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.card:has(.open) {
+    .extra-modal {
+        display: flex;
+        width: 100%;
+    }
 }

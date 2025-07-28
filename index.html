@@ -135,6 +135,35 @@
                             <div class="extra-content">
                                 <p>Licenciado en Ciencias de la Computación, UNSJ.</p>
                             </div>
+                            <div class="extra-modal close">
+                                <p>
+                                    Arranqué la carrera de <strong>Licenciatura en Ciencias de la
+                                        Computación</strong> en el 2016, en la <strong>Universidad Nacional de San
+                                        Juan</strong> 🏫.
+                                </p>
+                                <p>
+                                    Tres años después, en 2019, obtuve el título intermedio como Técnico en
+                                    Programación. Ese fue mi primer gran paso para comenzar a trabajar en el mundo
+                                    del desarrollo de software.
+                                </p>
+                                <p>
+                                    En 2022, finalmente me recibí 🎓 de <strong>Licenciado en Ciencias de la
+                                        Computación</strong>, con un trabajo final centrado en tecnologías modernas:
+                                    <em>"Migración de un sistema de control IoT de un modelo de Cloud Convencional a
+                                        una arquitectura Serverless"</em>.
+                                </p>
+                                <p>
+                                    Durante esos años no solo fui estudiante, también formé parte del equipo
+                                    docente. Comencé como ayudante de cátedra y más adelante asumí el rol de jefe de
+                                    trabajos prácticos.
+                                </p>
+                                <p>
+                                    Durante ese tiempo también integré el cuerpo de bandera 🇦🇷 de la <strong>Facultad
+                                        de Ciencias Exactas, Físicas y Naturales</strong>, como parte de distintas
+                                    actividades institucionales.
+                                </p>
+                                <button class="btn-close"></button>
+                            </div>
                         </div>
                     </div>
                     <div class="card card2">
@@ -146,9 +175,38 @@
                             <div class="extra-content">
                                 <p> 5+ años en desarrollo fullstack y liderazgo técnico en proyectos.</p>
                             </div>
+                            <div class="extra-modal close">
+                                <p>
+                                    A lo largo de mi camino como desarrollador, fui armando mi perfil fullstack mientras
+                                    mejoraba en cosas clave como el trabajo en equipo, la comunicación y la resolución
+                                    de problemas.
+                                </p>
+                                <p>
+                                    Mi primer desafío fue en el <strong>Observatorio Ambiental de San Juan</strong>,
+                                    donde participé en el desarrollo de un sistema para monitorear la calidad del agua.
+                                </p>
+                                <p>
+                                    Después de eso, participé en proyectos bastante interesantes como
+                                    <strong>TapTur</strong> , una startup que busca simplificar la oferta y contratacion
+                                    de experiencias turíticas.
+                                    Asi como tambien en el desarrollo de <strong>IoTermia</strong>, una plataforma IoT
+                                    para controlar la cadena de frío con sensores. (<a
+                                        href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab"
+                                        target="_blank" aria-label="Nota Si San Juan">ver nota</a>).
+                                </p>
+                                <p>
+                                    El mayor salto en mi carrera lo di trabajando en una empresa que ofrese software
+                                    para gestión alquileres
+                                    vacacionales. Ahí desarrollé apps web y móviles, e integré servicios con
+                                    <strong>Booking</strong>, <strong>Airbnb</strong> y <strong>Stripe</strong>.
+                                </p>
+
+                                <button class="btn-close"></button>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="card card3">
+                    <!-- <div class="card card3">
                         <div class="content">
                             <div class="first-content">
                                 <i class="mdi mdi-code-braces mdi-48px"></i>
@@ -157,21 +215,114 @@
                             <div class="extra-content">
                                 <p>Node.js, .NET, Vue, Angular, MongoDB, SQL Server, y más.</p>
                             </div>
+                            <div class="extra-modal close">
+                                <p>Me gradué como Licenciado en Ciencias de la Computación en la UNSJ, una carrera
+                                    enfocada en fundamentos teóricos y prácticos de la informática.</p>
+
+                                <p>Mi proyecto final abordó la integración de sensores IoT con visualización en tiempo
+                                    real usando Node.js y MongoDB.</p>
+                                <button class="btn-close"></button>
+                            </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="card card4">
                         <div class="content">
                             <div class="first-content">
                                 <i class="mdi mdi-heart mdi-48px"></i>
                             </div>
-                            <h3>Pasatiempos</h3>
+                            <h3>Un poco sobre mí</h3>
                             <div class="extra-content">
                                 <p>Ajedrez, juegos de lógica, magia y unos buenos matecitos 🧉.</p>
+                            </div>
+                            <div class="extra-modal close">
+                                <p>
+                                    Disfruto de la tranquilidad, de tomar <strong>unos buenos mates</strong> <img
+                                        src="./images/mate.svg" alt="Mate emoji" width="24"> y de pasar tiempo en la
+                                    computadora aprendiendo, descubriendo curiosidades
+                                    y también jugando algunos juegos.
+                                </p>
+                                <p>
+                                    Valoro los momentos compartidos con mis amigos y familia. <br>
+                                </p>
+                                <p>
+                                    También tengo varios hobbies como el cardistry, la magia y los juegos de
+                                    ingenio (cada tanto me pongo a resolver un cubo de Rubik o a jugar partidas
+                                    de ajedrez)
+                                </p>
+                                <p>
+                                    En cuanto al deporte, me gusta el basquet, juego al padel con amigos, y actualmente
+                                    practico Calistenia.
+                                </p>
+                                <button class="btn-close"></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <script>
+                const cards = document.querySelectorAll(".card");
+                let isAnimating = false;
+
+                cards.forEach(originalCard => {
+                    originalCard.addEventListener("click", () => {
+                        if (isAnimating || originalCard.classList.contains("open")) return;
+
+                        const bounds = originalCard.getBoundingClientRect();
+                        const clone = originalCard.cloneNode(true);
+                        console.log(bounds);
+                        document.body.appendChild(clone);
+
+                        const closeBtn = clone.querySelector(".btn-close");
+
+                        clone.style.position = "fixed";
+                        clone.style.top = `${bounds.top}px`;
+                        clone.style.left = `${bounds.left}px`;
+                        clone.style.width = `${bounds.width}px`;
+                        clone.style.height = `${bounds.height}px`;
+                        clone.style.margin = 0;
+                        clone.style.zIndex = 999;
+                        clone.classList.add("modal-clone");
+
+                        isAnimating = true;
+
+                        gsap.to(clone, {
+                            top: "10vh",
+                            left: "5vw",
+                            width: "90vw",
+                            height: "80vh",
+                            ease: "power3.inOut",
+                            duration: 0.6,
+                            onComplete: () => {
+                                clone.classList.add("open");
+                                isAnimating = false;
+                                let contentModal = clone.querySelector(".extra-modal")
+                                contentModal.classList.remove("close");
+                            }
+                        });
+
+                        closeBtn.addEventListener("click", (e) => {
+                            e.stopPropagation(); // evita que el click del modal también se dispare
+                            gsap.to(clone, {
+                                top: `${bounds.top}px`,
+                                left: `${bounds.left}px`,
+                                width: `${bounds.width}px`,
+                                height: `${bounds.height}px`,
+                                duration: 0.6,
+                                ease: "power3.inOut",
+                                onStart: () => {
+                                    let contentModal = clone.querySelector(".extra-modal")
+                                    clone.classList.remove("open");
+                                    contentModal.classList.add("close");
+                                },
+                                onComplete: () => {
+                                    clone.classList.remove("open");
+                                    clone.remove();
+                                }
+                            });
+                        });
+                    });
+                });
+            </script>
         </div>
         </div>
     </section>
@@ -536,8 +687,8 @@
     <script src="js/script.js"></script>
     <script src="js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>  
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('li a#todos').click()
