@@ -55,8 +55,12 @@
     overflow: scroll;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 @media (hover: hover) {
-    .card:has(.content:hover):not(.open) {
+    .card:has(.content:hover):not(.open) , .card.opening{
         &.card1 {
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         }
@@ -76,11 +80,11 @@
         transition: border-radius 0.3 ease,
         box-shadow 0.6s ease;
     }
-    .card:not(.open) .content:hover .extra-content {
+    .card:not(.open) .content:hover .extra-content , .card.opening .extra-content {
         opacity: 1;
         max-height: 150px;
     }
-    .card:hover:not(.open) .first-content {
+    .card:hover:not(.open) .first-content, .card.opening:not(.open) .first-content {
         opacity: 0;
         max-height: 0px;
         margin-top: 0.8rem;

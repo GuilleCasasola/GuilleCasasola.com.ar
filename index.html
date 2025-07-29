@@ -225,7 +225,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="card card4">
+                    <div class="card card3">
                         <div class="content">
                             <div class="first-content">
                                 <i class="mdi mdi-heart mdi-48px"></i>
@@ -262,16 +262,41 @@
             <script>
                 const cards = document.querySelectorAll(".card");
                 let isAnimating = false;
+                function closeModal(element, bounds) {
+                    gsap.to(element, {
+                        top: `${bounds.top}px`,
+                        left: `${bounds.left}px`,
+                        width: `${bounds.width}px`,
+                        height: `${bounds.height}px`,
+                        duration: 0.6,
+                        ease: "power3.inOut",
+                        onStart: () => {
+                            let contentModal = element.querySelector(".extra-modal")
+                            element.classList.remove("open");
+                            document.body.classList.remove("modal-open");
+                            contentModal.classList.add("close");
+                        },
+                        onComplete: () => {
+                            element.classList.remove("open");
+                            element.remove();
+                        }
+                    });
+                }
 
                 cards.forEach(originalCard => {
                     originalCard.addEventListener("click", () => {
                         if (isAnimating || originalCard.classList.contains("open")) return;
-
                         const bounds = originalCard.getBoundingClientRect();
                         const clone = originalCard.cloneNode(true);
                         console.log(bounds);
                         document.body.appendChild(clone);
 
+                        function handleOutsideClick(e) {
+                            if (!clone.contains(e.target) && !isAnimating) {
+                                closeModal(clone,bounds);
+                            }
+                        }
+                        document.addEventListener("click", handleOutsideClick);
                         const closeBtn = clone.querySelector(".btn-close");
 
                         clone.style.position = "fixed";
@@ -282,7 +307,7 @@
                         clone.style.margin = 0;
                         clone.style.zIndex = 999;
                         clone.classList.add("modal-clone");
-
+                        clone.classList.add("opening");
                         isAnimating = true;
 
                         gsap.to(clone, {
@@ -293,7 +318,10 @@
                             ease: "power3.inOut",
                             duration: 0.6,
                             onComplete: () => {
+                                document.body.classList.add("modal-open");
+                                clone.classList.remove("opening");
                                 clone.classList.add("open");
+
                                 isAnimating = false;
                                 let contentModal = clone.querySelector(".extra-modal")
                                 contentModal.classList.remove("close");
@@ -312,6 +340,7 @@
                                 onStart: () => {
                                     let contentModal = clone.querySelector(".extra-modal")
                                     clone.classList.remove("open");
+                                    document.body.classList.remove("modal-open");
                                     contentModal.classList.add("close");
                                 },
                                 onComplete: () => {
