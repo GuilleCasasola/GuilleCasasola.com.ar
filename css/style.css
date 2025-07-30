@@ -225,7 +225,7 @@ nav.navbar {
 
 .aboutme .service-box {
     border: 1px solid #dddddd;
-    background-color: light-dark(#ffffff, #e7e5e5);
+    background-color: light-dark(#ffffff, #a8a8a8);
     border-radius: 15px;
     padding: 30px;
     margin-bottom: 30px;
