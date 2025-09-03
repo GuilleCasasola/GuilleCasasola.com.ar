@@ -100,58 +100,109 @@
             <article class="blog-content col-12 col-md-8 order-2 order-md-1">
                 <section id="intro">
                     <h2>Introducción: El reto de crear trivias manualmente</h2>
+                    
                     <p>
-                        La Inteligencia Artificial ya forma parte de la vida diaria y, como programadores, es fundamental incorporar nuevas tecnologías en nuestros proyectos. Si no innovamos, nuestros usuarios podrían no encontrar ventaja en usar nuestras aplicaciones.
+                      La <strong>Inteligencia Artificial (IA)</strong> ya forma parte de la vida diaria y, como <strong>programadores</strong>, 
+                      es fundamental incorporar nuevas <strong>tecnologías</strong> en nuestros proyectos. 
+                      Si no innovamos, nuestros <strong>usuarios</strong> podrían no encontrar ventaja en usar nuestras <strong>aplicaciones</strong>.
                     </p>
+                    
                     <p>
-                        En el caso de Triviar.com.ar, sabemos que diseñar una trivia a la medida puede ser un proceso laborioso: investigar sobre el tema, formular preguntas y generar respuestas adecuadas para ofrecer una experiencia de juego entretenida. Por ejemplo, imaginá que sos profesor de "Introducción al Desarrollo Web" y querés crear una trivia para repasar los contenidos vistos en clase. Aunque contar con herramientas como ChatGPT ayuda a generar contenido, aún requerís copiar cada pregunta y respuesta en la interfaz, lo que consume tiempo valioso.
+                      En el caso de <mark>Triviar.com.ar</mark>, sabemos que <strong>diseñar una trivia a medida</strong> puede ser un proceso laborioso:
                     </p>
+                    <ul>
+                      <li><strong>Investigar</strong> sobre el tema</li>
+                      <li><strong>Formular preguntas</strong></li>
+                      <li><strong>Generar respuestas adecuadas</strong></li>
+                    </ul>
                     <p>
-                        Es aquí donde una integración directa entre Triviar y un proveedor de IA marca la diferencia, simplificando el proceso y mejorando notablemente la experiencia del usuario.
+                      Todo esto con el objetivo de ofrecer una <strong>experiencia de juego entretenida</strong>. 
+                      Por ejemplo, imaginá que sos profesor de <em>"Introducción al Desarrollo Web"</em> y querés crear una trivia para repasar los contenidos vistos en clase.
                     </p>
-                </section>
+                    
+                    <p>
+                      Aunque contar con herramientas como <mark>ChatGPT</mark> ayuda a <strong>generar contenido</strong>, 
+                      aún requerís copiar cada pregunta y respuesta en la interfaz, lo que consume <strong>tiempo valioso</strong>.
+                    </p>
+                    
+                    <p>
+                      Es aquí donde una <strong>integración directa</strong> entre <mark>Triviar</mark> y un proveedor de IA como <strong>Gemini</strong> 
+                      marca la diferencia, <strong>simplificando el proceso</strong> y <strong>mejorando la experiencia del usuario</strong>.
+                    </p>
+                  </section>
+                  
                 <img src="/images/blogs/banner_blog_ia.webp" alt="banner gemini + triviar.com.ar" class="img-fluid p-5">
                 <section id="steps">
                     <h2>Integración de Gemini AI: Paso a paso</h2>
-                    <!-- add image here banner blog -->
-                    
+              
+                  
                     <p>
-                        Con el objetivo de automatizar la creación de trivias, decidí integrar Gemini AI, que ofrece un generoso número de consultas gratuitas a su API de IA generativa. A continuación, te detallo los pasos que seguí:
+                      Con el objetivo de <strong>automatizar la creación de trivias</strong>, decidí integrar 
+                      <mark>Gemini AI</mark>, que ofrece un generoso número de <strong>consultas gratuitas</strong> 
+                      a su <strong>API de IA generativa</strong>. 
+                      A continuación, te detallo los pasos que seguí:
                     </p>
+                  
                     <ol>
-                        <li>
-                            <strong>Registro y obtención de la API Key:</strong> Me inscribí en Gemini AI y obtuve la API key necesaria para autenticar las solicitudes.
-                        </li>
-                        <li>
-                            <strong>Configuración en el backend:</strong> En el servidor (basado en Express.js), creé un endpoint que se encargara de comunicarse con la API de Gemini AI. Esto incluyó el manejo de peticiones, respuestas y errores.
-                        </li>
-                        <li>
-                            <strong>Integración en la interfaz de Triviar:</strong> Actualicé la sección de creación de trivias para incorporar una opción de "Generar con IA". Al seleccionar esta opción, el sistema realiza una llamada a la API, obtiene un set de 10 preguntas con sus respectivas respuestas y las carga automáticamente en la interfaz.
-                        </li>
-                        <li>
-                            <strong>Pruebas y ajustes:</strong> Realicé varias pruebas para asegurarme de que la integración funcionara de manera fluida y que las trivias generadas fueran coherentes y de calidad. También optimicé el rendimiento para que la experiencia del usuario fuera lo más ágil posible.
-                        </li>
-                        <li>
-                            <strong>Feedback de los usuarios:</strong> Finalmente, después del despliegue, recopilé comentarios y sugerencias para seguir mejorando esta funcionalidad.
-                        </li>
+                      <li>
+                        <strong>Registro y obtención de la API Key:</strong>  
+                        Me inscribí en <mark>Gemini AI</mark> y obtuve la <strong>API Key</strong> necesaria para 
+                        autenticar las solicitudes.
+                      </li>
+                      <li>
+                        <strong>Configuración en el backend:</strong>  
+                        En el servidor (Express.js), creé un <em>endpoint</em> que se encargara de 
+                        comunicarse con la <strong>API de Gemini AI</strong>. Esto incluyó el manejo de 
+                        peticiones, respuestas y errores.
+                      </li>
+                      <li>
+                        <strong>Integración en la interfaz de Triviar:</strong>  
+                        Actualicé la sección de creación de trivias para incorporar una opción de 
+                        <mark>"Generar con IA"</mark>.  
+                        Al seleccionarla, el sistema:
+                        <ul>
+                          <li>Realiza una llamada a la API.</li>
+                          <li>Obtiene un set de <strong>10 preguntas</strong> con sus <strong>respuestas</strong>.</li>
+                          <li>Las carga automáticamente en la interfaz.</li>
+                        </ul>
+                      </li>
+                      <li>
+                        <strong>Pruebas y ajustes:</strong>  
+                        Realicé varias pruebas para asegurarme de que la integración funcionara de manera 
+                        fluida y que las trivias generadas fueran 
+                        <strong>coherentes</strong> y de <strong>calidad</strong>.  
+                        También optimicé el rendimiento para mejorar la <strong>experiencia del usuario</strong>.
+                      </li>
+                      <li>
+                        <strong>Feedback de los usuarios:</strong>  
+                        Después del despliegue, recopilé <strong>comentarios</strong> y <strong>sugerencias</strong> 
+                        para seguir mejorando esta funcionalidad.
+                      </li>
                     </ol>
+                  
                     <p>
-                         Así fue como logré transformar la creación de trivias en un proceso automatizado, ahorrando tiempo para los usuarios y mejorando la experiencia de aprendizaje y diversión.
+                      Así fue como logré transformar la creación de trivias en un 
+                      <strong>proceso automatizado</strong>, ahorrando tiempo para los usuarios 
+                      y mejorando la experiencia de aprendizaje y diversión.
                     </p>
-                    
-                </section>
-                <section id="benefits">
+                  </section>
+                  
+                  <section id="benefits">
                     <h2>Beneficios de esta integración</h2>
                     <ul>
-                        <li>Automatización del proceso de creación de trivias.</li>
-                        <li>Ahorro de tiempo para los usuarios.</li>
-                        <li>Generación de contenido variado y personalizado.</li>
-                        <li>Experiencia de usuario mejorada y más interactiva.</li>
+                      <li><strong>Automatización</strong> del proceso de creación de trivias.</li>
+                      <li><strong>Ahorro de tiempo</strong> para los usuarios.</li>
+                      <li><strong>Generación de contenido variado</strong> y personalizado.</li>
+                      <li><strong>Experiencia de usuario</strong> mejorada y más interactiva.</li>
                     </ul>
+                  
                     <p>
-                        ¿Te animás a probar esta nueva funcionalidad? ¡Dejá tus comentarios y contame qué te parece la integración de IA en Triviar!
+                      ¿Te animás a probar esta nueva funcionalidad?  
+                      ¡Dejá tus <strong>comentarios</strong> y contame qué te parece la 
+                      <strong>integración de IA</strong> en <mark>Triviar</mark>!
                     </p>
-                </section>
+                  </section>
+                  
                 
                 <hr class="w-100">
             </article>
