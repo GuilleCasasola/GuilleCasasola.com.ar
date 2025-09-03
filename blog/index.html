@@ -127,14 +127,19 @@
             }
         }
         let posts = [];
+        posts.push(new Post("¡La IA llegó a Triviar.com.ar!: Creá tus trivias fácilmente con IA",
+            "La IA está por todos lados, y ahora llegó a TriviAr. Podés crear la trivia del tema que te interese en cuestión de segundos!",
+            new Date(2025, 2, 7), // Month is 0-indexed (March is 2)
+            "/blog/triviar-ia.html", "/images/blogs/triviar-ia.webp"));
+
         posts.push(new Post("Triviar.com.ar: Creá y jugá trivias personalizadas",
             "En este blog, te cuento sobre mi plataforma de trivias inspirada en Kahoot, donde podés crear y jugar tus propias trivias con amigos.",
-            "1 de Diciembre de 2024", "/blog/triviar.html", "/images/projects/triviar.webp"));
+            new Date(2024, 11, 1), // Month is 0-indexed (December is 11)
+            "/blog/triviar.html", "/images/projects/triviar.webp"));
 
-        // posts.push(new Post("Título del Post 2",
-        //     "Este es un resumen del segundo post del blog. Se puede incluir información relevante o una pregunta para generar interés en el lector.",
-        //     "15 de Octubre de 2023", "/blog/post2.html"));
-
+        // Sort posts by date, newest first
+        posts.sort((a, b) => b.date - a.date);
+        
         // posts.push(new Post("Título del Post 3",
         //     "Este es un resumen del tercer post del blog. Se puede mencionar el tema principal y algunos puntos clave que se abordan en el post.",
         //     "20 de Octubre de 2023", "/blog/post3.html"));
@@ -151,7 +156,10 @@
             const template = document.createElement('template');
             template.innerHTML = `
                 <li class="list-group-item">
-                    <a href="${post.url || '#'}">${post.title.split(":")[0] || 'Título no disponible'}</a>
+                    <a href="${post.url || '#'}">${post.title.split(":")[0] || 'Título no disponible'} </a> - ${post.date.toLocaleDateString('es-AR', {
+        year: 'numeric',
+        month: 'long',
+    }) || 'fecha desconocida'}
                 </li>`;
             return template.content.firstElementChild;
         }
@@ -164,8 +172,12 @@
                         <img src="${post.imageUrl || 'default-image.jpg'}" class="card-img-top" alt="${post.title || 'Imagen no disponible'}">
                         <div class="card-body">
                             <h5 class="card-title">${post.title || 'Título no disponible'}</h5>
-                            <p class="card-text">${post.summary || 'Descripción no disponible'}</p>
-                            <p class="card-text"><small class="text-muted">Publicado el ${post.date || 'fecha desconocida'}</small></p>
+                            <p class="card-text truncate-text">${post.summary || 'Descripción no disponible'}</p>                            
+                            <p class="card-text"><small class="text-muted">Publicado el ${post.date.toLocaleDateString('es-AR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }) || 'fecha desconocida'}</small></p>
                             <a href="${post.url || '#'}" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>

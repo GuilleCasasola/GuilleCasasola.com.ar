@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Triviar.com.ar es una plataforma de trivias personalizadas donde puedes crear salas de trivia y jugar con amigos, desarrollada con Nuxt.js y Express.js.">
+    <meta name="keywords" content="trivias personalizadas, juegos de preguntas, triviar, nuxt.js, express.js, socket.io, MongoDB, plataformas de trivia, Kahoot">
+    <meta name="author" content="Guillermo Casasola">
+    <meta property="og:title" content="Triviar - Plataforma de trivias personalizadas">
+    <meta property="og:description" content="Crea tu propia sala de trivias personalizadas y juega con amigos. Desarrollado con Nuxt.js, Express.js y Socket.io.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://triviar.com.ar">
+    <meta property="og:image" content="https://triviar.com.ar/images/projects/triviar.webp">
+    <meta property="og:image:alt" content="Captura de pantalla de la plataforma Triviar.com.ar">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Triviar">
+
+    <title>Triviar - Plataforma de trivias personalizadas</title>
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/blog.css" type="text/css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+    <script>
+        if (window.location.hostname === 'guillecasasola.com.ar') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YJRSRXC9HJ');
+        } else {
+            console.log("Debug")
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" aria-label="Home" href="/index.html">GuilleCasasola</a>
+            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Inicio" href="/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
+                    </li>
+                    <li>
+                        <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
+                            <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+                            <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container p-4 p-md-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Triviar</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <header class="blog-header py-4">
+                <div class="container">
+                    <h1 class="display-5 text-center">
+                        <strong>Triviar.com.ar</strong>: Creá trivias personalizadas, ¡ahora con IA!
+                    </h1>
+                    <p class="text-center">
+                        En este blog te cuento sobre la nueva funcionalidad de mi plataforma de trivias: la creación de trivias con Inteligencia Artificial. Inspirada en Kahoot, ahora podés generar trivias de 10 preguntas sobre el tema que desees en segundos, gracias a una integración con la API de Google Gemini. Si te interesa conocer más sobre esta innovadora feature, te invito a leer el post completo y dejar tus comentarios.
+                    </p>
+                    <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-center mt-3 text-muted small">
+                        <span class="me-md-3 mb-md-0">
+                            <i class="bi bi-calendar" style="font-size: 1.2rem;"></i> Publicado el 7 Mar. de 2025
+                        </span>
+                        <span class="me-md-3 mb-md-0">
+                            <i class="bi bi-person" style="font-size: 1.2rem;"></i> Por Guillermo Casasola
+                        </span>
+                        <span class="me-md-2 mb-md-0">
+                            <i class="bi bi-clock" style="font-size: 1.2rem;"></i> <span class="reading-time"></span> min de lectura
+                        </span>
+                    </div>
+                </div>
+            </header>
+            <hr class="w-100">
+
+            <article class="blog-content col-12 col-md-8 order-2 order-md-1">
+                <section id="intro">
+                    <h2>Introducción: El reto de crear trivias manualmente</h2>
+                    <p>
+                        La Inteligencia Artificial ya forma parte de la vida diaria y, como programadores, es fundamental incorporar nuevas tecnologías en nuestros proyectos. Si no innovamos, nuestros usuarios podrían no encontrar ventaja en usar nuestras aplicaciones.
+                    </p>
+                    <p>
+                        En el caso de Triviar.com.ar, sabemos que diseñar una trivia a la medida puede ser un proceso laborioso: investigar sobre el tema, formular preguntas y generar respuestas adecuadas para ofrecer una experiencia de juego entretenida. Por ejemplo, imaginá que sos profesor de "Introducción al Desarrollo Web" y querés crear una trivia para repasar los contenidos vistos en clase. Aunque contar con herramientas como ChatGPT ayuda a generar contenido, aún requerís copiar cada pregunta y respuesta en la interfaz, lo que consume tiempo valioso.
+                    </p>
+                    <p>
+                        Es aquí donde una integración directa entre Triviar y un proveedor de IA marca la diferencia, simplificando el proceso y mejorando notablemente la experiencia del usuario.
+                    </p>
+                </section>
+                <img src="/images/blogs/banner_blog_ia.webp" alt="banner gemini + triviar.com.ar" class="img-fluid p-5">
+                <section id="steps">
+                    <h2>Integración de Gemini AI: Paso a paso</h2>
+                    <!-- add image here banner blog -->
+                    
+                    <p>
+                        Con el objetivo de automatizar la creación de trivias, decidí integrar Gemini AI, que ofrece un generoso número de consultas gratuitas a su API de IA generativa. A continuación, te detallo los pasos que seguí:
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>Registro y obtención de la API Key:</strong> Me inscribí en Gemini AI y obtuve la API key necesaria para autenticar las solicitudes.
+                        </li>
+                        <li>
+                            <strong>Configuración en el backend:</strong> En el servidor (basado en Express.js), creé un endpoint que se encargara de comunicarse con la API de Gemini AI. Esto incluyó el manejo de peticiones, respuestas y errores.
+                        </li>
+                        <li>
+                            <strong>Integración en la interfaz de Triviar:</strong> Actualicé la sección de creación de trivias para incorporar una opción de "Generar con IA". Al seleccionar esta opción, el sistema realiza una llamada a la API, obtiene un set de 10 preguntas con sus respectivas respuestas y las carga automáticamente en la interfaz.
+                        </li>
+                        <li>
+                            <strong>Pruebas y ajustes:</strong> Realicé varias pruebas para asegurarme de que la integración funcionara de manera fluida y que las trivias generadas fueran coherentes y de calidad. También optimicé el rendimiento para que la experiencia del usuario fuera lo más ágil posible.
+                        </li>
+                        <li>
+                            <strong>Feedback de los usuarios:</strong> Finalmente, después del despliegue, recopilé comentarios y sugerencias para seguir mejorando esta funcionalidad.
+                        </li>
+                    </ol>
+                    <p>
+                         Así fue como logré transformar la creación de trivias en un proceso automatizado, ahorrando tiempo para los usuarios y mejorando la experiencia de aprendizaje y diversión.
+                    </p>
+                    
+                </section>
+                <section id="benefits">
+                    <h2>Beneficios de esta integración</h2>
+                    <ul>
+                        <li>Automatización del proceso de creación de trivias.</li>
+                        <li>Ahorro de tiempo para los usuarios.</li>
+                        <li>Generación de contenido variado y personalizado.</li>
+                        <li>Experiencia de usuario mejorada y más interactiva.</li>
+                    </ul>
+                    <p>
+                        ¿Te animás a probar esta nueva funcionalidad? ¡Dejá tus comentarios y contame qué te parece la integración de IA en Triviar!
+                    </p>
+                </section>
+                
+                <hr class="w-100">
+            </article>
+
+
+            <aside class="col-12 col-md-4 order-1 order-md-2">
+                <figure>
+                    <img src="/images/blogs/captura_inicio.png" alt="Captura de pantalla de Triviar.com.ar" class="img-fluid">
+                    <figcaption>Captura de pantalla de la plataforma <a href="https://triviar.com.ar" aria-label="Triviar.com.ar" target="_blank">Triviar.com.ar</a></figcaption>
+                </figure>
+            </aside>
+
+            <div class="giscus col-12 order-3"></div>
+            <script src="https://giscus.app/client.js" data-repo="GuilleCasasola/GuilleCasasola.com.ar" data-repo-id="MDEwOlJlcG9zaXRvcnkzMzQyMTk2ODg=" data-category="Comentarios Web" data-category-id="DIC_kwDOE-vJqM4Ckma3" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="es" crossorigin="anonymous" async></script>
+        </div>
+    </div>
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-6 col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
+        </div>
+        <ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <i class="mdi mdi-instagram mdi-48px"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin" target="_blank" rel="noopener noreferrer">
+                    <i class="mdi mdi-linkedin mdi-48px"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/typed.min.js"></script>
+    <script src="/js/blog.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
