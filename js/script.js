@@ -13,13 +13,16 @@ function setYearsOfExperience(){
 setYearsOfExperience()
 $(document).ready(() => {
   (function ($) {
-    var typed = new Typed('span.txt-rotate', {
-      strings: ['Soy Lic. en Computación...', 'Soy desarrollador.. ', 'Soy Guille Casasola.'],
-      typeSpeed: 40,
-      backSpeed: 50,
-      fadeOut: false,
-      smartBackspace: true,
-    });
+    const rotateEl = document.querySelector('span.txt-rotate');
+    if (rotateEl) {
+      var typed = new Typed('span.txt-rotate', {
+        strings: ['Soy Lic. en Computación...', 'Soy desarrollador.. ', 'Soy Guille Casasola.'],
+        typeSpeed: 40,
+        backSpeed: 50,
+        fadeOut: false,
+        smartBackspace: true,
+      });
+    }
 
     // Show the navbar when the page is scrolled up
     var MQL = 992;
@@ -129,6 +132,7 @@ function toggleTheme() {
 function toggleIcons(theme) {
   const iconNight = document.getElementById('icon-night');
   const iconSunny = document.getElementById('icon-sunny');
+  if (!iconNight || !iconSunny) return;
   iconNight.classList.toggle('d-none', theme == "dark");
   iconSunny.classList.toggle('d-none', theme == "light");
 }

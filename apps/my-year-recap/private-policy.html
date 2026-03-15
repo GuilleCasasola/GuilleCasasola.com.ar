@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script>
+		(function () {
+			const theme = localStorage.getItem('theme') || 'light';
+			document.documentElement.setAttribute('data-bs-theme', theme);
+		})();
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Privacy Policy for the My Year Recap app.">
+	<meta name="author" content="Guillermo Casasola">
+
+	<meta property="og:title" content="Privacy Policy – My Year Recap">
+	<meta property="og:description" content="How My Year Recap handles your information.">
+	<meta property="og:type" content="website">
+
+	<title>Privacy Policy – My Year Recap</title>
+
+	<link rel="shortcut icon" href="/images/favicon.ico">
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/materialdesignicons.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+	<style>
+		body {
+			padding-top: 72px;
+		}
+
+		/* Privacy pages have light content; keep navbar readable on first paint */
+		#mainNav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.9);
+		}
+
+		@media only screen and (min-width: 992px) {
+			#mainNav.is-fixed {
+				background-color: rgba(255, 255, 255, 0.9);
+				top: 0;
+				transform: none;
+			}
+		}
+
+		.policy h1 {
+			margin-bottom: 0.25rem;
+		}
+
+		.policy .last-updated {
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+		[data-bs-theme="light"] .policy .last-updated {
+			color: rgba(0, 0, 0, 0.65);
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" aria-label="Home" href="/index.html">GuilleCasasola</a>
+			<button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" aria-label="Inicio" href="/index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
+					</li>
+					<li>
+						<div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button"
+							aria-label="Toggle theme">
+							<i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+							<i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<main class="container policy p-4 p-md-5">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Privacy Policy</li>
+			</ol>
+		</nav>
+
+		<header class="mb-4">
+			<h1>Privacy Policy – My Year Recap</h1>
+			<div class="last-updated">Last updated: March 2026</div>
+		</header>
+
+		<p>
+			My Year Recap respects your privacy. This Privacy Policy explains how the application handles your
+			information.
+		</p>
+
+		<h2 class="mt-4">Information Collection</h2>
+		<p>My Year Recap does not collect, store, or transmit any personal information.</p>
+		<p>The app does not require account creation and does not track users.</p>
+
+		<h2 class="mt-4">Local Data Storage</h2>
+		<p>
+			All notes and information created within My Year Recap are stored locally on your device using your
+			device’s local storage.
+		</p>
+		<p>This means:</p>
+		<ul>
+			<li>Your data stays on your device.</li>
+			<li>The developer of the app does not have access to your notes or personal entries.</li>
+			<li>No information is transmitted to external servers.</li>
+		</ul>
+
+		<h2 class="mt-4">Data Export</h2>
+		<p>The app may allow you to export your data to files stored on your device.</p>
+		<p>These files are created only when the user explicitly chooses to export their data.</p>
+		<p>The exported files remain fully under the user’s control.</p>
+
+		<h2 class="mt-4">Third-Party Services</h2>
+		<p>My Year Recap does not use third-party analytics, advertising, or tracking services.</p>
+
+		<h2 class="mt-4">Data Security</h2>
+		<p>
+			Since all data is stored locally on the user’s device, the security of the data depends on the security of
+			the device itself.
+		</p>
+		<p>Users are responsible for protecting access to their device.</p>
+
+		<h2 class="mt-4">Children's Privacy</h2>
+		<p>My Year Recap does not knowingly collect personal information from children.</p>
+		<p>Because the app does not collect any data, it is safe for users of all ages.</p>
+
+		<h2 class="mt-4">Changes to This Policy</h2>
+		<p>
+			This Privacy Policy may be updated in the future. Any updates will be reflected with a new “Last updated”
+			date.
+		</p>
+
+		<!-- <h2 class="mt-4">Contact</h2>
+		<p>
+			If you have any questions about this Privacy Policy, you may contact the developer at:
+			<a href="mailto:contact@myyearrecap.app">contact@myyearrecap.app</a>
+		</p> -->
+	</main>
+
+	<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<div class="col-6 col-md-4 d-flex align-items-center">
+			<span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
+		</div>
+
+		<ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
+			<li class="ms-3"> <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank"
+					rel="noopener noreferrer">
+					<i class="mdi mdi-instagram mdi-48px"> </i>
+				</a></li>
+			<li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin"
+					target="_blank" rel="noopener noreferrer">
+					<i class="mdi mdi-linkedin mdi-48px"> </i>
+				</a> </li>
+		</ul>
+	</footer>
+
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	<script src="/js/typed.min.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+
+</html>
+

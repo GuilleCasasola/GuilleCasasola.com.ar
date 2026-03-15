@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<script>
+		(function () {
+			const theme = localStorage.getItem('theme') || 'light';
+			document.documentElement.setAttribute('data-bs-theme', theme);
+		})();
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Política de Privacidad de la app My Year Recap.">
+	<meta name="author" content="Guillermo Casasola">
+
+	<meta property="og:title" content="Política de Privacidad – My Year Recap">
+	<meta property="og:description" content="Cómo My Year Recap maneja tu información.">
+	<meta property="og:type" content="website">
+
+	<title>Política de Privacidad – My Year Recap</title>
+
+	<link rel="shortcut icon" href="/images/favicon.ico">
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/materialdesignicons.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+	<style>
+		body {
+			padding-top: 72px;
+		}
+
+		/* Páginas de política con fondo claro: navbar legible desde el inicio */
+		#mainNav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.9);
+		}
+
+		@media only screen and (min-width: 992px) {
+			#mainNav.is-fixed {
+				background-color: rgba(0, 0, 0, 0.9) !important;
+				top: 0;
+				transform: none;
+			}
+
+			#mainNav.is-visible {
+				transform: none;
+			}
+		}
+
+		.policy h1 {
+			margin-bottom: 0.25rem;
+		}
+
+		.policy .last-updated {
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+		[data-bs-theme="light"] .policy .last-updated {
+			color: rgba(0, 0, 0, 0.65);
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" aria-label="Inicio" href="/index.html">GuilleCasasola</a>
+			<button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" aria-label="Inicio" href="/index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
+					</li>
+					<li>
+						<div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button"
+							aria-label="Cambiar tema">
+							<i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+							<i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<main class="container policy p-4 p-md-5">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/">Inicio</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Política de Privacidad</li>
+			</ol>
+		</nav>
+
+		<header class="mb-4">
+			<h1>Política de Privacidad – My Year Recap</h1>
+			<div class="last-updated">Última actualización: marzo de 2026</div>
+		</header>
+
+		<p>
+			My Year Recap respeta tu privacidad. Esta Política de Privacidad explica cómo la aplicación maneja tu
+			información.
+		</p>
+
+		<h2 class="mt-4">Recolección de información</h2>
+		<p>My Year Recap no recopila, almacena ni transmite información personal.</p>
+		<p>La app no requiere creación de cuenta y no realiza seguimiento de usuarios.</p>
+
+		<h2 class="mt-4">Almacenamiento local de datos</h2>
+		<p>
+			Todas las notas y la información creadas dentro de My Year Recap se almacenan localmente en tu dispositivo
+			usando el almacenamiento local del mismo.
+		</p>
+		<p>Esto significa:</p>
+		<ul>
+			<li>Tus datos permanecen en tu dispositivo.</li>
+			<li>El desarrollador de la app no tiene acceso a tus notas o entradas personales.</li>
+			<li>No se transmite información a servidores externos.</li>
+		</ul>
+
+		<h2 class="mt-4">Exportación de datos</h2>
+		<p>La app puede permitirte exportar tus datos a archivos almacenados en tu dispositivo.</p>
+		<p>Estos archivos se crean únicamente cuando el usuario decide explícitamente exportar sus datos.</p>
+		<p>Los archivos exportados quedan completamente bajo el control del usuario.</p>
+
+		<h2 class="mt-4">Servicios de terceros</h2>
+		<p>My Year Recap no utiliza servicios de analítica, publicidad ni rastreo de terceros.</p>
+
+		<h2 class="mt-4">Seguridad de los datos</h2>
+		<p>
+			Dado que todos los datos se almacenan localmente en el dispositivo del usuario, la seguridad de los datos
+			depende de la seguridad del propio dispositivo.
+		</p>
+		<p>Los usuarios son responsables de proteger el acceso a su dispositivo.</p>
+
+		<h2 class="mt-4">Privacidad de menores</h2>
+		<p>My Year Recap no recopila intencionalmente información personal de menores.</p>
+		<p>Como la app no recopila datos, es segura para usuarios de todas las edades.</p>
+
+		<h2 class="mt-4">Cambios en esta política</h2>
+		<p>
+			Esta Política de Privacidad puede actualizarse en el futuro. Cualquier actualización se reflejará con una
+			nueva fecha de “Última actualización”.
+		</p>
+
+		<!-- <h2 class="mt-4">Contacto</h2>
+		<p>
+			Si tenés alguna pregunta sobre esta Política de Privacidad, podés contactar al desarrollador en:
+			<a href="mailto:contact@myyearrecap.app">contact@myyearrecap.app</a>
+		</p> -->
+	</main>
+
+	<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<div class="col-6 col-md-4 d-flex align-items-center">
+			<span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
+		</div>
+
+		<ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
+			<li class="ms-3"> <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank"
+					rel="noopener noreferrer">
+					<i class="mdi mdi-instagram mdi-48px"> </i>
+				</a></li>
+			<li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin"
+					target="_blank" rel="noopener noreferrer">
+					<i class="mdi mdi-linkedin mdi-48px"> </i>
+				</a> </li>
+		</ul>
+	</footer>
+
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	<script src="/js/typed.min.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+
+</html>
+
