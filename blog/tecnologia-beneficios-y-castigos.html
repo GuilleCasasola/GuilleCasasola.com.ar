@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="Una reflexión sobre la tecnología: lo que nos da (tiempo, eficiencia, oportunidades) y lo que también puede quitarnos (atención, presencia, vínculos).">
+	<meta name="keywords"
+		content="tecnología, reflexión, productividad, redes sociales, tiempo, esencial, desarrollo de software, inteligencia artificial">
+	<meta name="author" content="Guillermo Casasola">
+	<meta property="og:title" content="Tecnología: beneficios y castigos | Blog de Guillermo Casasola">
+	<meta property="og:description"
+		content="¿La tecnología nos acerca a lo esencial o nos aleja? Una reflexión sobre tiempo ganado, nuevas demandas y el rol de la IA.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://guillecasasola.com.ar/blog/tecnologia-beneficios-y-castigos.html">
+	<meta property="og:image" content="https://guillecasasola.com.ar/images/guillecasa.webp">
+	<meta property="og:image:alt" content="Foto de Guillermo Casasola">
+	<meta property="og:locale" content="es_AR">
+	<meta property="og:site_name" content="Blog de Guillermo Casasola">
+
+	<title>Tecnología: beneficios y castigos</title>
+
+	<link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/materialdesignicons.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/css/blog.css" type="text/css">
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+	<script>
+		if (window.location.hostname === 'guillecasasola.com.ar') {
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-YJRSRXC9HJ');
+		} else {
+			console.log("Debug")
+		}
+	</script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" aria-label="Home" href="/index.html">GuilleCasasola</a>
+			<button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" aria-label="Inicio" href="/index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
+					</li>
+					<li>
+						<div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
+							<i class="mdi mdi-weather-night d-none" id="icon-night"></i>
+							<i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container p-4 p-md-5">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/">Inicio</a></li>
+				<li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Tecnología</li>
+			</ol>
+		</nav>
+
+		<div class="row">
+			<header class="blog-header py-4">
+				<div class="container">
+					<h1 class="display-5 text-center">
+						Tecnología: <strong>beneficios</strong> y <strong>castigos</strong>
+					</h1>
+					<p class="text-center">
+						Una reflexión sobre qué consideramos esencial, el tiempo “ganado” con herramientas digitales y
+						cómo la IA puede amplificar tanto lo bueno como lo problemático.
+					</p>
+					<div
+						class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-center mt-3 text-muted small">
+						<span class="me-md-3 mb-md-0">
+							<i class="bi bi-calendar" style="font-size: 1.2rem;"></i> Publicado el 18 Abr. de 2026
+						</span>
+						<span class="me-md-3 mb-md-0">
+							<i class="bi bi-person" style="font-size: 1.2rem;"></i> Por Guillermo Casasola
+						</span>
+						<span class="me-md-2 mb-md-0">
+							<i class="bi bi-clock" style="font-size: 1.2rem;"></i> <span class="reading-time"></span>
+							min de lectura
+						</span>
+					</div>
+				</div>
+			</header>
+
+			<hr class="w-100">
+
+			<article class="blog-content col-12 col-md-8 order-2 order-md-1">
+				<section>
+					<p>
+						No recuerdo exactamente qué fue lo que desencadenó esta reflexión, pero se me vino a la mente
+						una frase que escuché muchas veces sobre la tecnología, sobre todo en el mundo del
+						<strong>desarrollo de software</strong>.
+					</p>
+
+					<blockquote class="mt-3 mb-3">
+						<p class="mb-0">
+							<em>Desarrollamos herramientas no para reemplazar a las personas, sino para que puedan dedicarse a lo
+								importante.</em>
+						</p>
+					</blockquote>
+
+					<p>
+						Relacionado con eso, también suele repetirse otra idea: <strong>la tecnología no le quitará el trabajo a
+							las personas</strong>, sino que generará <em>nuevos tipos de trabajo</em>.
+					</p>
+
+					<p>
+						Escribo esta entrada para <em>filosofar</em> un poco sobre el tema y, en el proceso, descubrir qué
+						conclusiones podemos sacar al respecto.
+					</p>
+				</section>
+
+				<section>
+					<h2>Qué entendemos por tecnología</h2>
+					<p>
+						En la escuela, en la materia Tecnología, nos enseñaban su definición casi de memoria. Hoy ya no
+						la recuerdo textual, pero sí me quedó una idea central: la tecnología no es una ciencia en sí
+						misma, sino la <strong>aplicación del conocimiento científico</strong> para satisfacer <strong>necesidades
+							humanas</strong>.
+					</p>
+					<p>
+						Y de ahí se desprendía otra idea que me gustaba mucho: <strong>la tecnología no existe sin intervención
+							humana</strong>. En otras palabras, es toda invención creada por las personas para <em>resolver
+							problemas</em> o <strong>responder a alguna necesidad</strong>.
+					</p>
+					<p>
+						Cuando pensamos en tecnología, muchas veces lo primero que se nos viene a la cabeza son aparatos
+						electrónicos: teléfonos, autos, computadoras, máquinas. Pero la tecnología también puede ser un
+						proceso, una metodología, una herramienta <strong>no necesariamente digital</strong>. <em>No todo lo
+							tecnológico tiene pantalla.</em>
+					</p>
+				</section>
+
+				<section>
+					<h2>La promesa: liberar tiempo para lo esencial</h2>
+					<p>
+						Con ese contexto, vuelvo a la frase inicial: la tecnología se desarrolla para que las personas no
+						se ocupen de lo <strong>repetitivo</strong>, sino de lo <strong>esencial</strong>.
+					</p>
+					<p>
+						Y ahí aparece una pregunta que me parece crucial: <strong>¿qué es lo esencial?</strong>
+					</p>
+					<p>
+						La respuesta va a depender mucho del contexto.
+					</p>
+					<p>
+						En una empresa, por ejemplo, lo esencial puede ser analizar información, tomar decisiones, definir
+						un rumbo. En ese caso, una herramienta tecnológica puede encargarse de automatizar tareas
+						repetitivas y <strong>liberar tiempo</strong> para que las personas se concentren en lo más importante: la <strong>toma de decisiones</strong>
+					</p>
+				</section>
+
+				<section>
+					<h2>Lo esencial en la vida diaria</h2>
+					<p>
+						Pero, ¿qué pasa cuando llevamos esa pregunta a la vida diaria? <strong>¿Qué es lo esencial para vivir?</strong>
+						<strong>¿Qué es lo esencial para transitar un día?</strong> ¿Tenemos presente cuáles son esas necesidades que mencionaba la definición de tecnología?
+						¿O nos dejamos llevar por lo urgente, lo inmediato, lo que nos distrae o lo que nos exige constantemente?
+					</p>
+					<p>
+						Si tuviera que responder rápido, probablemente diría que para mí lo esencial es <strong>comer</strong> y
+						<strong>dormir</strong>. Con eso, al menos, el cuerpo sigue funcionando.
+					</p>
+					<p>
+						Si tengo la posibilidad de pensar un poco más, quizá aparecen mas cosas, como ,por ejemplo, bañarme.
+                         Y si sigo pensando, seguramente
+						aparezcan muchas más. <br>
+                        Entonces... lo esencial ya no sería solamente aquello que me permite sobrevivir,
+						sino también lo que me permite <strong>estar bien</strong>, sentirme cómodo, <strong>vincularme con otros</strong>,
+						tener tranquilidad o encontrar sentido.
+					</p>
+					<p>
+						Eso cambia de una persona a otra. Tal vez incluso cambia según el momento de la vida en
+						el que cada uno esté.
+					</p>
+					<p>
+						También, si uno se pone a pensar en serio cuáles son sus necesidades, posiblemente notemos que no todo
+						se reduce a lo básico. 
+                        Existen necesidades fisiológicas, de seguridad, de afecto, de
+						reconocimiento y de autorrealización. Algunas son más <em>urgentes</em>, otras un poco mas <em>profundas</em> o secundarias, pero todas
+						forman parte de lo que una persona puede considerar esencial en su vida.
+					</p>
+				</section>
+
+				<section>
+					<h2>Ganancias reales… y una duda inevitable</h2>
+					<p>
+						Y toda esta reflexión me lleva a una pregunta más grande:
+					</p>
+					<p>
+						<strong>¿La tecnología realmente nos está ayudando a resolver problemas para que podamos dedicarnos a lo
+							esencial o a nuestras necesidades?</strong>
+					</p>
+					<p>
+						Mi respuesta es que sí, en muchos casos.
+					</p>
+					<p>
+						La tecnología nos ahorra tiempo. Simplifica procesos. Mejora la gestión. Facilita la
+						comunicación. Permite automatizar tareas <em>tediosas o repetitivas</em>. Incluso ha hecho posible nuevas formas de
+						trabajo, como el <strong>trabajo remoto</strong>, que en muchos casos evita traslados y devuelve horas del día que
+						antes se iban en ir y venir.
+					</p>
+					<p>
+						Hasta ahí, todo parece una ganancia.
+					</p>
+
+					<p>
+						Pero hay un punto donde me empieza a hacer ruido algo distinto:
+					</p>
+					<p>
+						<strong>¿Qué pasa con la tecnología que, en lugar de acercarnos a lo esencial, nos aleja de eso?</strong>
+					</p>
+				</section>
+
+				<section>
+					<h2>Cuando la herramienta se vuelve consumo</h2>
+					<p>
+						Ese debate ya existe desde hace tiempo. Las redes sociales, por ejemplo, dejaron de ser solamente
+						redes sociales. Los celulares dejaron de ser solo herramientas de comunicación para convertirse,
+						muchas veces, en <strong>dispositivos de consumo constante</strong>.
+					</p>
+					<p>
+						En sus inicios, estas herramientas resultaban asombrosas para responder a necesidades humanas muy
+						reales:<strong> socialización, afecto, pertenencia, conexión</strong>. Y aunque todavía pueden usarse con ese fin,
+						da la sensación de que ese ya no es siempre su objetivo principal.
+					</p>
+				</section>
+
+				<section>
+					<h2>La responsabilidad (desde el software)</h2>
+					<p>
+						Me detengo en esto porque es el lado que me toca de cerca.
+					</p>
+					<p>
+						Como Licenciado en Ciencias de la Computación y desarrollador de software, siento que tengo que
+						ser consciente del <strong>impacto que el software</strong> tiene en la vida de las personas. Y también de la
+						<strong>responsabilidad</strong> que existe al construirlo.
+					</p>
+					<p>
+						A nivel corporativo, no hay demasiadas dudas de que la tecnología mejora muchísimas cosas. Hace
+						más eficientes los procesos, amplía oportunidades laborales, facilita la organización y permite
+						modalidades de trabajo que para muchas personas representan una <strong> mejora real en su calidad de
+						vida.</strong>
+					</p>
+					<p>
+						Aunque, incluso ahí aparecen algunos grises.
+					</p>
+					<p>
+						En las oficinas no todo es estrés, reuniones y papeleo. También hay <strong>risas, vínculos, trabajo en
+						equipo, interacción espontánea, una salida al sol, una charla en un pasillo</strong>. Y no digo esto para
+						caer en una mirada nostálgica, sino para recordar que <strong>cada avance también trae renuncias</strong>, incluso
+						cuando parece completamente beneficioso.
+					</p>
+				</section>
+
+				<section>
+					<h2>El tiempo ganado, ¿en qué se convierte?</h2>
+					<p>
+						Entonces vuelvo a la pregunta: si la tecnología nos ahorra tiempo, <strong>¿a qué estamos destinando ese
+							tiempo ganado?</strong>
+					</p>
+					<p>
+						¿Realmente lo usamos para cubrir necesidades importantes, o simplemente llenamos ese espacio con
+						nuevas formas de <em>consumo</em>, nuevas <em>exigencias</em> o nuevas <em>dependencias</em>?
+					</p>
+				</section>
+
+				<section>
+					<h2>IA y agentes: el próximo salto</h2>
+					<p>
+						Creo que esta reflexión empezó a tomar forma en mí cuando comencé a investigar sobre agentes de
+						inteligencia artificial y las herramientas que existen hoy para crearlos.
+					</p>
+					<p>
+						Ahí pensé: bien, este agente puede ayudarme a resolver un problema. Puede hacer una tarea por mí.
+						Puede <strong>ahorrarme tiempo</strong>.
+					</p>
+					<p>
+						Pero enseguida apareció otra pregunta:
+					</p>
+					<p>
+						<strong>¿Qué va a pasar cuando exista un agente para casi todo?</strong>
+					</p>
+					<p>
+						¿De verdad vamos a tener más tiempo para nosotros? ¿O ese tiempo va a ser absorbido otra vez por
+						nuevas <strong>demandas</strong>, nuevas <strong>expectativas</strong> y nuevas formas de <strong>productividad</strong>?
+					</p>
+					<p>
+						<strong>¿Vamos a usar la tecnología para vivir mejor</strong>, o vamos a seguir ganando de un lado mientras
+						perdemos del otro?
+					</p>
+				</section>
+
+				<section>
+					<h2>Cierre</h2>
+					<p>
+						Y esta entrada no está especialmente enfocada en lo técnico. Pero tampoco quería que lo
+						estuviera. Mi intención con esta publicación es, simplemente, abrir un espacio para la
+						reflexión.
+					</p>
+					<p>
+						Volver a hacernos <strong>preguntas básicas</strong>. Pensar qué consideramos <strong>esencial</strong>. Y preguntarnos,
+						con honestidad, si la tecnología que construimos y consumimos nos está <strong>acercando</strong> a eso… o nos
+						está <strong>alejando</strong>.
+					</p>
+					<p>
+						Espero que para ustedes, este también haya sido un espacio para pensar, cuestionar y sacar sus propias conclusiones.
+						 Y si quieren compartirlas, los comentarios están abiertos.
+					</p>
+					<p> Saludos y que tengan un excelente día.</p>
+				</section>
+			</article>
+
+			<aside class="col-12 col-md-4 order-1 order-md-2">
+				<figure>
+					<img src="/images/blogs/tecnologia_beneficios_y_castigos.jpg" alt="Tecnologia beneficios y castigos" class="img-fluid">
+					<figcaption>
+						Una reflexión personal sobre tecnología y lo esencial.
+					</figcaption>
+				</figure>
+			</aside>
+
+			<div class="giscus col-12 order-3"></div>
+			<script src="https://giscus.app/client.js" data-repo="GuilleCasasola/GuilleCasasola.com.ar"
+				data-repo-id="MDEwOlJlcG9zaXRvcnkzMzQyMTk2ODg=" data-category="Comentarios Web"
+				data-category-id="DIC_kwDOE-vJqM4Ckma3" data-mapping="pathname" data-strict="0"
+				data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light"
+				data-lang="es" crossorigin="anonymous" async>
+				</script>
+		</div>
+	</div>
+
+	<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<div class="col-6 col-md-4 d-flex align-items-center">
+			<span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
+		</div>
+
+		<ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
+			<li class="ms-3">
+				<a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank"
+					rel="noopener noreferrer">
+					<i class="mdi mdi-instagram mdi-48px"> </i>
+				</a>
+			</li>
+			<li class="ms-3">
+				<a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin" target="_blank"
+					rel="noopener noreferrer">
+					<i class="mdi mdi-linkedin mdi-48px"> </i>
+				</a>
+			</li>
+		</ul>
+	</footer>
+
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	<script src="/js/typed.min.js"></script>
+	<script src="/js/blog.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+
+</html>
