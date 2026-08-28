@@ -1,0 +1,37 @@
+/* Legal / policy pages */
+
+.policy {
+    max-width: 72ch;
+    margin-inline: auto;
+    padding-top: calc(var(--header-height) + var(--space-xl));
+}
+
+.policy h1 {
+    font-size: var(--fs-700);
+}
+
+.policy .last-updated {
+    color: var(--color-text-faint);
+    margin-bottom: var(--space-lg);
+}
+
+.policy h2 {
+    font-size: var(--fs-600);
+    margin-top: var(--space-xl);
+}
+
+.policy ul {
+    list-style: disc;
+    padding-left: 1.4em;
+    margin-bottom: var(--space-sm);
+}
+
+.policy li {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xs);
+}
+
+.policy a {
+    color: var(--color-accent-strong);
+    text-decoration: underline;
+}

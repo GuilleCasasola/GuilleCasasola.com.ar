@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Descubre cómo integré la IA de Google Gemini en Triviar.com.ar para automatizar la creación de trivias personalizadas. Ahorra tiempo y genera contenido divertido.">
+    <meta name="keywords"
+        content="triviar, trivias, IA, inteligencia artificial, Gemini AI, Google Gemini, automatizar trivias, crear trivias con IA, trivias personalizadas, Nuxt.js, Express.js, desarrollo web, blog desarrollo">
+    <meta name="author" content="Guillermo Casasola">
+    <meta property="og:title" content="Triviar.com.ar: Creá trivias personalizadas, ¡ahora con IA! | Blog de Guillermo Casasola">
+    <meta property="og:description"
+        content="En este post, exploro la integración de Google Gemini AI en Triviar.com.ar para simplificar la creación de trivias, automatizando el proceso de generación de preguntas y respuestas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guillecasasola.com.ar/v2/blog/triviar-ia.html">
+    <meta property="og:image" content="https://guillecasasola.com.ar/images/blogs/banner_blog_ia.webp">
+    <meta property="og:image:alt" content="Banner mostrando el logo de Gemini AI junto a Triviar.com.ar">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="Blog de Guillermo Casasola">
+
+    <title>Triviar.com.ar: Creá trivias personalizadas, ¡ahora con IA!</title>
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/v2/assets/css/main.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+    <script>
+        if (window.location.hostname === 'guillecasasola.com.ar') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YJRSRXC9HJ');
+        }
+    </script>
+</head>
+
+<body data-nav-active="blog">
+    <div data-include="/v2/partials/header.html"></div>
+
+    <main>
+        <div class="container blog-hero">
+            <nav class="breadcrumbs" aria-label="breadcrumb">
+                <a href="/v2/index.html">Inicio</a> <span>/</span>
+                <a href="/v2/blog/index.html">Blog</a> <span>/</span>
+                <span class="is-current">Triviar</span>
+            </nav>
+
+            <header class="blog-header text-center">
+                <h1><strong>Triviar.com.ar</strong>: Creá trivias personalizadas, ¡ahora con IA!</h1>
+                <p>
+                    En este blog te cuento sobre la nueva funcionalidad de mi plataforma de trivias: la creación de
+                    trivias con Inteligencia Artificial. Inspirada en Kahoot, ahora podés generar trivias de 10
+                    preguntas sobre el tema que desees en segundos, gracias a una integración con la API de Google
+                    Gemini. Si te interesa conocer más sobre esta innovadora feature, te invito a leer el post
+                    completo y dejar tus comentarios.
+                </p>
+                <div class="blog-header__meta">
+                    <span><i class="bi bi-calendar" aria-hidden="true"></i> Publicado el 7 Mar. de 2025</span>
+                    <span><i class="bi bi-person" aria-hidden="true"></i> Por Guillermo Casasola</span>
+                    <span><i class="bi bi-clock" aria-hidden="true"></i> <span class="reading-time"></span></span>
+                </div>
+            </header>
+        </div>
+
+        <hr class="container">
+
+        <div class="container section" style="padding-top:0;">
+            <div class="blog-article-body">
+                <article class="blog-content">
+                    <section id="intro">
+                        <h2>Introducción: El reto de crear trivias manualmente</h2>
+                        <p>
+                            La <strong>Inteligencia Artificial (IA)</strong> ya forma parte de la vida diaria y, como
+                            <strong>programadores</strong>, es fundamental incorporar nuevas <strong>tecnologías</strong>
+                            en nuestros proyectos. Si no innovamos, nuestros <strong>usuarios</strong> podrían no
+                            encontrar ventaja en usar nuestras <strong>aplicaciones</strong>.
+                        </p>
+                        <p>
+                            En el caso de <mark>Triviar.com.ar</mark>, sabemos que <strong>diseñar una trivia a
+                                medida</strong> puede ser un proceso laborioso:
+                        </p>
+                        <ul>
+                            <li><strong>Investigar</strong> sobre el tema</li>
+                            <li><strong>Formular preguntas</strong></li>
+                            <li><strong>Generar respuestas adecuadas</strong></li>
+                        </ul>
+                        <p>
+                            Todo esto con el objetivo de ofrecer una <strong>experiencia de juego entretenida</strong>.
+                            Por ejemplo, imaginá que sos profesor de <em>"Introducción al Desarrollo Web"</em> y
+                            querés crear una trivia para repasar los contenidos vistos en clase.
+                        </p>
+                        <p>
+                            Aunque contar con herramientas como <mark>ChatGPT</mark> ayuda a <strong>generar
+                                contenido</strong>, aún requerís copiar cada pregunta y respuesta en la interfaz, lo
+                            que consume <strong>tiempo valioso</strong>.
+                        </p>
+                        <p>
+                            Es aquí donde una <strong>integración directa</strong> entre <mark>Triviar</mark> y un
+                            proveedor de IA como <strong>Gemini</strong> marca la diferencia,
+                            <strong>simplificando el proceso</strong> y <strong>mejorando la experiencia del
+                                usuario</strong>.
+                        </p>
+                    </section>
+
+                    <figure>
+                        <img src="/images/blogs/banner_blog_ia.webp" alt="Banner Gemini AI + Triviar.com.ar">
+                    </figure>
+
+                    <section id="steps">
+                        <h2>Integración de Gemini AI: Paso a paso</h2>
+                        <p>
+                            Con el objetivo de <strong>automatizar la creación de trivias</strong>, decidí integrar
+                            <mark>Gemini AI</mark>, que ofrece un generoso número de <strong>consultas
+                                gratuitas</strong> a su <strong>API de IA generativa</strong>. A continuación, te
+                            detallo los pasos que seguí:
+                        </p>
+                        <ol>
+                            <li>
+                                <strong>Registro y obtención de la API Key:</strong>
+                                Me inscribí en <mark>Gemini AI</mark> y obtuve la <strong>API Key</strong> necesaria
+                                para autenticar las solicitudes.
+                            </li>
+                            <li>
+                                <strong>Configuración en el backend:</strong>
+                                En el servidor (Express.js), creé un <em>endpoint</em> que se encargara de
+                                comunicarse con la <strong>API de Gemini AI</strong>. Esto incluyó el manejo de
+                                peticiones, respuestas y errores.
+                            </li>
+                            <li>
+                                <strong>Integración en la interfaz de Triviar:</strong>
+                                Actualicé la sección de creación de trivias para incorporar una opción de
+                                <mark>"Generar con IA"</mark>. Al seleccionarla, el sistema:
+                                <ul>
+                                    <li>Realiza una llamada a la API.</li>
+                                    <li>Obtiene un set de <strong>10 preguntas</strong> con sus
+                                        <strong>respuestas</strong>.</li>
+                                    <li>Las carga automáticamente en la interfaz.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Pruebas y ajustes:</strong>
+                                Realicé varias pruebas para asegurarme de que la integración funcionara de manera
+                                fluida y que las trivias generadas fueran <strong>coherentes</strong> y de
+                                <strong>calidad</strong>. También optimicé el rendimiento para mejorar la
+                                <strong>experiencia del usuario</strong>.
+                            </li>
+                            <li>
+                                <strong>Feedback de los usuarios:</strong>
+                                Después del despliegue, recopilé <strong>comentarios</strong> y
+                                <strong>sugerencias</strong> para seguir mejorando esta funcionalidad.
+                            </li>
+                        </ol>
+                        <p>
+                            Así fue como logré transformar la creación de trivias en un <strong>proceso
+                                automatizado</strong>, ahorrando tiempo para los usuarios y mejorando la experiencia
+                            de aprendizaje y diversión.
+                        </p>
+                    </section>
+
+                    <section id="benefits">
+                        <h2>Beneficios de esta integración</h2>
+                        <ul>
+                            <li><strong>Automatización</strong> del proceso de creación de trivias.</li>
+                            <li><strong>Ahorro de tiempo</strong> para los usuarios.</li>
+                            <li><strong>Generación de contenido variado</strong> y personalizado.</li>
+                            <li><strong>Experiencia de usuario</strong> mejorada y más interactiva.</li>
+                        </ul>
+                        <p>
+                            ¿Te animás a probar esta nueva funcionalidad? ¡Dejá tus <strong>comentarios</strong> y
+                            contame qué te parece la <strong>integración de IA</strong> en <mark>Triviar</mark>!
+                        </p>
+                    </section>
+                </article>
+
+                <aside class="blog-aside">
+                    <figure>
+                        <img src="/images/blogs/captura_inicio.png" alt="Captura de pantalla de Triviar.com.ar">
+                        <figcaption>
+                            Captura de pantalla de la plataforma
+                            <a href="https://triviar.com.ar" target="_blank" rel="noopener noreferrer">
+                                Triviar.com.ar</a>
+                        </figcaption>
+                    </figure>
+                </aside>
+            </div>
+
+            <div class="giscus blog-comments"></div>
+            <script src="https://giscus.app/client.js" data-repo="GuilleCasasola/GuilleCasasola.com.ar"
+                data-repo-id="MDEwOlJlcG9zaXRvcnkzMzQyMTk2ODg=" data-category="Comentarios Web"
+                data-category-id="DIC_kwDOE-vJqM4Ckma3" data-mapping="pathname" data-strict="0"
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark_dimmed"
+                data-lang="es" crossorigin="anonymous" async></script>
+        </div>
+    </main>
+
+    <div data-include="/v2/partials/footer.html"></div>
+
+    <script type="module" src="/v2/assets/js/pages/blog-article.js"></script>
+</body>
+
+</html>

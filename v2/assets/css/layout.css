@@ -1,0 +1,120 @@
+/*
+ * Layout primitives: container, section rhythm, responsive grid helpers.
+ * These are generic and reused across every page/component.
+ */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+.section {
+    padding-block: var(--space-2xl);
+    position: relative;
+}
+
+@media (max-width: 720px) {
+    .section {
+        padding-block: var(--space-xl);
+    }
+}
+
+.section-head {
+    max-width: 640px;
+    margin-bottom: var(--space-xl);
+}
+
+.section-head--center {
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-body);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-strong);
+    margin-bottom: var(--space-2xs);
+}
+
+.eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-accent);
+    display: inline-block;
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 900px) {
+
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .grid--2,
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.flow > * + * {
+    margin-top: var(--space-sm);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Reveal-on-scroll utility, toggled by scroll-reveal.js */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

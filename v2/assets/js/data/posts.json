@@ -1,0 +1,23 @@
+[
+  {
+    "title": "¡La IA llegó a Triviar.com.ar!: Creá tus trivias fácilmente con IA",
+    "summary": "La IA está por todos lados, y ahora llegó a TriviAr. Podés crear la trivia del tema que te interese en cuestión de segundos!",
+    "date": "2025-03-07",
+    "url": "/v2/blog/triviar-ia.html",
+    "imageUrl": "/images/blogs/triviar-ia.webp"
+  },
+  {
+    "title": "Tecnología: beneficios y castigos",
+    "summary": "Una reflexión sobre el tiempo ganado con tecnología, lo esencial en la vida diaria y el próximo salto con agentes de IA.",
+    "date": "2026-04-18",
+    "url": "/v2/blog/tecnologia-beneficios-y-castigos.html",
+    "imageUrl": "/images/blogs/tecnologia_beneficios_y_castigos.jpg"
+  },
+  {
+    "title": "Triviar.com.ar: Creá y jugá trivias personalizadas",
+    "summary": "En este blog, te cuento sobre mi plataforma de trivias inspirada en Kahoot, donde podés crear y jugar tus propias trivias con amigos.",
+    "date": "2024-12-01",
+    "url": "/v2/blog/triviar.html",
+    "imageUrl": "/images/projects/triviar.webp"
+  }
+]

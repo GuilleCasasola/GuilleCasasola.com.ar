@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Triviar.com.ar",
+    "year": "2024",
+    "image": "/images/projects/triviar.webp",
+    "categories": ["sides"],
+    "links": [
+      { "type": "site", "url": "https://triviar.com.ar", "label": "Ir a triviar.com.ar" },
+      { "type": "post", "url": "/v2/blog/triviar.html", "label": "Leer el blog" }
+    ]
+  },
+  {
+    "title": "Landing Page DelCasa",
+    "year": "2023",
+    "image": "/images/projects/delcasasite.webp",
+    "categories": ["sides"],
+    "links": [{ "type": "site", "url": "https://lubricentrodelcasa.com.ar", "label": "Ir al sitio" }]
+  },
+  {
+    "title": "DelCasa App",
+    "year": "2023",
+    "image": "/images/projects/delcasaapp.png",
+    "categories": ["sides"],
+    "links": []
+  },
+  {
+    "title": "LyOp: Calculadora de optimización",
+    "year": "2019",
+    "image": "/images/projects/lyopsg.png",
+    "categories": ["academico"],
+    "links": [{ "type": "site", "url": "https://lyop-unsj.web.app", "label": "Ir al sitio" }]
+  },
+  {
+    "title": "Entrenador de tipeo",
+    "year": "Act: 5/5/2021",
+    "image": "/images/projects/template.png",
+    "categories": ["pasatiempo"],
+    "links": [{ "type": "site", "url": "https://typingtrainer.netlify.app", "label": "Ir al sitio" }]
+  },
+  {
+    "title": "Audios SanJuan",
+    "year": "Act: 16/5/2021",
+    "image": "/images/projects/AudiosSanJuan.webp",
+    "categories": ["pasatiempo"],
+    "links": [{ "type": "site", "url": "https://audiossanjuan.web.app", "label": "Ir al sitio" }]
+  },
+  {
+    "title": "Repartidor de Fichas Poker",
+    "year": "Poker chips deliverer",
+    "image": "/images/projects/repartirfichas.jpg",
+    "categories": ["pasatiempo"],
+    "links": [{ "type": "site", "url": "https://repartirfichas.netlify.app/", "label": "Ir al sitio" }]
+  }
+]

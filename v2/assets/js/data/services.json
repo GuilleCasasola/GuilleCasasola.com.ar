@@ -1,0 +1,35 @@
+[
+  {
+    "index": "01",
+    "title": "Tecnologías Front",
+    "icon": "bi-code-slash",
+    "stack": [
+      { "name": "HTML", "img": "/images/techs/HTML.png" },
+      { "name": "CSS", "img": "/images/techs/CSS.png" },
+      { "name": "JavaScript", "img": "/images/techs/js.png" },
+      { "name": "Vue", "img": "/images/techs/vue.png" },
+      { "name": "Angular", "img": "/images/techs/angular.png" }
+    ]
+  },
+  {
+    "index": "02",
+    "title": "Tecnologías Back",
+    "icon": "bi-braces",
+    "stack": [
+      { "name": "Node.js", "img": "/images/techs/nodejs.png" },
+      { "name": "Express", "img": "/images/techs/express.png" },
+      { "name": "C#", "img": "/images/techs/c-sharp.png" },
+      { "name": ".NET", "img": "/images/techs/net.png" },
+      { "name": "MongoDB", "img": "/images/techs/mongo.png" }
+    ]
+  },
+  {
+    "index": "03",
+    "title": "Infraestructura",
+    "icon": "bi-hdd-rack",
+    "stack": [
+      { "name": "AWS", "img": "/images/techs/aws.png" },
+      { "name": "Docker", "img": "/images/techs/docker.svg" }
+    ]
+  }
+]
