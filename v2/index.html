@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="84bb51aa-f7d1-4cd6-9359-9f808335abd5"
+        type="text/javascript" async></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Soy Guillermo Casasola, desarrollador de software. Descubrí mis proyectos, mi experiencia profesional y un poco sobre mi vida en Guillecasasola.com.ar, ¡te espero!">
+
+    <title>Guille Casasola</title>
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/v2/assets/css/main.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
+    <script>
+        if (window.location.hostname === 'guillecasasola.com.ar') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YJRSRXC9HJ');
+        }
+    </script>
+</head>
+
+<body data-nav-active="home">
+    <div data-include="/v2/partials/header.html"></div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero__grid">
+                <div>
+                    <h1 class="hero__greeting" data-reveal>Hola, <em>bienvenido</em> :)</h1>
+                    <p class="hero__role"><span class="hero__role-text"></span></p>
+                    <div class="hero__lede flow" data-reveal>
+                        <p>
+                            Un placer que estés por acá. Soy Guillermo Casasola, desarrollador de software con más de
+                            <span class="years-of-experience">5</span> años de experiencia.
+                        </p>
+                        <p>
+                            Si te interesa saber lo que hago o sobre mis proyectos, te invito a que navegues
+                            tranquilo por mi web.
+                        </p>
+                        <p>
+                            Podés usar el formulario para comunicarte conmigo, dejar un mensaje de apoyo o una
+                            sugerencia. ¡Espero tu mensaje!
+                        </p>
+                    </div>
+                    <div class="hero__cta" data-reveal>
+                        <button type="button" class="btn btn-primary" data-open-contact>Contáctame</button>
+                        <a class="btn btn-secondary" href="#work">Ver proyectos</a>
+                    </div>
+                </div>
+
+                <div class="hero__portrait" data-reveal>
+                    <span class="hero__portrait-ring" aria-hidden="true"></span>
+                    <div class="hero__portrait-img">
+                        <img src="/images/guillecasa.webp" alt="Foto de Guille Casasola">
+                    </div>
+                </div>
+            </div>
+
+            <a class="hero__scroll-cue" href="#aboutme" aria-label="Ir a la sección Sobre mí">
+                Descubrí más <i class="bi bi-chevron-down"></i>
+            </a>
+        </section>
+
+        <section id="aboutme" class="section">
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="eyebrow">Quién soy</span>
+                    <h2>Sobre mí</h2>
+                </div>
+
+                <div class="about-cards">
+                    <div class="about-card" data-reveal tabindex="0" role="button" aria-haspopup="dialog"
+                        data-dialog-target="dialog-educacion">
+                        <div class="about-card__icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        <h3>Educación</h3>
+                        <p class="about-card__summary">Licenciado en Ciencias de la Computación, UNSJ.</p>
+                        <span class="about-card__hint">Leer más <i class="bi bi-arrow-right"></i></span>
+                    </div>
+
+                    <div class="about-card" data-reveal tabindex="0" role="button" aria-haspopup="dialog"
+                        data-dialog-target="dialog-experiencia">
+                        <div class="about-card__icon"><i class="bi bi-briefcase-fill"></i></div>
+                        <h3>Experiencia</h3>
+                        <p class="about-card__summary">+5 años en desarrollo fullstack y liderazgo técnico en
+                            proyectos.</p>
+                        <span class="about-card__hint">Leer más <i class="bi bi-arrow-right"></i></span>
+                    </div>
+
+                    <div class="about-card" data-reveal tabindex="0" role="button" aria-haspopup="dialog"
+                        data-dialog-target="dialog-personal">
+                        <div class="about-card__icon"><i class="bi bi-heart-fill"></i></div>
+                        <h3>Un poco sobre mí</h3>
+                        <p class="about-card__summary">Ajedrez, juegos de lógica, magia y unos buenos matecitos 🧉.
+                        </p>
+                        <span class="about-card__hint">Leer más <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <dialog id="dialog-educacion" class="about-dialog">
+                <div class="about-dialog__inner">
+                    <button type="button" class="about-dialog__close" data-dialog-close aria-label="Cerrar">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    <h3>Educación</h3>
+                    <p>
+                        Arranqué la carrera de <strong>Licenciatura en Ciencias de la Computación</strong> en el 2016,
+                        en la <strong>Universidad Nacional de San Juan</strong> 🏫.
+                    </p>
+                    <p>
+                        Tres años después, en 2019, obtuve el título intermedio como Técnico en Programación. Ese fue
+                        mi primer gran paso para comenzar a trabajar en el mundo del desarrollo de software.
+                    </p>
+                    <p>
+                        En 2022, finalmente me recibí 🎓 de <strong>Licenciado en Ciencias de la Computación</strong>,
+                        con un trabajo final centrado en tecnologías modernas: <em>"Migración de un sistema de
+                            control IoT de un modelo de Cloud Convencional a una arquitectura Serverless"</em>.
+                    </p>
+                    <p>
+                        Durante esos años no solo fui estudiante, también formé parte del equipo docente. Comencé
+                        como ayudante de cátedra y más adelante asumí el rol de jefe de trabajos prácticos.
+                    </p>
+                    <p>
+                        Otro hito que puedo mencionar de mi etapa universitaria es que integré el cuerpo de bandera 🇦🇷
+                        de la <strong>Facultad de Ciencias Exactas, Físicas y Naturales</strong>.
+                    </p>
+                </div>
+            </dialog>
+
+            <dialog id="dialog-experiencia" class="about-dialog">
+                <div class="about-dialog__inner">
+                    <button type="button" class="about-dialog__close" data-dialog-close aria-label="Cerrar">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    <h3>Experiencia</h3>
+                    <p>
+                        A lo largo de mi camino como desarrollador, fui armando mi perfil fullstack mientras mejoraba
+                        en cosas clave como el trabajo en equipo, la comunicación y la resolución de problemas.
+                    </p>
+                    <p>
+                        Mi primer desafío fue en el <strong>Observatorio Ambiental de San Juan</strong>, donde
+                        participé en el desarrollo de un sistema para monitorear la calidad del agua.
+                    </p>
+                    <p>
+                        Después de eso, participé en proyectos bastante interesantes como <strong>TapTur</strong>,
+                        una startup que busca simplificar la oferta y contratación de experiencias turísticas. Así
+                        como también en el desarrollo de <strong>IoTermia</strong>, una plataforma IoT para
+                        controlar la cadena de frío con sensores.
+                        (<a href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab"
+                            target="_blank" rel="noopener noreferrer" aria-label="Nota Si San Juan">ver nota</a>).
+                    </p>
+                    <p>
+                        El mayor salto en mi carrera lo di trabajando en una empresa que ofrece software para gestión
+                        de alquileres vacacionales. Ahí desarrollé apps web y móviles, e integré servicios con
+                        <strong>Booking</strong>, <strong>Airbnb</strong> y <strong>Stripe</strong>.
+                    </p>
+                </div>
+            </dialog>
+
+            <dialog id="dialog-personal" class="about-dialog">
+                <div class="about-dialog__inner">
+                    <button type="button" class="about-dialog__close" data-dialog-close aria-label="Cerrar">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    <h3>Un poco sobre mí</h3>
+                    <p>
+                        Disfruto de la tranquilidad, de tomar <strong>unos buenos mates</strong>
+                        <img src="/images/mate.svg" alt="Mate emoji" width="24" style="display:inline;vertical-align:middle;">
+                        y de pasar tiempo en la computadora aprendiendo, descubriendo curiosidades y también jugando
+                        algunos juegos.
+                    </p>
+                    <p>Valoro los momentos compartidos con mis amigos y familia.</p>
+                    <p>
+                        También tengo varios hobbies como el cardistry, la magia y los juegos de ingenio (cada tanto
+                        me pongo a resolver un cubo de Rubik o a jugar partidas de ajedrez).
+                    </p>
+                    <p>
+                        En cuanto al deporte, me gusta el básquet, juego al pádel con amigos, y actualmente practico
+                        calistenia.
+                    </p>
+                </div>
+            </dialog>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="eyebrow">Habilidades</span>
+                    <h2>¿Qué hago?</h2>
+                </div>
+                <p class="about-lede">
+                    Actualmente soy desarrollador de software especializado en desarrollo web y enfocado en la
+                    simplificación y/o automatización de procesos mediante integraciones.
+                    Mi motivación son los desafíos que me permiten crear cosas nuevas día a día, afianzando mis
+                    conocimientos, aprendiendo nuevas tecnologías o implementando funcionalidades que hasta el
+                    momento no he desarrollado en otros proyectos.
+                    Si te preguntás qué tecnologías uso, te las muestro a continuación:
+                </p>
+                <div class="services" id="services-grid"></div>
+            </div>
+        </section>
+
+        <section id="work" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Portfolio</span>
+                    <h2>Proyectos</h2>
+                </div>
+
+                <div class="project-filters" id="project-filters"></div>
+                <div class="project-grid" id="project-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <div data-include="/v2/partials/footer.html"></div>
+    <div data-include="/v2/partials/contact-modal.html"></div>
+
+    <script type="module" src="/v2/assets/js/pages/home.js"></script>
+</body>
+
+</html>

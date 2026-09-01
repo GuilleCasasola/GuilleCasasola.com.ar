@@ -1,0 +1,43 @@
+<dialog id="contactModal" class="contact-dialog">
+    <div class="contact-dialog__inner">
+        <div class="contact-dialog__header">
+            <h3 id="contactModalLabel" style="margin:0;">Espero tu mensaje!</h3>
+            <button type="button" class="contact-dialog__close" data-dialog-close aria-label="Cerrar">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <form id="contact-form" name="contact-form">
+            <div class="field">
+                <label for="sender-name">Nombre:</label>
+                <input type="text" name="nombre" id="sender-name" autocomplete="name">
+            </div>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" autocomplete="email">
+            </div>
+            <p class="text-muted" style="font-size: var(--fs-200);">
+                Si querés estar al tanto de las actualizaciones de mi sitio, así como también entradas de blog
+                nuevas, te invito a que te suscribas!
+            </p>
+            <div class="field field--checkbox">
+                <input checked name="newsletter" type="checkbox" id="newsletter">
+                <label for="newsletter">Suscribirme a novedades</label>
+            </div>
+            <div class="field">
+                <label for="message-text">Comentario:</label>
+                <textarea id="message-text" name="comentario"></textarea>
+            </div>
+
+            <div class="contact-dialog__actions">
+                <button type="button" class="btn btn-secondary" data-dialog-close>Cerrar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+
+        <div id="form-status" class="contact-status" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            Enviando mensaje…
+        </div>
+    </div>
+</dialog>
