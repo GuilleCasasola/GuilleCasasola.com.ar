@@ -1,0 +1,77 @@
+/* stack.css — "¿Qué hago?": tarjetas de tecnologías. */
+.stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.stack-card {
+  position: relative;
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.stack-card__index {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--bg-2);
+  line-height: 1;
+}
+
+.stack-card__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  color: var(--on-brand);
+  background: var(--blob-gradient);
+  border-radius: var(--blob-a);
+  margin-bottom: 1rem;
+  transition: border-radius 0.7s ease-in-out;
+}
+
+.stack-card:hover .stack-card__icon {
+  border-radius: var(--blob-b);
+}
+
+.stack-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+  border-radius: 999px;
+  background: var(--bg-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.chip img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  padding: 2px;
+}

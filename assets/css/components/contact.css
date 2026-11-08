@@ -1,0 +1,195 @@
+/* contact.css — sección de contacto dentro de un gran globo terracota,
+   el footer y el toast. */
+.contact {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  border-radius: 56px 120px 64px 140px / 90px 60px 120px 70px;
+  background: var(--blob-gradient);
+  color: var(--on-brand);
+  overflow: hidden;
+}
+
+.contact::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: -90px;
+  border-radius: var(--blob-b);
+  background: rgba(255, 255, 255, 0.08);
+  animation: morph 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.contact h2 {
+  font-size: var(--fs-xl);
+  margin-bottom: 1rem;
+}
+
+.contact__intro p {
+  opacity: 0.92;
+}
+
+.contact__hug {
+  width: 90px;
+  margin-top: 1rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.contact-form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 20px 50px -20px rgba(40, 20, 10, 0.5);
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.field label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+.field--check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field--check input {
+  accent-color: var(--brand-strong);
+  width: 18px;
+  height: 18px;
+}
+
+.contact-form__note {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+.contact-form .btn {
+  justify-self: start;
+}
+
+.contact-form .btn[disabled] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@media (max-width: 860px) {
+  .contact {
+    grid-template-columns: 1fr;
+    border-radius: 40px 72px 40px 80px / 56px 40px 72px 44px;
+  }
+}
+
+/* Footer */
+.footer {
+  padding-block: 2.5rem;
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__social a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Toast (lo crea /assets/js/modules/toast.js) */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  max-width: min(360px, calc(100vw - 40px));
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  translate: 0 16px;
+  opacity: 0;
+  transition: translate 0.4s var(--ease-bounce), opacity 0.3s;
+}
+
+.toast.is-visible {
+  translate: 0 0;
+  opacity: 1;
+}
+
+.toast i {
+  color: var(--mate);
+  font-size: 1.3rem;
+}
+
+.toast .text-muted {
+  color: var(--text-2);
+}

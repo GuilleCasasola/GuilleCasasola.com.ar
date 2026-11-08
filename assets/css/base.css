@@ -1,0 +1,161 @@
+/* base.css — reset mínimo, tipografía y utilidades de layout. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--brand);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--mate);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(var(--container), 100% - 32px);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(4rem, 3rem + 5vw, 7.5rem);
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.section-head h2 {
+  font-size: var(--fs-xl);
+  font-weight: 750;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--mate);
+  margin-bottom: 0.5rem;
+}
+
+.kicker::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: var(--blob-a);
+}
+
+.lede {
+  max-width: 68ch;
+  margin: 0 auto 2.5rem;
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s, background 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--brand-strong);
+  color: var(--on-brand);
+  box-shadow: var(--glow-hover);
+}
+
+.btn--ghost {
+  border-color: var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  border-color: var(--brand);
+}
+
+/* Revelado al scrollear: sólo oculta si el JS está activo (clase .js en <html>).
+   Usa animation (no transition) para no pisar las transiciones propias de
+   cada componente, como el cambio de forma de los globitos al hover. */
+.js [data-reveal]:not(.is-in) {
+  opacity: 0;
+}
+
+.js [data-reveal].is-in {
+  animation: reveal-in 0.8s var(--ease) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

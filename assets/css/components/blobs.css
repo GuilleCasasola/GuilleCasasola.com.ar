@@ -1,0 +1,224 @@
+/* blobs.css — los globitos de "Sobre mí" (diseño original de la 1.0)
+   y el diálogo en el que se transforman al hacer click. */
+.blobs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.blob-card {
+  --shape: var(--blob-a);
+  --shape-hover: var(--blob-b);
+
+  position: relative;
+  width: 300px;
+  height: 210px;
+  padding: 1.5rem 2rem;
+  border: none;
+  border-radius: var(--shape);
+  background: var(--blob-gradient);
+  color: var(--on-brand);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  box-shadow: var(--glow);
+  transition: border-radius 0.7s ease-in-out, box-shadow 0.6s ease, scale 0.6s var(--ease-bounce);
+  animation: breathe 5s ease-in-out infinite;
+  animation-delay: var(--delay, 0ms);
+}
+
+.blob-card:nth-child(2) {
+  --shape: var(--blob-b);
+  --shape-hover: var(--blob-a);
+}
+
+.blob-card:nth-child(3) {
+  --shape: var(--blob-c);
+  --shape-hover: var(--blob-b);
+}
+
+.blob-card__icon {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 750;
+  line-height: 1;
+  display: block;
+  max-height: 3rem;
+  overflow: hidden;
+  transition: opacity 0.4s, translate 0.5s var(--ease), max-height 0.6s var(--ease);
+}
+
+.blob-card__title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+
+/* Truco grid 0fr → 1fr para animar la altura del resumen. */
+.blob-card__more {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.6s var(--ease), opacity 0.5s;
+}
+
+.blob-card__more > span {
+  overflow: hidden;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.blob-card__hint {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+@media (hover: hover) {
+  .blob-card:hover,
+  .blob-card:focus-visible {
+    border-radius: var(--shape-hover);
+    box-shadow: var(--glow-hover);
+    scale: 1.04;
+    animation-play-state: paused;
+  }
+
+  .blob-card:hover .blob-card__more,
+  .blob-card:focus-visible .blob-card__more {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .blob-card:hover .blob-card__icon,
+  .blob-card:focus-visible .blob-card__icon {
+    opacity: 0;
+    translate: 0 -8px;
+    max-height: 0;
+  }
+}
+
+/* En touch se muestra el resumen siempre. */
+@media (hover: none) {
+  .blob-card__more {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
+/* Mientras el diálogo está abierto, el card "se convirtió" en el diálogo. */
+.blob-card.is-expanded {
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* ---------- Diálogo ---------- */
+.blob-dialog {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  max-height: none;
+  border: none;
+  overflow: hidden;
+  background: var(--blob-dialog);
+  color: var(--on-brand);
+  box-shadow: 0 30px 80px -20px rgba(40, 20, 10, 0.6);
+}
+
+/* Capa con el degradé del globo: visible al empezar y al terminar de cerrar,
+   así no hay salto de color entre el globo y el diálogo. */
+.blob-dialog::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--blob-gradient);
+  opacity: 0;
+  transition: opacity 0.55s;
+}
+
+.blob-dialog.is-start::before,
+.blob-dialog.is-closing::before {
+  opacity: 1;
+}
+
+.blob-dialog.is-start::before {
+  transition: none;
+}
+
+.blob-dialog::backdrop {
+  background: rgba(26, 20, 17, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.blob-dialog.is-open::backdrop,
+.blob-dialog.is-growing::backdrop {
+  opacity: 1;
+}
+
+.blob-dialog__inner {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  opacity: 0;
+  translate: 0 12px;
+  transition: opacity 0.35s, translate 0.45s var(--ease);
+  scrollbar-width: thin;
+}
+
+.blob-dialog.is-open .blob-dialog__inner {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.blob-dialog h3 {
+  font-size: var(--fs-xl);
+  margin-bottom: 1.25rem;
+  padding-right: 3rem;
+}
+
+.blob-dialog p {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+.blob-dialog a {
+  color: #ffd9bf;
+}
+
+.blob-dialog__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.blob-dialog__close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
