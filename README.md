@@ -55,6 +55,10 @@ Agregar la entrada en `assets/js/data/projects.json`. Los filtros salen de
 las categorías del JSON; para una categoría nueva, sumar su etiqueta en
 `LABELS` (`assets/js/modules/projects.js`).
 
+Cada link tiene un `type`: `site` (externo, abre en otra pestaña), `post`
+(artículo del blog) o `page` (otra página de este sitio, como la landing de
+`apps/my-year-recap/`).
+
 ## Versiones anteriores
 
 - [legacy/v1/](/legacy/v1) — el sitio 1.0 original (Bootstrap + jQuery).

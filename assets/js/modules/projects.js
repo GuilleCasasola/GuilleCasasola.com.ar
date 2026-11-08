@@ -8,10 +8,11 @@
 const DATA_URL = "/assets/js/data/projects.json";
 
 const LABELS = { academico: "Académico", pasatiempo: "Pasatiempo", sides: "Side Projects" };
-const LINK_ICON = { site: "bi-box-arrow-up-right", post: "bi-journal-text" };
+// site: externo (pestaña nueva) · post: artículo del blog · page: otra página de este sitio.
+const LINK_ICON = { site: "bi-box-arrow-up-right", post: "bi-journal-text", page: "bi-phone" };
 
 function link(l) {
-  const external = l.type !== "post";
+  const external = l.type === "site";
   return `<a href="${l.url}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>
     <i class="bi ${LINK_ICON[l.type] || "bi-link-45deg"}" aria-hidden="true"></i>${l.label}</a>`;
 }
