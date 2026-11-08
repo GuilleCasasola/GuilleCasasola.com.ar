@@ -3,32 +3,41 @@
 
 <head>
     <script>
+        // Tema antes del primer render (sin flash) + marca de JS activo para las animaciones de entrada.
         (function () {
-            const theme = localStorage.getItem('theme') || 'light'; // Obtiene el tema o usa 'light' por defecto
-            document.documentElement.classList.add(theme); // Aplica la clase directamente al <html>
+            var root = document.documentElement, saved = null;
+            root.classList.add('js');
+            try { saved = localStorage.getItem('theme'); } catch (e) { }
+            var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            root.setAttribute('data-theme', dark ? 'dark' : 'light');
         })();
     </script>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="84bb51aa-f7d1-4cd6-9359-9f808335abd5"
         type="text/javascript" async></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Soy Guillermo Casaola, desarrollador de software. Descubre mis proyectos, mi experiencia profesional y un poco sobre mi vida en Guillecasaola.com.ar , ¡te espero!">
+        content="Soy Guillermo Casasola, desarrollador de software. Descubrí mis proyectos, mi experiencia profesional y un poco sobre mi vida en Guillecasasola.com.ar, ¡te espero!">
+    <meta name="theme-color" content="#f7f1e8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1411" media="(prefers-color-scheme: dark)">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="Guille Casasola">
+    <meta property="og:description" content="Desarrollador de software. Proyectos, experiencia y un poco sobre mí.">
+    <meta property="og:image" content="https://guillecasasola.com.ar/images/guillecasa.webp">
 
     <title>Guille Casasola</title>
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/materialdesignicons.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/flipdown.css" />
-    <link rel="stylesheet" href="css/card.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJRSRXC9HJ"></script>
     <script>
@@ -37,717 +46,259 @@
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
             gtag('config', 'G-YJRSRXC9HJ');
-        } else {
-            console.log("Debug")
         }
     </script>
 </head>
 
-<body class="body-index">
+<body>
+    <div data-include="/partials/nav.html"></div>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" aria-label="Home" href="index.html">GuilleCasasola</a>
-            <button class="navbar-toggler navbar-toggler-right text-white" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-label="Inicio" href="#home">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-label="Sobre Mi" href="#aboutme">Sobre Mi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-label="Que hago" href="#services">¿Qué hago?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-label="Proyectos" href="#work">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-label="Blog" href="/blog">Blog</a>
-                    </li>
-                    <div onclick="toggleTheme()" id="themeSwitcher" class="dark-light mx-auto" role="button">
-                        <i class="mdi mdi-weather-night d-none" id="icon-night"></i>
-                        <i class="mdi mdi-weather-sunny" id="icon-sunny"></i>
+    <main>
+        <section id="inicio" class="hero">
+            <span class="float-blob float-blob--3" aria-hidden="true"></span>
+            <div class="container hero__grid">
+                <div>
+                    <h1 class="hero__title" data-reveal>Hola, <em>bienvenido</em> :)</h1>
+                    <p class="hero__role" data-reveal style="--delay:100ms"><span class="hero__role-text">Soy Lic. en
+                            Computación…</span></p>
+                    <div class="hero__lede" data-reveal style="--delay:200ms">
+                        <p>
+                            Un placer que estés por acá. Soy Guillermo Casasola, desarrollador de software con más de
+                            <span class="years-of-experience">5</span> años de experiencia.
+                        </p>
+                        <p>
+                            Si te interesa saber lo que hago o sobre mis proyectos, te invito a que navegues
+                            tranquilo por mi web.
+                        </p>
+                        <p>
+                            Podés usar el formulario para comunicarte conmigo, dejar un mensaje de apoyo o una
+                            sugerencia. ¡Espero tu mensaje!
+                        </p>
                     </div>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-    <section id="home" class="home  d-flex align-items-center justify-content-center">
-        <div class="container">
-            <div class="titles-wrap row align-items-center">
-                <style>
-
-                </style>
-                <div id="img-profile" class="col-12 col-md-4  py-md-5 px-5  px-md-0 order-md-2">
-                    <div class="rounded-circle img-fluid img-profile">
-                        <img src="images/guillecasa.webp" alt="Foto de Guille" class="img-fluid rounded-circle">
+                    <div class="hero__cta" data-reveal style="--delay:300ms">
+                        <a class="btn btn--primary" href="#contacto">Contáctame <i class="bi bi-arrow-right"
+                                aria-hidden="true"></i></a>
+                        <a class="btn btn--ghost" href="#proyectos">Ver proyectos</a>
                     </div>
                 </div>
-                <div id="presentacion" class="col-12 col-md-8 fadein">
-                    <h1>Hola,<span> Bienvenido! :)</span></h1>
-                    <h2><span class="txt-rotate"></span></h2>
-                    <div class="fadein ">
 
-                        <p> Un placer que estes por acá. Soy Guillermo Casasola desarrollador de software con mas de
-                            <span class="yearsOfExperience"> </span> años de
-                            experiencia.
-                        </p>
-                        <p> Si te interesa saber lo que hago o sobre mis proyectos te invito a que navegues tranquilo
-                            por mi web.
-                        </p>
-                        <p class="d-none d-md-block">Podes usar el formulario para comunicarte conmigo, dejar un mensaje
-                            de apoyo o
-                            sugerencia! Espero tu mensaje!</p>
+                <div class="hero__portrait" data-reveal style="--delay:150ms">
+                    <span class="hero__portrait-bg" aria-hidden="true"></span>
+                    <div class="hero__portrait-img">
+                        <img src="/images/guillecasa.webp" alt="Foto de Guille Casasola" width="420" height="420">
                     </div>
-                    <!-- <div class="getintouch">
-                            <div><a href="https://forms.gle/2YWBow6WcdtPoL6f6" class="btn"> Suscribite! </a></div>
-                        </div> -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
-                        Contáctame
+                    <span class="float-blob float-blob--1" aria-hidden="true"></span>
+                    <span class="float-blob float-blob--2" aria-hidden="true"></span>
+                </div>
+            </div>
+            <a class="hero__scroll" href="#sobre-mi" aria-label="Ir a la sección Sobre mí"><i
+                    class="bi bi-chevron-double-down" aria-hidden="true"></i></a>
+        </section>
+
+        <section id="sobre-mi" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="kicker">Quién soy</span>
+                    <h2>Sobre mí</h2>
+                </div>
+
+                <div class="blobs">
+                    <div class="blob-slot" data-reveal style="--delay:0ms">
+                    <button type="button" class="blob-card" data-blob-dialog="dialog-educacion" aria-haspopup="dialog">
+                        <span class="blob-card__icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></span>
+                        <span class="blob-card__title">Educación</span>
+                        <span class="blob-card__more">
+                            <span>Licenciado en Ciencias de la Computación, UNSJ.</span>
+                        </span>
+                        <span class="blob-card__hint">Tocá para leer más</span>
                     </button>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section class="aboutme d-flex flex-column " id="aboutme">
-        <div class="container my-auto d-flex flex-column flex-grow-1">
-            <!-- <h2 class="text-center py-4">Mi título</h2> -->
-            <div class="sec-title w-100 text-center pt-5">
-                <h2>Sobre mí</h2>
-            </div>
-            <div class="card-container d-flex justify-content-center align-items-center flex-grow-1 gap-4 flex-wrap">
-                <div class="cards-row d-flex justify-content-center align-items-center flex-grow-1 gap-4 flex-wrap">
-                    <div class="card card1">
-                        <div class="content">
-                            <div class="first-content">
-                                <i class="mdi mdi-school mdi-48px"></i>
-                            </div>
-                            <h3>Educación</h3>
-                            <div class="extra-content">
-                                <p>Licenciado en Ciencias de la Computación, UNSJ.</p>
-                            </div>
-                            <div class="extra-modal close">
-                                <p>
-                                    Arranqué la carrera de <strong>Licenciatura en Ciencias de la
-                                        Computación</strong> en el 2016, en la <strong>Universidad Nacional de San
-                                        Juan</strong> 🏫.
-                                </p>
-                                <p>
-                                    Tres años después, en 2019, obtuve el título intermedio como Técnico en
-                                    Programación. Ese fué mi primer gran paso para comenzar a trabajar en el mundo
-                                    del desarrollo de software.
-                                </p>
-                                <p>
-                                    En 2022, finalmente me recibí 🎓 de <strong>Licenciado en Ciencias de la
-                                        Computación</strong>, con un trabajo final centrado en tecnologías modernas:
-                                    <em>"Migración de un sistema de control IoT de un modelo de Cloud Convencional a
-                                        una arquitectura Serverless"</em>.
-                                </p>
-                                <p>
-                                    Durante esos años no solo fui estudiante, también formé parte del equipo
-                                    docente. Comencé como ayudante de cátedra y más adelante asumí el rol de jefe de
-                                    trabajos prácticos.
-                                </p>
-                                <p>
-                                    Otro hito que puedo mencionar de mi etapa universitaria es que integré el cuerpo de bandera 🇦🇷 de la <strong>Facultad
-                                        de Ciencias Exactas, Físicas y Naturales</strong>.
-                                </p>
-                                <button class="btn-close"></button>
-                            </div>
-                        </div>
                     </div>
-                    <div class="card card2">
-                        <div class="content">
-                            <div class="first-content">
-                                +5 años
-                            </div>
-                            <h3>Experiencia</h3>
-                            <div class="extra-content">
-                                <p> 5+ años en desarrollo fullstack y liderazgo técnico en proyectos.</p>
-                            </div>
-                            <div class="extra-modal close">
-                                <p>
-                                    A lo largo de mi camino como desarrollador, fui armando mi perfil fullstack mientras
-                                    mejoraba en cosas clave como el trabajo en equipo, la comunicación y la resolución
-                                    de problemas.
-                                </p>
-                                <p>
-                                    Mi primer desafío fue en el <strong>Observatorio Ambiental de San Juan</strong>,
-                                    donde participé en el desarrollo de un sistema para monitorear la calidad del agua.
-                                </p>
-                                <p>
-                                    Después de eso, participé en proyectos bastante interesantes como
-                                    <strong>TapTur</strong> , una startup que busca simplificar la oferta y contratación
-                                    de experiencias turíticas.
-                                    Asi como también en el desarrollo de <strong>IoTermia</strong>, una plataforma IoT
-                                    para controlar la cadena de frío con sensores. (<a
-                                        href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab"
-                                        target="_blank" aria-label="Nota Si San Juan">ver nota</a>).
-                                </p>
-                                <p>
-                                    El mayor salto en mi carrera lo di trabajando en una empresa que ofrece software
-                                    para gestión alquileres
-                                    vacacionales. Ahí desarrollé apps web y móviles, e integré servicios con
-                                    <strong>Booking</strong>, <strong>Airbnb</strong> y <strong>Stripe</strong>.
-                                </p>
 
-                                <button class="btn-close"></button>
-                            </div>
-
-                        </div>
+                    <div class="blob-slot" data-reveal style="--delay:150ms">
+                    <button type="button" class="blob-card" data-blob-dialog="dialog-experiencia"
+                        aria-haspopup="dialog">
+                        <span class="blob-card__icon">+<span class="years-of-experience">5</span> años</span>
+                        <span class="blob-card__title">Experiencia</span>
+                        <span class="blob-card__more">
+                            <span>+5 años en desarrollo fullstack y liderazgo técnico en proyectos.</span>
+                        </span>
+                        <span class="blob-card__hint">Tocá para leer más</span>
+                    </button>
                     </div>
-                    <!-- <div class="card card3">
-                        <div class="content">
-                            <div class="first-content">
-                                <i class="mdi mdi-code-braces mdi-48px"></i>
-                            </div>
-                            <h3>Tecnologías</h3>
-                            <div class="extra-content">
-                                <p>Node.js, .NET, Vue, Angular, MongoDB, SQL Server, y más.</p>
-                            </div>
-                            <div class="extra-modal close">
-                                <p>Me gradué como Licenciado en Ciencias de la Computación en la UNSJ, una carrera
-                                    enfocada en fundamentos teóricos y prácticos de la informática.</p>
 
-                                <p>Mi proyecto final abordó la integración de sensores IoT con visualización en tiempo
-                                    real usando Node.js y MongoDB.</p>
-                                <button class="btn-close"></button>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="card card3">
-                        <div class="content">
-                            <div class="first-content">
-                                <i class="mdi mdi-heart mdi-48px"></i>
-                            </div>
-                            <h3>Un poco sobre mí</h3>
-                            <div class="extra-content">
-                                <p>Ajedrez, juegos de lógica, magia y unos buenos matecitos 🧉.</p>
-                            </div>
-                            <div class="extra-modal close">
-                                <p>
-                                    Disfruto de la tranquilidad, de tomar <strong>unos buenos mates</strong> <img
-                                        src="./images/mate.svg" alt="Mate emoji" width="24"> y de pasar tiempo en la
-                                    computadora aprendiendo, descubriendo curiosidades
-                                    y también jugando algunos juegos.
-                                </p>
-                                <p>
-                                    Valoro los momentos compartidos con mis amigos y familia. <br>
-                                </p>
-                                <p>
-                                    También tengo varios hobbies como el cardistry, la magia y los juegos de
-                                    ingenio (cada tanto me pongo a resolver un cubo de Rubik o a jugar partidas
-                                    de ajedrez)
-                                </p>
-                                <p>
-                                    En cuanto al deporte, me gusta el basquet, juego al padel con amigos, y actualmente
-                                    practico Calistenia.
-                                </p>
-                                <button class="btn-close"></button>
-                            </div>
-                        </div>
+                    <div class="blob-slot" data-reveal style="--delay:300ms">
+                    <button type="button" class="blob-card" data-blob-dialog="dialog-personal" aria-haspopup="dialog">
+                        <span class="blob-card__icon"><i class="bi bi-heart-fill" aria-hidden="true"></i></span>
+                        <span class="blob-card__title">Un poco sobre mí</span>
+                        <span class="blob-card__more">
+                            <span>Ajedrez, juegos de lógica, magia y unos buenos matecitos 🧉.</span>
+                        </span>
+                        <span class="blob-card__hint">Tocá para leer más</span>
+                    </button>
                     </div>
                 </div>
             </div>
-            <script>
-                const cards = document.querySelectorAll(".card");
-                let isAnimating = false;
-                function closeModal(element, bounds) {
-                    gsap.to(element, {
-                        top: `${bounds.top}px`,
-                        left: `${bounds.left}px`,
-                        width: `${bounds.width}px`,
-                        height: `${bounds.height}px`,
-                        duration: 0.6,
-                        ease: "power3.inOut",
-                        onStart: () => {
-                            let contentModal = element.querySelector(".extra-modal")
-                            element.classList.remove("open");
-                            document.body.classList.remove("modal-open");
-                            contentModal.classList.add("close");
-                        },
-                        onComplete: () => {
-                            element.classList.remove("open");
-                            element.remove();
-                        }
-                    });
-                }
 
-                cards.forEach(originalCard => {
-                    originalCard.addEventListener("click", () => {
-                        if (isAnimating || originalCard.classList.contains("open")) return;
-                        const bounds = originalCard.getBoundingClientRect();
-                        const clone = originalCard.cloneNode(true);
-                        console.log(bounds);
-                        document.body.appendChild(clone);
+            <dialog id="dialog-educacion" class="blob-dialog" aria-labelledby="dlg-edu-title">
+                <button type="button" class="icon-btn blob-dialog__close" data-close aria-label="Cerrar">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+                <div class="blob-dialog__inner">
+                    <h3 id="dlg-edu-title">Educación</h3>
+                    <p>
+                        Arranqué la carrera de <strong>Licenciatura en Ciencias de la Computación</strong> en el 2016,
+                        en la <strong>Universidad Nacional de San Juan</strong> 🏫.
+                    </p>
+                    <p>
+                        Tres años después, en 2019, obtuve el título intermedio como Técnico en Programación. Ese fue
+                        mi primer gran paso para comenzar a trabajar en el mundo del desarrollo de software.
+                    </p>
+                    <p>
+                        En 2022, finalmente me recibí 🎓 de <strong>Licenciado en Ciencias de la Computación</strong>,
+                        con un trabajo final centrado en tecnologías modernas: <em>"Migración de un sistema de
+                            control IoT de un modelo de Cloud Convencional a una arquitectura Serverless"</em>.
+                    </p>
+                    <p>
+                        Durante esos años no solo fui estudiante, también formé parte del equipo docente. Comencé
+                        como ayudante de cátedra y más adelante asumí el rol de jefe de trabajos prácticos.
+                    </p>
+                    <p>
+                        Otro hito que puedo mencionar de mi etapa universitaria es que integré el cuerpo de bandera 🇦🇷
+                        de la <strong>Facultad de Ciencias Exactas, Físicas y Naturales</strong>.
+                    </p>
+                </div>
+            </dialog>
 
-                        function handleOutsideClick(e) {
-                            if (!clone.contains(e.target) && !isAnimating) {
-                                closeModal(clone,bounds);
-                            }
-                        }
-                        document.addEventListener("click", handleOutsideClick);
-                        const closeBtn = clone.querySelector(".btn-close");
+            <dialog id="dialog-experiencia" class="blob-dialog" aria-labelledby="dlg-exp-title">
+                <button type="button" class="icon-btn blob-dialog__close" data-close aria-label="Cerrar">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+                <div class="blob-dialog__inner">
+                    <h3 id="dlg-exp-title">Experiencia</h3>
+                    <p>
+                        A lo largo de mi camino como desarrollador, fui armando mi perfil fullstack mientras mejoraba
+                        en cosas clave como el trabajo en equipo, la comunicación y la resolución de problemas.
+                    </p>
+                    <p>
+                        Mi primer desafío fue en el <strong>Observatorio Ambiental de San Juan</strong>, donde
+                        participé en el desarrollo de un sistema para monitorear la calidad del agua.
+                    </p>
+                    <p>
+                        Después de eso, participé en proyectos bastante interesantes como <strong>TapTur</strong>,
+                        una startup que busca simplificar la oferta y contratación de experiencias turísticas. Así
+                        como también en el desarrollo de <strong>IoTermia</strong>, una plataforma IoT para
+                        controlar la cadena de frío con sensores.
+                        (<a href="https://sisanjuan.gob.ar/ciencia-tecnologia-e-innovacion/2020-08-18/24997-un-sistema-automatico-de-sensores-de-temperatura-uno-de-los-incubados-en-el-san-juan-lab"
+                            target="_blank" rel="noopener noreferrer" aria-label="Nota Si San Juan">ver nota</a>).
+                    </p>
+                    <p>
+                        El mayor salto en mi carrera lo di trabajando en una empresa que ofrece software para gestión
+                        de alquileres vacacionales. Ahí desarrollé apps web y móviles, e integré servicios con
+                        <strong>Booking</strong>, <strong>Airbnb</strong> y <strong>Stripe</strong>.
+                    </p>
+                </div>
+            </dialog>
 
-                        clone.style.position = "fixed";
-                        clone.style.top = `${bounds.top}px`;
-                        clone.style.left = `${bounds.left}px`;
-                        clone.style.width = `${bounds.width}px`;
-                        clone.style.height = `${bounds.height}px`;
-                        clone.style.margin = 0;
-                        clone.style.zIndex = 999;
-                        clone.classList.add("modal-clone");
-                        clone.classList.add("opening");
-                        isAnimating = true;
+            <dialog id="dialog-personal" class="blob-dialog" aria-labelledby="dlg-per-title">
+                <button type="button" class="icon-btn blob-dialog__close" data-close aria-label="Cerrar">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+                <div class="blob-dialog__inner">
+                    <h3 id="dlg-per-title">Un poco sobre mí</h3>
+                    <p>
+                        Disfruto de la tranquilidad, de tomar <strong>unos buenos mates</strong>
+                        <img src="/images/mate.svg" alt="Mate emoji" width="24"
+                            style="display:inline;vertical-align:middle;">
+                        y de pasar tiempo en la computadora aprendiendo, descubriendo curiosidades y también jugando
+                        algunos juegos.
+                    </p>
+                    <p>Valoro los momentos compartidos con mis amigos y familia.</p>
+                    <p>
+                        También tengo varios hobbies como el cardistry, la magia y los juegos de ingenio (cada tanto
+                        me pongo a resolver un cubo de Rubik o a jugar partidas de ajedrez).
+                    </p>
+                    <p>
+                        En cuanto al deporte, me gusta el básquet, juego al pádel con amigos, y actualmente practico
+                        calistenia.
+                    </p>
+                </div>
+            </dialog>
+        </section>
 
-                        gsap.to(clone, {
-                            top: "10vh",
-                            left: "5vw",
-                            width: "90vw",
-                            height: "80vh",
-                            ease: "power3.inOut",
-                            duration: 0.6,
-                            onComplete: () => {
-                                document.body.classList.add("modal-open");
-                                clone.classList.remove("opening");
-                                clone.classList.add("open");
+        <section id="que-hago" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="kicker">Habilidades</span>
+                    <h2>¿Qué hago?</h2>
+                </div>
+                <p class="lede" data-reveal>
+                    Actualmente soy desarrollador de software especializado en desarrollo web y enfocado en la
+                    simplificación y/o automatización de procesos mediante integraciones.
+                    Mi motivación son los desafíos que me permiten crear cosas nuevas día a día, afianzando mis
+                    conocimientos, aprendiendo nuevas tecnologías o implementando funcionalidades que hasta el
+                    momento no he desarrollado en otros proyectos.
+                    Si te preguntás qué tecnologías uso, te las muestro a continuación:
+                </p>
+                <div class="stack" id="stack"></div>
+            </div>
+        </section>
 
-                                isAnimating = false;
-                                let contentModal = clone.querySelector(".extra-modal")
-                                contentModal.classList.remove("close");
-                            }
-                        });
+        <section id="proyectos" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <span class="kicker">Portfolio</span>
+                    <h2>Proyectos</h2>
+                </div>
+                <div class="filters" id="filters" role="group" aria-label="Filtrar proyectos"></div>
+                <div class="projects" id="projects"></div>
+            </div>
+        </section>
 
-                        closeBtn.addEventListener("click", (e) => {
-                            e.stopPropagation(); // evita que el click del modal también se dispare
-                            gsap.to(clone, {
-                                top: `${bounds.top}px`,
-                                left: `${bounds.left}px`,
-                                width: `${bounds.width}px`,
-                                height: `${bounds.height}px`,
-                                duration: 0.6,
-                                ease: "power3.inOut",
-                                onStart: () => {
-                                    let contentModal = clone.querySelector(".extra-modal")
-                                    clone.classList.remove("open");
-                                    document.body.classList.remove("modal-open");
-                                    contentModal.classList.add("close");
-                                },
-                                onComplete: () => {
-                                    clone.classList.remove("open");
-                                    clone.remove();
-                                }
-                            });
-                        });
-                    });
-                });
-            </script>
-        </div>
-        </div>
-    </section>
-    <section class="aboutme" id="services">
-        <div class="container my-auto">
-            <div class="row">
-                <div class="col-lg-12 ">
-                    <div class="sec-title w-100 text-center">
-                        <h2>¿Que Hago?</h2>
-                    </div>
-                    <div class="info">
-                        <p class="text-center">
-                            Actualmente soy desarrollador de software especializado en desarrollo web y enfocado en la
-                            simplificación
-                            y/o automatización de procesos mediante integraciones.
-                            <br> <br>
-                            Mi motivación son los desafíos que me permiten crear cosas nuevas día a día, afianzando mis
-                            conocimientos,
-                            aprendiendo nuevas tecnologías o implementando funcionalidades que hasta el momento no he
-                            desarrollado en otros proyectos.
-                            <br><br>
-                            Si te preguntas que tecnologías son las que uso te las muestro a continuación:
+        <section id="contacto" class="section">
+            <div class="container">
+                <div class="contact" data-reveal>
+                    <div class="contact__intro">
+                        <span class="kicker" style="color:#e9f0c9">Contacto</span>
+                        <h2>Espero tu mensaje!</h2>
+                        <p>
+                            Podés usar el formulario para comunicarte conmigo, dejar un mensaje de apoyo o una
+                            sugerencia.
                         </p>
+                        <img class="contact__hug" src="/images/abrazo.svg" alt="" width="90">
                     </div>
-                </div>
-            </div>
-            <div class="row info">
 
-                <div class="col-12 col-sm-6 col-md-6 ">
-                    <div class="service-box">
-                        <div class="icontitle">
-                            <i class="mdi mdi-code-tags mdi-48px"> </i>
-                            <div class="title">
-                                <span>01</span>
-                                <h4>Tecnologías Front</h4>
-                            </div>
+                    <form class="contact-form" id="contact-form" name="contact-form">
+                        <div class="field">
+                            <label for="sender-name">Nombre</label>
+                            <input type="text" name="nombre" id="sender-name" autocomplete="name">
                         </div>
-                        <div class="d-flex flex-wrap justify-align-center">
-                            <img src="./images/techs/HTML.png" alt="Logo Html" class="mx-auto">
-                            <img src="./images/techs/CSS.png" alt="Logo Css" class="mx-auto">
-                            <img src="./images/techs/js.png" alt="Logo Js" class="mx-auto">
-                            <img src="./images/techs/vue.png" alt="Logo Js" class="mx-auto">
-                            <img src="./images/techs/angular.png" alt="Logo Js" class="mx-auto">
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" autocomplete="email">
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="icontitle">
-                            <i class="mdi mdi-code-json mdi-48px"> </i>
-                            <div class="title">
-                                <span>02</span>
-                                <h4>Tecnologías Back</h4>
-                            </div>
+                        <div class="field">
+                            <label for="message-text">Comentario</label>
+                            <textarea id="message-text" name="comentario" required></textarea>
                         </div>
-                        <div class="d-flex flex-wrap justify-align-center">
-                            <img src="./images/techs/nodejs.png" alt="Logo Node Js" class="mx-auto">
-                            <img src="./images/techs/express.png" alt="Logo Express" class="mx-auto">
-                            <img src="./images/techs/c-sharp.png" alt="Logo C#" class="mx-auto">
-                            <img src="./images/techs/net.png" alt="Logo Net" class="mx-auto">
-                            <img src="./images/techs/mongo.png" alt="Logo Mongo" class="mx-auto">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="service-box">
-                        <div class="icontitle">
-                            <i class="mdi mdi-server mdi-48px"> </i>
-                            <div class="title">
-                                <span>03</span>
-                                <h4>Infraestructura</h4>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-wrap justify-align-center">
-                            <img src="./images/techs/aws.png" alt="Logo Node Js" class="mx-auto">
-                            <img src="./images/techs/docker.svg" alt="Logo Express" class="mx-auto">
-                            <!-- <img src="./images/techs/Lambda.png" alt="Logo Net" class="mx-auto">
-                            <img src="./images/techs/EC2.png" alt="Logo Mongo" class="mx-auto"> -->
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="aboutme work">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="sec-title">
-                        <h2>Proyectos</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row d-block">
-                <ul class="list-filter">
-                    <li><a id="todos" aria-label="Todos los proyectos" class="lists active" data-filter="*"
-                            href="#work">All</a>
-                    </li>
-                    <li><a aria-label="Proyectos académicos" class="lists" data-filter=".academico"
-                            href="#work">Académico</a></li>
-                    <!-- <li><a class="lists" data-filter=".trabajo"> Trabajo </a></li>  -->
-                    <li><a aria-label="Proyectos pasatiempos" class="lists" data-filter=".pasatiempo"
-                            href="#work">Pasatiempo</a></li>
-                    <li><a aria-label="Proyectos pasatiempos" class="lists" data-filter=".sides" href="#work">Side
-                            Projects</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row projects-wrapper">
-                <div class="col-12 col-sm-6 col-lg-4 sides">
-                    <div class="work-box">
-                        <img src="images/projects/triviar.webp" alt="work image 1" class="work-img img-fluid">
-                        <div class="work-overlay">
-                            <div class="work-caption text-white text-cdenter">
-                                <div class="overlay-icon-holder">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a href="https://triviar.com.ar" aria-label="Triviar.com.ar" target="_blank"
-                                                data-bs-container="body" data-bs-toggle="popover"
-                                                data-bs-placement="top" data-bs-trigger="hover focus"
-                                                data-bs-content="Ir a la página del proyecto">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="/blog/triviar.html" aria-label="Triviar Blog"
-                                                data-bs-toggle="popover" data-bs-trigger="hover focus"
-                                                data-bs-placement="top" data-bs-content="Leer el blog">
-                                                <div class="overlay-icons">
-                                                    <span class="mdi mdi-post"></span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h5> Triviar.com.ar</h5>
-                                <p> 2024 </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 sides">
-                    <div class="work-box">
-                        <a href="https://lubricentrodelcasa.com.ar" aria-label="LyOp" target="_blank">
-                            <img src="images/projects/delcasasite.webp" alt="work image 1" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5> Landing Page DelCasa</h5>
-                                    <p> 2023 </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 sides">
-                    <div class="work-box">
-                        <a href="#" aria-label="LyOp" target="_blank">
-                            <img src="images/projects/delcasaapp.png" alt="work image 1" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <!-- <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </li>
-                                        </ul> -->
-                                    </div>
-                                    <h5> DelCasa App</h5>
-                                    <p> 2023 </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 academico">
-                    <div class="work-box">
-                        <a href="https://lyop-unsj.web.app" aria-label="LyOp" target="_blank">
-                            <img src="images/projects/lyopsg.png" alt="work image 1" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5>LyOp: Calculadora de optimización</h5>
-                                    <p> 2019</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
-                    <div class="work-box">
-                        <a href="https://typingtrainer.netlify.app" aria-label="Typing Trainer">
-                            <img src="images/projects/template.png" alt="work image 2" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5>Entrenador de tipeo</h5>
-                                    <p> Act: 5/5/2021</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
-                    <div class="work-box">
-                        <a href="https://audiossanjuan.web.app" aria-label="Audios San Juan">
-                            <img src="images/projects/AudiosSanJuan.webp" alt="work image 2" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5>Audios SanJuan</h5>
-                                    <p> Act: 16/5/2021</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 pasatiempo">
-                    <div class="work-box">
-                        <a href="https://repartirfichas.netlify.app/" aria-label="Fichas Poker">
-                            <img src="images/projects/repartirfichas.jpg" alt="work image 2" class="work-img img-fluid">
-                            <div class="work-overlay">
-                                <div class="work-caption text-white text-cdenter">
-                                    <div class="overlay-icon-holder">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <div class="overlay-icons">
-                                                    <i class="mdi mdi-link"></i>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h5>Repartidor de Fichas Poker</h5>
-                                    <p> Poker chips deliverer</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-6 col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-muted">Guille Casasola</span>
-        </div>
-
-        <ul class="col-4 col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"> <a href="http://instagram.com/guillecasasola" aria-label="Instagram" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="mdi mdi-instagram mdi-48px"> </i>
-                </a></li>
-            <li class="ms-3"><a href="https://www.linkedin.com/in/guille-casasola/" aria-label="Linkedin"
-                    target="_blank" rel="noopener noreferrer">
-                    <i class="mdi mdi-linkedin mdi-48px"> </i>
-                </a> </li>
-        </ul>
-    </footer>
-
-    <!-- Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Espero tu mensaje!</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="contact-form" name="contact-form" method="POST"
-                        action="https://docs.google.com/forms/d/e/1FAIpQLSdb9-yMHMJKt2Iyc6yIdZVOOJvJapi5bNp_ZWaBQEOUe1C3_w/formResponse">
-                        <div class="form-group">
-                            <label for="sender-name" class="col-form-label">Nombre:</label>
-                            <input type="text" name="nombre" class="form-control" id="sender-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" id="email">
-                        </div>
-                        <p class="small mt-3">
-                            Si querés estar al tanto de las actualizaciones de mi sitio, asi como también entradas de
-                            blog nuevas. Te invito a que te suscribas!
+                        <p class="contact-form__note">
+                            Si querés estar al tanto de las actualizaciones de mi sitio, así como también entradas de
+                            blog nuevas, te invito a que te suscribas!
                         </p>
-                        <div class="form-group form-check">
-
-                            <input checked name="newsletter" type="checkbox" class="form-check-input" id="newsletter">
-                            <label class="form-check-label" for="newsletter">Suscribirme al
-                                newsletter</label>
+                        <div class="field--check">
+                            <input checked name="newsletter" type="checkbox" id="newsletter">
+                            <label for="newsletter">Suscribirme a novedades</label>
                         </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Comentario:</label>
-                            <textarea class="form-control" name="comentario" id="message-text"></textarea>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type=" submit" class="btn btn-primary">Enviar</button>
-                        </div>
+                        <button type="submit" class="btn btn--primary">Enviar <i class="bi bi-send-fill"
+                                aria-hidden="true"></i></button>
                     </form>
-                    <div id="loading" class="text-center hidden" style="display: none;">
-                        <div class="spinner-border text-center" role="status">
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/typed.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/timer/flipdown.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/form.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        </section>
+    </main>
 
-    <script>
-        $(document).ready(function () {
-            $('li a#todos').click()
-            setTimeout(() => {
-                $('li a#todos').click()
-            }, 600);
-        });
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".card", {
-            scrollTrigger: {
-                trigger: ".card",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            opacity: 0,
-            y: 60,
-            duration: 1.2,
-            ease: "back.out(1.7)",
-            stagger: 0.5
-        });
+    <div data-include="/partials/footer.html"></div>
 
-        let pulse = gsap.to(".card", {
-            scrollTrigger: {
-                trigger: ".card",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            scale: 1.05,
-            repeat: -1,
-            yoyo: true,
-            duration: 2.5,
-            ease: "sine.inOut",
-            stagger: 0.5
-        });
-    </script>
+    <script type="module" src="/assets/js/pages/home.js"></script>
 </body>
 
 </html>

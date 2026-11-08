@@ -3,52 +3,65 @@
 This repo hosts **guillecasasola.com.ar**: a personal portfolio/blog site,
 served as plain static files (no build step, no server-side rendering).
 
-## Two versions currently in the repo
+## Layout
 
-- **Repository root** (`index.html`, `css/`, `js/`, `blog/`,
-  `apps/my-year-recap/`) — the **live 1.0 site**. Built with Bootstrap 5,
-  jQuery, and a handful of small plugins (isotope, magnific-popup, typed.js,
-  GSAP, SweetAlert2). Treat this as legacy/stable: prefer fixing content bugs
-  here only, avoid large refactors.
-- **[v2/](/v2)** — a from-scratch, zero-build modernization (vanilla
-  JS/CSS, componentized, content-as-JSON). See [v2/README.md](/v2/README.md)
-  for its structure and conventions. This is where new structural/visual work
-  should happen going forward. Once it's promoted to replace the root (see
-  the "Promoting v2 to production" section in that README), this file should
-  be updated to drop the "two versions" distinction.
+- **Repository root** — the **live site** (the "mate y papel" redesign,
+  formerly `v3/`). Vanilla HTML/CSS/JS, ES modules, content-as-JSON.
+  This is where all new work happens. See [README.md](/README.md) for its
+  structure and how to add a post.
+  - `index.html`, `blog/`, `apps/my-year-recap/` (privacy policies — their
+    URLs are public, e.g. linked from app stores: **never move them**).
+  - `partials/` — `nav.html` and `footer.html`, injected at runtime by
+    `assets/js/modules/include.js`.
+  - `assets/css/` — `main.css` is the only linked stylesheet; it imports
+    `tokens.css`, `base.css` and one file per component in `components/`.
+  - `assets/js/pages/` — one entry per page type; `assets/js/modules/` — one
+    module per concern; `assets/js/data/*.json` — posts, projects, tech stack.
+  - Shared static files at the root (used by every version): `images/`,
+    favicons, `site.webmanifest`.
+- **[legacy/](/legacy)** — archived, frozen versions, kept for reference.
+  Every page there has `<meta name="robots" content="noindex">`.
+  - `legacy/v1/` — the original 1.0 site (Bootstrap 5 + jQuery + plugins).
+  - `legacy/v2/` — the Copilot zero-build modernization.
+  Don't do new work there; only fix something if it's outright broken.
 
-## General conventions (apply to both versions)
+## General conventions
 
 - **No build tools.** Everything is static HTML/CSS/JS served as-is. Don't
-  introduce a bundler/framework without explicit user sign-off.
-- **Content vs. presentation**: in `v2/`, editable content (blog post
-  metadata, project list, tech stack) lives in `v2/assets/js/data/*.json` —
-  edit those instead of hard-coding new markup when adding a post/project.
-- **Small, single-purpose files**: prefer adding a new small CSS/JS module
-  over growing an existing large file. In `v2/`, one CSS file per UI
-  component (`v2/assets/css/components/`) and one JS module per concern
-  (`v2/assets/js/modules/`).
-- **Shared layout via partials**: `v2/partials/header.html` and
-  `footer.html` are fetched at runtime and injected into every page
-  (`v2/assets/js/modules/include.js`). Edit those once instead of duplicating
-  nav/footer markup across pages.
+  introduce a bundler/framework without explicit user sign-off. The owner
+  values the site being plain HTML, CSS and JavaScript.
+- **Content vs. presentation**: editable content (blog post metadata,
+  project list, tech stack) lives in `assets/js/data/*.json` — edit those
+  instead of hard-coding new markup when adding a post/project.
+- **Small, single-purpose files**: one CSS file per UI component
+  (`assets/css/components/`) and one JS module per concern
+  (`assets/js/modules/`).
+- **Shared layout via partials**: edit `partials/nav.html` / `footer.html`
+  once instead of duplicating nav/footer markup across pages. Nav links are
+  absolute (`/index.html#proyectos`); `nav.js` turns them into in-page
+  hashes on the home page.
+- **Blob motif**: the organic "globito" shapes (`--blob-a/b/c` in
+  `tokens.css`) are the site's visual signature, designed by the owner.
+  Keep shape changes as smooth `border-radius` transitions.
+- **Scroll reveal uses `animation`, not `transition`** (`base.css`), so it
+  never overrides a component's own transitions. Elements that already have
+  their own `animation` (e.g. `.blob-card`) get `data-reveal` on a wrapper.
 - **Don't remove real content**: blog article text, bio content, and legal
   page text are the site owner's actual words — preserve them verbatim when
   restyling; only change markup/CSS/structure around them.
 - **Third-party integrations to keep intact**: Google Analytics (gtag),
   Cookiebot consent banner, the Google Apps Script contact-form endpoint, and
-  the Giscus comments widget on blog articles.
+  the Giscus comments widget on blog articles (`mapping=pathname`, so blog
+  URLs must stay stable to keep their comment threads).
 
 ## Testing changes locally
 
-Both versions are static files. Serve the **repository root** with any
-static file server and browse to the relevant path, e.g.:
+Serve the **repository root** with any static file server (a server is
+required, not `file://`, because partials load via `fetch()` and pages use
+ES modules):
 
-```powershell
-python -m http.server 8123
-# 1.0: http://localhost:8123/index.html
-# 2.0: http://localhost:8123/v2/index.html
+```bash
+python3 -m http.server 8123
+# sitio:   http://localhost:8123/
+# legacy:  http://localhost:8123/legacy/v1/  ·  http://localhost:8123/legacy/v2/
 ```
-
-`v2/` specifically requires a server (not `file://`) because it loads
-partials via `fetch()` and uses ES modules.
