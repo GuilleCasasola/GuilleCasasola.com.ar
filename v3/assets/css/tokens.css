@@ -1,0 +1,66 @@
+/* tokens.css — paleta "mate y papel": crema cálida + terracota + verde yerba.
+   Tema claro por defecto; [data-theme="dark"] lo invierte. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: light;
+
+  --bg: #f7f1e8;
+  --bg-2: #efe5d6;
+  --surface: #fffaf3;
+  --text: #2a1e17;
+  --text-2: #6b5a4e;
+  --border: #e4d6c3;
+
+  --brand: #b46d4a;
+  --brand-strong: #8a4d31;
+  --brand-soft: #e7b896;
+  --mate: #6d7d3a;
+  --on-brand: #fff;
+
+  --blob-gradient: linear-gradient(145deg, #c07a57, #8a4d31);
+  --blob-dialog: linear-gradient(160deg, #8f5235, #66371f);
+  --glow: 0 0 0 rgba(180, 109, 74, 0);
+  --glow-hover: 0 18px 50px -12px rgba(138, 77, 49, 0.55);
+  --shadow: 0 10px 30px -14px rgba(60, 35, 20, 0.25);
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.2rem;
+  --fs-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  --fs-hero: clamp(2.6rem, 1.6rem + 4.6vw, 5.2rem);
+
+  --radius: 22px;
+  --radius-lg: 32px;
+
+  /* Las formas de los globitos (diseño original de la 1.0). */
+  --blob-a: 30% 70% 60% 40% / 70% 40% 60% 30%;
+  --blob-b: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  --blob-c: 42% 58% 52% 48% / 58% 44% 56% 42%;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --container: 1120px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #1a1411;
+  --bg-2: #211915;
+  --surface: #2a201b;
+  --text: #f3e9df;
+  --text-2: #b9a798;
+  --border: #3b2e26;
+
+  --brand: #d4906b;
+  --brand-strong: #b46d4a;
+  --brand-soft: #5a3826;
+  --mate: #a6b86c;
+
+  --glow-hover: 0 18px 60px -10px rgba(212, 144, 107, 0.45);
+  --shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+}

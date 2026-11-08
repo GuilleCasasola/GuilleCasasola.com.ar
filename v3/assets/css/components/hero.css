@@ -1,0 +1,207 @@
+/* hero.css — saludo + retrato dentro de un globo que respira. */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-top: 110px;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--brand);
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Subrayado hecho a mano. */
+.hero__title em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.05em;
+  height: 0.22em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C 50 2, 120 12, 198 4' stroke='%236d7d3a' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+
+.hero__role {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--text-2);
+  min-height: 1.8em;
+  margin: 0 0 1.25rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: var(--brand);
+  animation: blink 1s steps(1) infinite;
+}
+
+.hero__lede {
+  color: var(--text-2);
+  max-width: 54ch;
+}
+
+.hero__lede p {
+  margin: 0 0 0.9rem;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* Retrato */
+.hero__portrait {
+  position: relative;
+  width: min(420px, 80vw);
+  aspect-ratio: 1;
+  justify-self: center;
+}
+
+.hero__portrait-bg,
+.hero__portrait-img {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--blob-a);
+  animation: morph 9s ease-in-out infinite;
+}
+
+.hero__portrait-bg {
+  background: var(--blob-gradient);
+  inset: -6%;
+  rotate: 18deg;
+  animation-duration: 12s;
+  animation-direction: reverse;
+  opacity: 0.9;
+}
+
+.hero__portrait-img {
+  overflow: hidden;
+  background: var(--bg-2);
+  box-shadow: var(--shadow);
+}
+
+.hero__portrait-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Globitos decorativos flotando */
+.float-blob {
+  position: absolute;
+  border-radius: var(--blob-b);
+  animation: morph 7s ease-in-out infinite, float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.float-blob--1 {
+  width: 70px;
+  height: 70px;
+  background: var(--mate);
+  top: 4%;
+  right: 2%;
+  opacity: 0.85;
+}
+
+.float-blob--2 {
+  width: 34px;
+  height: 34px;
+  background: var(--brand-soft);
+  bottom: 8%;
+  left: -4%;
+  animation-delay: -2s;
+}
+
+.float-blob--3 {
+  width: 460px;
+  height: 460px;
+  background: var(--brand-soft);
+  opacity: 0.35;
+  filter: blur(60px);
+  top: -120px;
+  left: -160px;
+  z-index: -1;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  translate: -50% 0;
+  color: var(--text-2);
+  font-size: 1.4rem;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: var(--blob-a);
+  }
+
+  33% {
+    border-radius: var(--blob-b);
+  }
+
+  66% {
+    border-radius: var(--blob-c);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__portrait {
+    order: -1;
+    width: min(260px, 70vw);
+  }
+
+  .hero {
+    text-align: left;
+  }
+}

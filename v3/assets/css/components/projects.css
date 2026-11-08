@@ -1,0 +1,117 @@
+/* projects.css — filtros tipo chip + grilla de proyectos. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filters button {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filters button:hover {
+  border-color: var(--brand);
+}
+
+.filters button[aria-pressed="true"] {
+  background: var(--brand-strong);
+  border-color: var(--brand-strong);
+  color: var(--on-brand);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: translate 0.4s var(--ease), box-shadow 0.4s;
+}
+
+.project:hover {
+  translate: 0 -6px;
+  box-shadow: var(--shadow);
+}
+
+.project[hidden] {
+  display: none;
+}
+
+.project__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.project__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.8s var(--ease);
+}
+
+.project:hover .project__media img {
+  scale: 1.05;
+}
+
+.project__body {
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.project__year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mate);
+}
+
+.project__title {
+  font-size: 1.15rem;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.project__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--bg-2);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.project__links a:hover {
+  background: var(--brand-strong);
+  color: var(--on-brand);
+}
