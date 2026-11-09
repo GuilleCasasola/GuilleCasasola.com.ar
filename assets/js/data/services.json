@@ -1,35 +1,52 @@
 [
   {
     "index": "01",
-    "title": "Tecnologías Front",
+    "title": "Frontend",
     "icon": "bi-code-slash",
     "stack": [
       { "name": "HTML", "img": "/images/techs/HTML.png" },
       { "name": "CSS", "img": "/images/techs/CSS.png" },
       { "name": "JavaScript", "img": "/images/techs/js.png" },
+      { "name": "TypeScript", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" },
+      { "name": "Angular", "img": "/images/techs/angular.png" },
       { "name": "Vue", "img": "/images/techs/vue.png" },
-      { "name": "Angular", "img": "/images/techs/angular.png" }
+      { "name": "Blazor", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/blazor/blazor-original.svg" }
     ]
   },
   {
     "index": "02",
-    "title": "Tecnologías Back",
+    "title": "Backend",
     "icon": "bi-braces",
     "stack": [
+      { "name": "C#", "img": "/images/techs/c-sharp.png" },
+      { "name": ".NET Core", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/dotnetcore/dotnetcore-original.svg" },
       { "name": "Node.js", "img": "/images/techs/nodejs.png" },
       { "name": "Express", "img": "/images/techs/express.png" },
-      { "name": "C#", "img": "/images/techs/c-sharp.png" },
-      { "name": ".NET", "img": "/images/techs/net.png" },
+      { "name": "SQL Server", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/microsoftsqlserver/microsoftsqlserver-original.svg" },
       { "name": "MongoDB", "img": "/images/techs/mongo.png" }
     ]
   },
   {
     "index": "03",
-    "title": "Infraestructura",
-    "icon": "bi-hdd-rack",
+    "title": "Cloud y DevOps",
+    "icon": "bi-cloud",
     "stack": [
+      { "name": "Azure Functions", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" },
+      { "name": "Azure Service Bus", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" },
+      { "name": "Azure DevOps", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azuredevops/azuredevops-original.svg" },
       { "name": "AWS", "img": "/images/techs/aws.png" },
+      { "name": "Lambda", "img": "/images/techs/Lambda.png" },
+      { "name": "EC2", "img": "/images/techs/EC2.png" },
       { "name": "Docker", "img": "/images/techs/docker.svg" }
+    ]
+  },
+  {
+    "index": "04",
+    "title": "Mobile",
+    "icon": "bi-phone",
+    "stack": [
+      { "name": "Capacitor", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/capacitor/capacitor-original.svg" },
+      { "name": "React Native", "img": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" }
     ]
   }
 ]
