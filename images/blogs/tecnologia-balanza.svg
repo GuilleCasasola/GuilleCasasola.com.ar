@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <!-- Portada de "Tecnología: beneficios y castigos".
+       Balanza en equilibrio: beneficio (globo terracota, +) y castigo
+       (globo verde yerba, −) apoyados sobre un reloj de arena: el tiempo. -->
+  <defs>
+    <linearGradient id="terracota" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c98563"/>
+      <stop offset="1" stop-color="#8a4d31"/>
+    </linearGradient>
+    <linearGradient id="yerba" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a9a4f"/>
+      <stop offset="1" stop-color="#4f5b26"/>
+    </linearGradient>
+    <radialGradient id="glowWarm">
+      <stop offset="0" stop-color="#e7b896" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#e7b896" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowYerba">
+      <stop offset="0" stop-color="#c9d29e" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#c9d29e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fondo papel -->
+  <rect width="1200" height="675" fill="#f7f1e8"/>
+  <ellipse cx="90" cy="110" rx="420" ry="330" fill="url(#glowWarm)"/>
+  <ellipse cx="1150" cy="640" rx="380" ry="280" fill="url(#glowYerba)"/>
+
+  <!-- Sombra en el piso -->
+  <ellipse cx="600" cy="585" rx="300" ry="16" fill="#2a1e17" opacity="0.07"/>
+
+  <!-- Reloj de arena (punto de apoyo) -->
+  <g transform="translate(600 500)">
+    <rect x="-46" y="-78" width="92" height="12" rx="6" fill="#2a1e17"/>
+    <rect x="-46" y="70" width="92" height="12" rx="6" fill="#2a1e17"/>
+    <path d="M -36,-66 L 36,-66 C 36,-30 8,-12 8,2 C 8,16 36,34 36,70 L -36,70 C -36,34 -8,16 -8,2 C -8,-12 -36,-30 -36,-66 Z"
+          fill="#fffaf3" stroke="#2a1e17" stroke-width="5" stroke-linejoin="round"/>
+    <!-- arena: poca arriba, más abajo -->
+    <path d="M -18,-34 L 18,-34 C 14,-22 6,-14 0,-6 C -6,-14 -14,-22 -18,-34 Z" fill="#b46d4a"/>
+    <path d="M 0,6 L 1.5,46 L -1.5,46 Z" fill="#b46d4a"/>
+    <path d="M -30,66 C -24,46 -10,40 0,40 C 10,40 24,46 30,66 Z" fill="#b46d4a"/>
+  </g>
+
+  <!-- Brazo de la balanza -->
+  <rect x="300" y="408" width="600" height="14" rx="7" fill="#2a1e17"/>
+  <circle cx="600" cy="415" r="13" fill="#2a1e17"/>
+  <circle cx="600" cy="415" r="5" fill="#f7f1e8"/>
+
+  <!-- Beneficio: globo terracota con + -->
+  <g transform="translate(410 300)">
+    <path d="M 0,-112 C 70,-118 128,-66 124,4 C 120,72 64,108 -4,108 C -76,108 -126,62 -122,-6 C -118,-72 -68,-106 0,-112 Z"
+          fill="url(#terracota)"/>
+    <path d="M -34,-66 C -10,-82 26,-80 46,-62" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity="0.25"/>
+    <path d="M 0,-30 V 30 M -30,0 H 30" stroke="#fffaf3" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <!-- Castigo: globo verde yerba con − -->
+  <g transform="translate(790 300)">
+    <path d="M 4,-110 C 74,-112 126,-58 122,8 C 118,76 58,110 -8,108 C -78,106 -124,56 -120,-10 C -116,-74 -64,-108 4,-110 Z"
+          fill="url(#yerba)"/>
+    <path d="M -36,-62 C -12,-80 24,-80 44,-64" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity="0.2"/>
+    <path d="M -30,0 H 30" stroke="#fffaf3" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <!-- Globitos flotando -->
+  <path d="M 214,206 C 230,200 246,212 244,228 C 242,244 226,250 214,244 C 200,238 198,212 214,206 Z" fill="#b46d4a" opacity="0.85"/>
+  <path d="M 972,172 C 984,166 998,174 997,188 C 996,200 984,206 974,202 C 962,198 960,178 972,172 Z" fill="#6d7d3a" opacity="0.85"/>
+  <path d="M 1010,268 C 1017,265 1024,270 1023,277 C 1022,284 1015,287 1009,284 C 1003,281 1003,271 1010,268 Z" fill="#b46d4a" opacity="0.6"/>
+  <path d="M 160,330 C 166,327 172,331 171,337 C 170,343 164,345 159,343 C 154,340 154,333 160,330 Z" fill="#6d7d3a" opacity="0.55"/>
+</svg>
