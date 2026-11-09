@@ -12,7 +12,7 @@
   {
     "title": "Triviar.com.ar",
     "year": "2024",
-    "image": "/images/projects/triviar.webp",
+    "image": "/images/projects/triviar-home.jpg",
     "categories": ["sides"],
     "links": [
       { "type": "site", "url": "https://triviar.com.ar", "label": "Ir a triviar.com.ar" },
